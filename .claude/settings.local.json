@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "Bash(./build_macos.sh:*)",
+      "Bash(./build_macos_venv.sh:*)",
+      "Bash(source:*)",
+      "Bash(pyinstaller:*)",
+      "Bash(./dist/Spektroskopi.app/Contents/MacOS/Spektroskopi)",
+      "Bash(open:*)",
+      "Read(//Users/ibrahimunal/Downloads/spektroskopi 2 for mac /**)",
+      "Read(//Users/ibrahimunal/Downloads/spektroskopi 2 for mac /gui/**)",
+      "Read(//Users/ibrahimunal/Downloads/spektroskopi 2 for mac /communication/**)",
+      "Read(//Users/ibrahimunal/Downloads/spektroskopi 2 for mac /data/**)",
+      "Read(//Users/ibrahimunal/Downloads/spektroskopi 2 for mac /logs/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

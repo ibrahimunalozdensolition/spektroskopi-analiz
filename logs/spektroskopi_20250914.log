@@ -1,0 +1,81 @@
+2025-09-14 09:30:26 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2025-09-14 09:30:26 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-09-14 09:30:26 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-09-14 09:30:26 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-09-14 09:30:26 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-09-14 09:30:26 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2025-09-14 09:30:26 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:30:26 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2025-09-14 09:30:26 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2025-09-14 09:30:26 - spektroskopi - INFO - Ana GUI başlatıldı
+2025-09-14 09:30:26 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:30:27 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:30:27 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:27 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:30:27 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:27 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2025-09-14 09:30:29 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:30 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:30 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:31 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:31 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:32 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:32 - spektroskopi - INFO - PyQt subprocess kapatıldı: raw_data
+2025-09-14 09:30:32 - spektroskopi - INFO - PyQt subprocess başlatıldı: raw_data
+2025-09-14 09:30:33 - spektroskopi - INFO - Raw Data PyQt grafiği oluşturuldu: ['Blue_450nm', 'IR_850nm', 'IR_940nm']
+2025-09-14 09:30:33 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:34 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:34 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:35 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:35 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:36 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:36 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:37 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:37 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:38 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:38 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:39 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:39 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:40 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:40 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:30:40 - spektroskopi - INFO - Tarama tamamlandı: 0 cihaz bulundu
+2025-09-14 09:33:29 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2025-09-14 09:33:29 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-09-14 09:33:29 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-09-14 09:33:29 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-09-14 09:33:29 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-09-14 09:33:29 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2025-09-14 09:33:29 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:33:29 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2025-09-14 09:33:29 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2025-09-14 09:33:29 - spektroskopi - INFO - Ana GUI başlatıldı
+2025-09-14 09:33:30 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:33:30 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:33:30 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:33:30 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:33:30 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:33:30 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2025-09-14 09:33:31 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:33:31 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:50:01 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2025-09-14 09:50:02 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-09-14 09:50:02 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-09-14 09:50:02 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-09-14 09:50:02 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-09-14 09:50:02 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2025-09-14 09:50:02 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:50:02 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2025-09-14 09:50:02 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2025-09-14 09:50:02 - spektroskopi - INFO - Ana GUI başlatıldı
+2025-09-14 09:50:02 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:50:02 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:50:02 - spektroskopi - INFO - Sol panel dark theme uygulandı - 12 widget güncellendi
+2025-09-14 09:50:02 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:50:03 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2025-09-14 09:50:03 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:50:03 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:50:03 - spektroskopi - INFO - PyQt subprocess kapatıldı: raw_data
+2025-09-14 09:50:03 - spektroskopi - INFO - PyQt subprocess başlatıldı: raw_data
+2025-09-14 09:50:06 - spektroskopi - INFO - Raw Data PyQt grafiği oluşturuldu: ['IR_940nm']
+2025-09-14 09:50:06 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon
+2025-09-14 09:50:07 - spektroskopi - INFO - Formül hesaplama tamamlandı: 1 formül, 2 iterasyon

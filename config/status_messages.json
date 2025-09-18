@@ -1,0 +1,21 @@
+{
+  "status_combinations": {
+    "HIGH,HIGH,HIGH,HIGH": "All sensors showing high levels - Maximum detection achieved!",
+    "HIGH,HIGH,HIGH,STABLE": "Three sensors at high levels - Strong detection pattern",
+    "HIGH,HIGH,STABLE,STABLE": "Two sensors at high levels - Moderate detection",
+    "HIGH,STABLE,STABLE,STABLE": "Single sensor at high level - Minimal detection",
+    "LOW,LOW,LOW,LOW": "All sensors showing low levels - Minimal activity detected",
+    "STABLE,STABLE,STABLE,STABLE": "UGUR HOCAM DÜNYANIN VE GALAXİNİN EN İYİ HOCASIDIR",
+    "HIGH,LOW,HIGH,LOW": "Alternating pattern detected - Check sensor calibration",
+    "LOW,HIGH,LOW,HIGH": "Alternating pattern detected - Check sensor calibration",
+    "HIGH,HIGH,LOW,LOW": "UV/Blue sensors high, IR sensors low - Specific wavelength activity",
+    "LOW,LOW,HIGH,HIGH": "IR sensors high, UV/Blue sensors low - Infrared activity detected"
+  },
+  "sensor_order": ["UV_360nm", "Blue_450nm", "IR_850nm", "IR_940nm"],
+  "sensor_names": {
+    "UV_360nm": "UV Detector",
+    "Blue_450nm": "Blue Detector", 
+    "IR_850nm": "IR Detector 1",
+    "IR_940nm": "IR Detector 2"
+  }
+}
