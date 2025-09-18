@@ -138,19 +138,16 @@ class FormulaPanel:
                                style="Green.TButton")
         create_btn.pack(side=tk.RIGHT)
         
-        # Yardım paneli - daha kompakt
         help_frame = ttk.LabelFrame(create_frame, text="Quick Reference", padding=10)
         help_frame.pack(fill=tk.X, pady=(10, 0))
         
-        # İki sütunlu düzen
         help_content_frame = ttk.Frame(help_frame)
         help_content_frame.pack(fill=tk.X)
         
-        # Sol sütun - Sensörler
         left_col = ttk.Frame(help_content_frame)
         left_col.pack(side=tk.LEFT, fill=tk.X, expand=True)
         
-        ttk.Label(left_col, text="📡 Available Sensors:", font=("Arial", 9, "bold")).pack(anchor=tk.W)
+        ttk.Label(left_col, text=" Available Sensors:", font=("Arial", 16, "bold")).pack(anchor=tk.W)
         sensor_text = self.get_sensor_text_from_settings()
         self.sensor_info_label = ttk.Label(left_col, text=sensor_text, font=("Arial", 8))
         self.sensor_info_label.pack(anchor=tk.W, padx=(10, 0))
@@ -173,12 +170,10 @@ class FormulaPanel:
         formulas_frame = ttk.LabelFrame(parent_frame, text="📋 Current Formulas", padding=15)
         formulas_frame.pack(fill=tk.BOTH, expand=True)
         
-        # Listbox ve scrollbar
         list_frame = ttk.Frame(formulas_frame)
         list_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 10))
         
-        # Listbox - karanlık tema uyumlu
-        self.formula_listbox = tk.Listbox(list_frame, height=10, font=("Consolas", 9),
+        self.formula_listbox = tk.Listbox(list_frame, height=10, font=("Consolas", 16),
                                         bg='#252525', fg='#e8e8e8',
                                         selectbackground='#3a3a3a', selectforeground='#ffffff',
                                         borderwidth=1, relief='solid', highlightthickness=0,

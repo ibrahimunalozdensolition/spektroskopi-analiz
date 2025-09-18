@@ -281,34 +281,96 @@ class SpektroskpiGUI:
         
     
     def setup_about_panel(self):
-        main_frame = ttk.Frame(self.about_frame)
+        # Ana scrollable frame
+        canvas = tk.Canvas(self.about_frame)
+        scrollbar = ttk.Scrollbar(self.about_frame, orient="vertical", command=canvas.yview)
+        scrollable_frame = ttk.Frame(canvas)
+        
+        scrollable_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+        
+        canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        
+        main_frame = ttk.Frame(scrollable_frame)
         main_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
         
-        title_label = ttk.Label(main_frame, text="Spectroscopy Data Analyzer", 
-                               font=("Arial", 18, "bold"))
-        title_label.pack(pady=(0, 20))
+        # Başlık
+        title_label = ttk.Label(main_frame, text="About the Spectrum Device", 
+                               font=("Arial", 20, "bold"))
+        title_label.pack(pady=(0, 30))
         
-        version_label = ttk.Label(main_frame, text="Version 2.0", 
-                                 font=("Arial", 12))
-        version_label.pack(pady=(0, 30))
+        # Introduction
+        intro_frame = ttk.LabelFrame(main_frame, text="Introduction", padding=10)
+        intro_frame.pack(fill=tk.X, pady=(0, 15))
         
-        dev_frame = ttk.LabelFrame(main_frame, text="Developer Information", padding=20)
-        dev_frame.pack(fill=tk.X, pady=(0, 20))
+        intro_text = """This spectrum device was developed to provide university students and researchers with an accessible and practical tool for analyzing light spectra. The main goal of the project is to create an educational and research-oriented device with reliable performance."""
         
-        dev_info_text = """Developed by: Ibrahim Ünal
+        intro_label = ttk.Label(intro_frame, text=intro_text, 
+                               font=("Arial", 11), justify=tk.LEFT, wraplength=700)
+        intro_label.pack(anchor="w")
+        
+        # Features
+        features_frame = ttk.LabelFrame(main_frame, text="Features", padding=10)
+        features_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        features_text = """• Wide wavelength measurement range
+• High sensitivity and accuracy
+• Bluetooth data transfer
+• Portable design
+• User-friendly software integration"""
+        
+        features_label = ttk.Label(features_frame, text=features_text, 
+                                  font=("Arial", 11), justify=tk.LEFT)
+        features_label.pack(anchor="w")
+        
+        # Working Principle
+        principle_frame = ttk.LabelFrame(main_frame, text="Working Principle", padding=10)
+        principle_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        principle_text = """The device captures light from a source and separates it into wavelengths. The data obtained by the sensor is digitized and transferred to a computer system. Dedicated software processes this data to display and analyze the spectrum."""
+        
+        principle_label = ttk.Label(principle_frame, text=principle_text, 
+                                   font=("Arial", 11), justify=tk.LEFT, wraplength=700)
+        principle_label.pack(anchor="w")
+        
+        # Development Motivation
+        motivation_frame = ttk.LabelFrame(main_frame, text="Development Motivation", padding=10)
+        motivation_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        motivation_text = """This device was developed at the request of my esteemed professor, Prof. Dr. Uğur Aksu. It was designed to contribute to academic studies and provide students with practical experience. In addition, the performance and reliability of the device will also be tested in hospitals."""
+        
+        motivation_label = ttk.Label(motivation_frame, text=motivation_text, 
+                                    font=("Arial", 11), justify=tk.LEFT, wraplength=700)
+        motivation_label.pack(anchor="w")
+        
+        # About the Developer
+        dev_frame = ttk.LabelFrame(main_frame, text="About the Developer", padding=10)
+        dev_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        dev_text = """My name is İbrahim Ünal. You can contact me at ibrahimunalofficial@gmail.com.
 
-This application has been developed for Prof. Dr. Ugur Aksu.
-
-All rights reserved."""
-
-        dev_label = ttk.Label(dev_frame, text=dev_info_text, 
-                             font=("Arial", 12), justify=tk.CENTER)
-        dev_label.pack(pady=20)
+In this project, I undertook the following tasks:
+• PCB assembly
+• Software development
+• Selection of suitable components
+• Designing and arranging the external structure of the device"""
         
+        dev_label = ttk.Label(dev_frame, text=dev_text, 
+                             font=("Arial", 11), justify=tk.LEFT, wraplength=700)
+        dev_label.pack(anchor="w")
+        
+        # Footer
         footer_label = ttk.Label(main_frame, 
-                                text="© 2024 Ibrahim Ünal - All rights reserved", 
+                                text="© 2024 İbrahim Ünal - All rights reserved", 
                                 font=("Arial", 10, "italic"))
-        footer_label.pack(side=tk.BOTTOM, pady=(30, 0))
+        footer_label.pack(pady=(30, 0))
+        
+        # Scrollbar'ı pack et
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
 
     def on_data_received(self, data_packet: Dict[str, Any]):
         try:

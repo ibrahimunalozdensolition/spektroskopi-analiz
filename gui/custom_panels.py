@@ -34,7 +34,6 @@ class CustomizablePanel:
         self.graph_canvas = None
         self.graph_lines = {}
         
-        # Veri takibi
         self.custom_data = {
             'selected_sensor': None,
             'multiplier': 1.0,
@@ -42,7 +41,6 @@ class CustomizablePanel:
             'unit': 'V'
         }
         
-        # Callback'ler
         self.data_callback = None
         self.settings_callback = None
         
@@ -57,35 +55,29 @@ class CustomizablePanel:
         main_frame = ttk.Frame(self.parent_frame)
         main_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         
-        # Başlık
         title_label = ttk.Label(main_frame, text="Customizable Data Display", 
                                font=("Arial", 16, "bold"))
         title_label.pack(pady=(0, 20))
         
-        # Veri seçim paneli
         self.setup_data_selection_panel(main_frame)
         
-        # Çarpan paneli
         self.setup_multiplier_panel(main_frame)
         
-        # Mevcut ayarlar
         self.setup_current_settings_panel(main_frame)
         
-        # Veri gösterimi
         self.setup_data_display_panel(main_frame)
         
-        # Real-time grafik oluşturma
         self.setup_graph_creation_panel(main_frame)
     
     def setup_data_selection_panel(self, parent_frame):
-        """Veri seçim paneli"""
         data_frame = ttk.LabelFrame(parent_frame, text="Data Selection", padding=10)
         data_frame.pack(fill=tk.X, pady=(0, 10))
         
         sensor_select_frame = ttk.Frame(data_frame)
         sensor_select_frame.pack(fill=tk.X, pady=(0, 10))
         
-        ttk.Label(sensor_select_frame, text="Select Sensor to Display:").pack(side=tk.LEFT)
+        ttk.Label(sensor_select_frame, text="Select Sensor to Display:", 
+                 font=("Arial", 16, "bold")).pack(side=tk.LEFT)
         self.custom_sensor = ttk.Combobox(sensor_select_frame, width=20, state="readonly")
         self.custom_sensor['values'] = ["UV Sensor (360nm)", "Blue Sensor (450nm)", 
                                        "IR Sensor (850nm)", "IR Sensor (940nm)"]
@@ -93,14 +85,14 @@ class CustomizablePanel:
         self.custom_sensor.bind('<<ComboboxSelected>>', self.on_custom_sensor_selected)
     
     def setup_multiplier_panel(self, parent_frame):
-        """Çarpan paneli"""
         multiplier_frame = ttk.LabelFrame(parent_frame, text="Data Multiplier", padding=10)
         multiplier_frame.pack(fill=tk.X, pady=(0, 10))
         
         mult_input_frame = ttk.Frame(multiplier_frame)
         mult_input_frame.pack(fill=tk.X, pady=(0, 10))
         
-        ttk.Label(mult_input_frame, text="Multiplier Value:").pack(side=tk.LEFT)
+        ttk.Label(mult_input_frame, text="Multiplier Value:", 
+                 font=("Arial", 16, "bold")).pack(side=tk.LEFT)
         self.multiplier_value = ttk.Entry(mult_input_frame, width=15)
         self.multiplier_value.pack(side=tk.LEFT, padx=(10, 0))
         self.multiplier_value.insert(0, "1.0")
@@ -110,51 +102,53 @@ class CustomizablePanel:
         apply_btn.pack(side=tk.LEFT, padx=(10, 0))
     
     def setup_current_settings_panel(self, parent_frame):
-        """Mevcut ayarlar paneli"""
+        
         settings_frame = ttk.LabelFrame(parent_frame, text="Current Settings", padding=10)
         settings_frame.pack(fill=tk.X, pady=(0, 10))
         
         self.current_settings_label = ttk.Label(settings_frame, 
                                                text="No sensor selected", 
-                                               font=("Arial", 14, "bold"))
+                                               font=("Arial", 16, "bold"))
         self.current_settings_label.pack()
     
     def setup_data_display_panel(self, parent_frame):
-        """Veri gösterim paneli"""
+        
         display_frame = ttk.LabelFrame(parent_frame, text="Custom Data Display", padding=10)
         display_frame.pack(fill=tk.BOTH, expand=True)
         
-        # Değer gösterimi
+        
         value_frame = ttk.Frame(display_frame)
         value_frame.pack(fill=tk.X, pady=(0, 10))
         
-        ttk.Label(value_frame, text="Current Value:").pack(side=tk.LEFT)
+        ttk.Label(value_frame, text="Current Value:", 
+                 font=("Arial", 16, "bold")).pack(side=tk.LEFT)
         self.custom_value_label = ttk.Label(value_frame, text="0.000", 
-                                           font=("Arial", 14, "bold"), 
+                                           font=("Arial", 16, "bold"), 
                                            foreground="blue")
         self.custom_value_label.pack(side=tk.LEFT, padx=(10, 0))
         
-        # Birim gösterimi
+        
         unit_frame = ttk.Frame(display_frame)
         unit_frame.pack(fill=tk.X)
         
-        ttk.Label(unit_frame, text="Unit:").pack(side=tk.LEFT)
+        ttk.Label(unit_frame, text="Unit:", 
+                 font=("Arial", 16, "bold")).pack(side=tk.LEFT)
         self.custom_unit_label = ttk.Label(unit_frame, text="V", 
-                                          font=("Arial", 14, "bold"))
+                                          font=("Arial", 16, "bold"))
         self.custom_unit_label.pack(side=tk.LEFT, padx=(10, 0))
     
     def setup_graph_creation_panel(self, parent_frame):
-        """Grafik oluşturma paneli"""
+        
         graph_frame = ttk.LabelFrame(parent_frame, text="Real-Time Graph Creation", padding=10)
         graph_frame.pack(fill=tk.X, pady=(10, 0))
         
-        # LED seçimi
+        
         led_select_frame = ttk.Frame(graph_frame)
         led_select_frame.pack(fill=tk.X, pady=(0, 10))
         
-        ttk.Label(led_select_frame, text="Select LEDs for Graph:").pack(side=tk.LEFT)
+        ttk.Label(led_select_frame, text="Select LEDs for Graph:", 
+                 font=("Arial", 16, "bold")).pack(side=tk.LEFT)
         
-        # LED checkbox'ları
         led_names = ['UV LED (360nm)', 'Blue LED (450nm)', 'IR LED (850nm)', 'IR LED (940nm)']
         led_keys = ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']
         
@@ -167,7 +161,6 @@ class CustomizablePanel:
             cb.pack(side=tk.LEFT, padx=5)
             self.led_checkboxes[led_key] = var
         
-        # Grafik butonları
         graph_btn_frame = ttk.Frame(graph_frame)
         graph_btn_frame.pack(fill=tk.X)
         
@@ -206,7 +199,6 @@ class CustomizablePanel:
             self.custom_data['multiplier'] = multiplier
             self.update_custom_settings_display()
             
-            # Settings callback çağır
             if self.settings_callback:
                 self.settings_callback('multiplier', multiplier)
             
@@ -243,7 +235,6 @@ class CustomizablePanel:
                 self.custom_data['unit'] = "V"
     
     def create_realtime_graph(self):
-        # Seçili LED'leri kontrol et
         selected_leds = []
         for led_key, var in self.led_checkboxes.items():
             if var.get():
@@ -414,7 +405,7 @@ class CalibratedDataPanel:
         main_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         
         title_label = ttk.Label(main_frame, text="Calibrated Data Display", 
-                               font=("Arial", 14, "bold"))
+                               font=("Arial", 16, "bold"))
         title_label.pack(pady=(0, 20))
         
         self.setup_sensor_selection_panel(main_frame)
@@ -429,7 +420,7 @@ class CalibratedDataPanel:
         right_frame.pack(side=tk.RIGHT, padx=(20, 0))
         
         ttk.Label(right_frame, text="Select Sensors to Display:", 
-                 font=("Arial", 10, "bold")).pack(pady=(0, 10))
+                 font=("Arial", 16, "bold")).pack(pady=(0, 10))
         
         sensor_names = ['UV Sensor (360nm)', 'Blue Sensor (450nm)', 'IR Sensor (850nm)', 'IR Sensor (940nm)']
         sensor_keys = ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']
@@ -445,7 +436,7 @@ class CalibratedDataPanel:
         left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         
         ttk.Label(left_frame, text="Current Calibrated Values:", 
-                 font=("Arial", 10, "bold")).pack(pady=(0, 10))
+                 font=("Arial", 16, "bold")).pack(pady=(0, 10))
         
         for sensor_key in sensor_keys:
             sensor_frame = ttk.Frame(left_frame)
@@ -453,14 +444,14 @@ class CalibratedDataPanel:
             
             sensor_name = sensor_names[sensor_keys.index(sensor_key)]
             ttk.Label(sensor_frame, text=f"{sensor_name}:", width=20,
-                     font=("Arial", 11, "bold")).pack(side=tk.LEFT)
+                     font=("Arial", 16, "bold")).pack(side=tk.LEFT)
             
             value_label = ttk.Label(sensor_frame, text="0.000", width=15, 
-                                  font=("Arial", 13, "bold"))
+                                  font=("Arial", 16, "bold"))
             value_label.pack(side=tk.LEFT, padx=(5, 0))
             
             unit_label = ttk.Label(sensor_frame, text="V", width=10,
-                                 font=("Arial", 12))
+                                 font=("Arial", 16, "bold"))
             unit_label.pack(side=tk.LEFT, padx=(5, 0))
             
             self.calibrated_values[sensor_key] = value_label
