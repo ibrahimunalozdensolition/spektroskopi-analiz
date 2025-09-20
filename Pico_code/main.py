@@ -4,23 +4,19 @@ import bluetooth
 import struct
 import gc
 import utime
-import urandom
+from machine import ADC, Pin
 
-CONV_FACTOR = 3300.0 / 65535.0
 
-fake_sensor_values = {
-    "SENSOR_2": 1200,    # UV 360nm - düşük sinyal
-    "SENSOR_5": 1800,    # Blue 450nm - orta sinyal  
-    "SENSOR_7": 2200,    # IR 850nm - yüksek sinyal
-    "SENSOR_EXTRA": 1400 # IR 940nm - orta-düşük sinyal
-}
+sensor_2 = ADC(0)   
+sensor_5 = ADC(1)   
+sensor_7 = ADC(2)   
 
-sensor_momentum = {
-    "SENSOR_2": 1200,
-    "SENSOR_5": 1800,
-    "SENSOR_7": 2200,
-    "SENSOR_EXTRA": 1400
-}  
+led_1 = Pin(13, Pin.OUT)
+led_3 = Pin(12, Pin.OUT)
+led_4 = Pin(10, Pin.OUT)
+led_6 = Pin(11, Pin.OUT)
+
+CONV_FACTOR = 3300.0 / 65535.0  
 
 SERVICE_UUID = bluetooth.UUID("6E400001-B5A3-F393-E0A9-E50E24DCCA9E")
 CHAR_UUIDS = {
@@ -30,40 +26,27 @@ CHAR_UUIDS = {
     "SENSOR_EXTRA": bluetooth.UUID("6E400005-B5A3-F393-E0A9-E50E24DCCA9E"),
 }
 
-def generate_realistic_sensor_data(sensor_name):
-    global sensor_momentum
-    
-    base_value = fake_sensor_values[sensor_name]
-    current_momentum = sensor_momentum[sensor_name]
-    
-    # Küçük rastgele değişim (-15 ile +15 mV arası)
-    small_change = urandom.randint(-15, 15)
-    
-    # Momentum ile smooth geçiş (90% eski değer, 10% yeni hedef)
-    target_value = base_value + small_change
-    new_value = int(current_momentum * 0.9 + target_value * 0.1)
-    
-    # Bazen daha büyük değişimler (spektroskopi ölçümlerini simüle eder)
-    if urandom.randint(1, 100) <= 5:  # %5 ihtimalle
-        trend_change = urandom.randint(-50, 50)
-        new_value += trend_change
-    
-    # Değer sınırlaması
-    if new_value < 100:
-        new_value = 100
-    elif new_value > 3200:
-        new_value = 3200
-    
-    # Momentum'u güncelle
-    sensor_momentum[sensor_name] = new_value
-    
-    return new_value
-
-def measure_average_fake(sensor_name, delay_ms: int, sample_ms: int):
+def measure_average(gpio: Pin, adc: ADC, delay_ms: int, sample_ms: int):
+    gpio.value(1)
     utime.sleep_ms(delay_ms)
-    fake_mv = generate_realistic_sensor_data(sensor_name)
-    utime.sleep_ms(sample_ms)
-    return fake_mv
+
+    s = 0
+    n = 0
+    t0 = utime.ticks_ms()
+    while utime.ticks_diff(utime.ticks_ms(), t0) < sample_ms:
+        s += adc.read_u16()
+        n += 1
+
+    gpio.value(0)
+    if n == 0:
+        return 0
+    avg_raw = s / n
+    avg_mv = int(avg_raw * CONV_FACTOR)
+    if avg_mv < 0:
+        avg_mv = 0
+    elif avg_mv > 0xFFFF:
+        avg_mv = 0xFFFF
+    return avg_mv
 
 async def notify_if_conn(conn, char, mv_value):
     if not conn or not conn.is_connected():
@@ -100,25 +83,25 @@ async def peripheral():
                 gc.collect()
                 
                 try:
-                    cycle_count = 0
                     while conn.is_connected():
-                        sensor_data = {
-                            "SENSOR_2": measure_average_fake("SENSOR_2", 10, 10),
-                            "SENSOR_EXTRA": measure_average_fake("SENSOR_EXTRA", 10, 10), 
-                            "SENSOR_5": measure_average_fake("SENSOR_5", 10, 10),
-                            "SENSOR_7": measure_average_fake("SENSOR_7", 10, 10)
-                        }
+                        v1 = measure_average(led_1, sensor_2, 60, 40)
+                        await notify_if_conn(conn, chars["SENSOR_2"], v1)
+                        await asyncio.sleep_ms(20)
+
+                        v3 = measure_average(led_3, sensor_2, 60, 40)
+                        await notify_if_conn(conn, chars["SENSOR_EXTRA"], v3)
+                        await asyncio.sleep_ms(20)
+
+                        v4 = measure_average(led_4, sensor_5, 60, 40)
+                        await notify_if_conn(conn, chars["SENSOR_5"], v4)
+                        await asyncio.sleep_ms(20)
+
+                        v6 = measure_average(led_6, sensor_7, 60, 40)
+                        await notify_if_conn(conn, chars["SENSOR_7"], v6)
+                        await asyncio.sleep_ms(100)
                         
-                        for sensor_name, value in sensor_data.items():
-                            await notify_if_conn(conn, chars[sensor_name], value)
-                            await asyncio.sleep_ms(5)  
-                        
-                        await asyncio.sleep_ms(100)  
-                        
-                        cycle_count += 1
-                        if cycle_count >= 500:  # ~60 saniyede bir
+                        if utime.ticks_ms() % 10000 == 0:
                             gc.collect()
-                            cycle_count = 0
                             
                 except Exception as e:
                     print("Connection loop error:", e)

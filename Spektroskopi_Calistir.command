@@ -45,12 +45,12 @@ source venv/bin/activate
 
 # Pip'i güncelle
 echo "🔄 Pip güncelleniyor..."
-python -m pip install --upgrade pip
+python3.13 -m pip install --upgrade pip
 
 # Gerekli paketleri yükle
 if [ -f "requirements.txt" ]; then
     echo "📋 Gerekli paketler kontrol ediliyor..."
-    python -m pip install -q -r requirements.txt
+    python3.13 -m pip install -q -r requirements.txt
     if [ $? -ne 0 ]; then
         echo "❌ Paket yüklemesi başarısız!"
         echo "Devam etmek için herhangi bir tuşa basın..."
@@ -60,7 +60,7 @@ if [ -f "requirements.txt" ]; then
     echo "✅ Tüm paketler hazır"
 else
     echo "⚠️  requirements.txt bulunamadı, temel paketler yükleniyor..."
-    python -m pip install -q matplotlib numpy scipy pillow bleak python-dateutil PyYAML PyQt5
+    python3.13 -m pip install -q matplotlib numpy scipy pillow bleak python-dateutil PyYAML PyQt5
 fi
 
 # Uygulamayı başlat
@@ -68,7 +68,7 @@ echo ""
 echo "🚀 Spektroskopi uygulaması başlatılıyor..."
 echo ""
 
-python main.py
+python3.13 main.py
 
 # Uygulama kapandıktan sonra
 echo ""

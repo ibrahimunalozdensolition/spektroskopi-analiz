@@ -708,3 +708,15 @@ class CalibratedDataPanel:
                 self.calibrated_graph_window.after(interval, self.update_calibrated_graph)
             except:
                 pass
+    
+    def apply_current_theme(self):
+        """Mevcut temayı uygula"""
+        try:
+            from config.settings import settings_manager
+            current_theme = settings_manager.get_theme()
+            
+            # Bu panel butonları otomatik olarak StyleManager tarafından güncelleniyor
+            app_logger.debug(f"Custom panel {current_theme} tema uygulandı")
+            
+        except Exception as e:
+            app_logger.error(f"Custom panel tema uygulama hatası: {e}")

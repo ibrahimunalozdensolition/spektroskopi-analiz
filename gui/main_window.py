@@ -19,6 +19,7 @@ from gui.styles import StyleManager
 from gui.calibration_window import CalibrationWindow
 from gui.formula_panel import FormulaPanel
 from gui.realtime_panel import RealTimePanel
+from gui.detector_panel import DetectorPanel
 from gui.recording_panel import RecordingPanel
 from utils.logger import app_logger, log_system_event
 
@@ -31,6 +32,7 @@ class SpektroskpiGUI:
         self.style_manager = StyleManager()
         
         self.ble_manager = BLEManager(self.on_data_received)
+        self.ble_manager.set_disconnect_callback(self.on_ble_disconnected)
         self.data_processor = DataProcessor()
         self.calibration_manager = CalibrationManager()
         self.data_exporter = DataExporter()
@@ -40,7 +42,6 @@ class SpektroskpiGUI:
         self.sensor_combo = None
         self.scan_btn = None
         self.status_label = None
-        self.sensor_labels = {}
         
         self.start_btn = None
         self.stop_btn = None
@@ -55,17 +56,17 @@ class SpektroskpiGUI:
         self.calibration_window = None
         self.formula_panel = None
         self.realtime_panel = None
+        self.detector_panel = None
         self.recording_panel = None
         
         self.notebook = None
         
         self.load_app_settings()
-        self.apply_saved_theme()  
-        
         self.setup_ui()
         self.setup_plots()
         
-        self.root.after(500, self.apply_initial_theme_to_widgets)
+        # Sistem temasını uygula
+        self.apply_system_theme()
         
         
         if self.formula_panel:
@@ -86,8 +87,6 @@ class SpektroskpiGUI:
         main_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         self.main_frame = main_frame  
         
-        self.setup_connection_panel(main_frame)
-        
         content_frame = ttk.Frame(main_frame)
         content_frame.pack(fill=tk.BOTH, expand=True)
         
@@ -107,11 +106,16 @@ class SpektroskpiGUI:
         
         self.theme_var = tk.StringVar(value=settings_manager.get_theme())
         theme_menu.add_radiobutton(
-            label="Koyu Tema (Aktif)", 
+            label="Açık Tema", 
+            variable=self.theme_var, 
+            value="light",
+            command=self.change_theme
+        )
+        theme_menu.add_radiobutton(
+            label="Koyu Tema", 
             variable=self.theme_var, 
             value="dark",
-            command=self.change_theme,
-            state=tk.DISABLED  
+            command=self.change_theme
         )
     
     def setup_connection_panel(self, parent_frame):
@@ -119,29 +123,37 @@ class SpektroskpiGUI:
         connection_frame.pack(fill=tk.X, pady=(0, 10))
         self.connection_frame = connection_frame  
         
-        connection_row = ttk.Frame(connection_frame)
-        connection_row.pack(fill=tk.X)
-        self.connection_row = connection_row  
+        # Sensor seçimi - ilk satır
+        sensor_row = ttk.Frame(connection_frame)
+        sensor_row.pack(fill=tk.X, pady=(0, 5))
         
-        sensor_text_label = ttk.Label(connection_row, text="Sensor:", font=("Arial", 11, "bold"))
+        sensor_text_label = ttk.Label(sensor_row, text="Sensor:", font=("Arial", 11, "bold"))
         sensor_text_label.pack(side=tk.LEFT)
         self.sensor_text_label = sensor_text_label  
         
-        self.sensor_combo = ttk.Combobox(connection_row, width=20, state="readonly")
-        self.sensor_combo.pack(side=tk.LEFT, padx=(5, 15))
+        self.sensor_combo = ttk.Combobox(sensor_row, width=30, state="readonly")
+        self.sensor_combo.pack(side=tk.LEFT, padx=(10, 0), fill=tk.X, expand=True)
         
-        status_text_label = ttk.Label(connection_row, text="Status:", font=("Arial", 11, "bold"))
+        # Status gösterimi - ikinci satır
+        status_row = ttk.Frame(connection_frame)
+        status_row.pack(fill=tk.X, pady=(0, 5))
+        
+        status_text_label = ttk.Label(status_row, text="Status:", font=("Arial", 11, "bold"))
         status_text_label.pack(side=tk.LEFT)
         self.status_text_label = status_text_label  
         
-        self.status_label = ttk.Label(connection_row, text="Not Connected", 
+        self.status_label = ttk.Label(status_row, text="Not Connected", 
                                      font=("Arial", 11, "bold"), foreground="red")
-        self.status_label.pack(side=tk.LEFT, padx=(5, 15))
+        self.status_label.pack(side=tk.LEFT, padx=(10, 0))
         
-        self.scan_btn = ttk.Button(connection_row, text="🔍 Scan & Connect", 
+        # Scan butonu - üçüncü satır
+        button_row = ttk.Frame(connection_frame)
+        button_row.pack(fill=tk.X, pady=(5, 0))
+        
+        self.scan_btn = ttk.Button(button_row, text="🔍 Scan & Connect", 
                                   command=self.scan_and_connect_sensors,
                                   style="Green.TButton")
-        self.scan_btn.pack(side=tk.RIGHT, padx=5)
+        self.scan_btn.pack(fill=tk.X)
 
         self.sensor_scanner.set_ui_components(self.sensor_combo, self.scan_btn, self.status_label)
         self.sensor_scanner.set_callbacks(
@@ -155,63 +167,14 @@ class SpektroskpiGUI:
         left_panel.pack(side=tk.LEFT, fill=tk.Y, padx=(0, 10))
         left_panel.pack_propagate(False)
         
+        # BLE Connection panel - üst kısımda tam genişlik
+        self.setup_connection_panel(left_panel)
         
-        self.setup_live_data_panel(left_panel)
-        
-        
+        # Main Controls panel - ortada
         self.setup_main_control_panel(left_panel)
         
-        
-        
+        # Settings panel - alt kısımda
         self.setup_settings_panel(left_panel)
-    
-    def setup_live_data_panel(self, parent_frame):
-        
-        live_data_frame = ttk.LabelFrame(parent_frame, text="Live Measurements", padding=10)
-        live_data_frame.pack(fill=tk.X, pady=(0, 10))
-        
-        
-        self.setup_sensor_values_panel(live_data_frame)
-    
-    
-    def setup_sensor_values_panel(self, parent_frame):
-        
-        sensor_frame = ttk.LabelFrame(parent_frame, text="Photodiode Values", padding=5)
-        sensor_frame.pack(fill=tk.X)
-        
-        for sensor_name, sensor_key, color in SENSOR_INFO:
-            main_frame = ttk.Frame(sensor_frame)
-            main_frame.pack(fill=tk.X, pady=4, padx=5)
-            
-            
-            ttk.Label(main_frame, text=f"{sensor_name}:", width=15,
-                    font=("Arial", 16, "bold"), anchor='w').pack(side=tk.LEFT)
-            
-            
-            value_frame = ttk.Frame(main_frame)
-            value_frame.pack(side=tk.RIGHT, padx=(10, 0))
-            
-            
-            raw_frame = ttk.Frame(value_frame)
-            raw_frame.pack(side=tk.TOP, fill=tk.X)
-            ttk.Label(raw_frame, text="Raw:", font=("Arial", 16)).pack(side=tk.LEFT)
-            raw_label = ttk.Label(raw_frame, text="0000 mV", width=12,
-                                 font=("Arial", 16, "bold"))
-            raw_label.pack(side=tk.RIGHT)
-            
-            
-            cal_frame = ttk.Frame(value_frame)
-            cal_frame.pack(side=tk.TOP, fill=tk.X)
-            ttk.Label(cal_frame, text="Cal:", font=("Arial", 16)).pack(side=tk.LEFT)
-            cal_label = ttk.Label(cal_frame, text="0.000 ppm", width=12,
-                                 font=("Arial", 16, "bold"))
-            cal_label.pack(side=tk.RIGHT)
-            
-            self.sensor_labels[sensor_name] = {
-                'raw': raw_label,
-                'calibrated': cal_label,
-                'key': sensor_key
-            }
     
     def setup_main_control_panel(self, parent_frame):
         main_control_frame = ttk.LabelFrame(parent_frame, text="Main Controls", padding=10)
@@ -262,7 +225,11 @@ class SpektroskpiGUI:
         self.notebook.add(self.realtime_frame, text="Graph Windows")
         self.realtime_panel = RealTimePanel(self.realtime_frame)
         self.realtime_panel.set_data_callback(self.get_data_for_realtime_panel)
-        
+        # Detector panel (4 detector real-time)
+        self.detector_frame = ttk.Frame(self.notebook)
+        self.notebook.add(self.detector_frame, text="Real Time Panel")
+        self.detector_panel = DetectorPanel(self.detector_frame)
+        self.detector_panel.set_data_callback(self.get_data_for_detector_panel)
 
         
         self.formula_frame = ttk.Frame(self.notebook)
@@ -414,23 +381,7 @@ In this project, I undertook the following tasks:
             latest_calibrated = self.data_processor.get_latest_calibrated_values()
             calibration_functions = self.calibration_manager.calibration_functions
             
-            for sensor_name, labels in self.sensor_labels.items():
-                sensor_key = labels['key']
-                
-                if sensor_key in latest_values:
-                    raw_value = latest_values[sensor_key]
-                    calibrated_value = latest_calibrated.get(sensor_key, raw_value)
-                    
-                    labels['raw'].configure(text=f"{int(raw_value):04d} mV")
-                    
-                    unit = "mV"
-                    if (sensor_key in calibration_functions and 
-                        calibration_functions[sensor_key]):
-                        unit = calibration_functions[sensor_key].get('unit', 'V')
-                    
-                    labels['calibrated'].configure(text=f"{calibrated_value:.0f} {unit}")
-                    
-                    self.update_calibration_window_measurements(sensor_key, raw_value)
+            # Sensor labels kaldırıldı - live measurements artık Real Time Panel'de gösteriliyor
             
             
         except Exception as e:
@@ -477,6 +428,20 @@ In this project, I undertook the following tasks:
             app_logger.info(f"Bağlantı kesildi: {sensor_name}")
             if hasattr(self, 'status_label') and self.status_label:
                 self.status_label.configure(foreground='#F44336')  
+    
+    def on_ble_disconnected(self, device_name: str = None):
+        """BLE bağlantısı koptuğunda çağrılır"""
+        try:
+            if hasattr(self, 'status_label') and self.status_label:
+                self.status_label.configure(
+                    text="Pico W ile bağlantı kesildi",
+                    foreground='#F44336'
+                )
+            
+            app_logger.info(f"BLE bağlantı kopma callback çağrıldı: {device_name}")
+            
+        except Exception as e:
+            app_logger.error(f"BLE disconnect callback hatası: {e}")
     
     def start_system(self):
         if not self.ble_manager.is_connected:
@@ -546,86 +511,94 @@ In this project, I undertook the following tasks:
         """Verileri temizle"""
         self.data_processor.clear_all_data()
         
-        # Sensör değerlerini sıfırla
-        for sensor_name, labels in self.sensor_labels.items():
-            labels['raw'].configure(text="0000 mV")
-            labels['calibrated'].configure(text="0.000 ppm")
+        # Sensör değerleri artık Real Time Panel'de sıfırlanıyor
         
         log_system_event(app_logger, "DATA_CLEARED")
         messagebox.showinfo("Clear", "Tüm veriler temizlendi!")
     
     def change_theme(self):
-        """Tema değiştir - Sadece Dark Theme"""
+        """Tema değiştir"""
         try:
-            # Sadece dark theme - her zaman dark uygula
-            self.theme_var.set('dark')
+            selected_theme = self.theme_var.get()
             
             # Temayı kaydet
-            settings_manager.set_theme('dark')
+            settings_manager.set_theme(selected_theme)
             settings_manager.save_settings()
             
-            # Dark temayı uygula
-            self.style_manager.apply_dark_theme()
-            # Ana pencere arkaplan rengini ayarla
-            self.root.configure(bg='#1a1a1a')
-            # Mevcut widget'ları güncelle (tek seferlik)
-            self.update_existing_widgets_theme('dark')
+            # Temayı uygula
+            self.apply_system_theme()
             
-            app_logger.info("Dark tema uygulandı")
+            app_logger.info(f"{selected_theme.title()} tema uygulandı")
             
         except Exception as e:
             app_logger.error(f"Tema değiştirme hatası: {e}")
             messagebox.showerror("Hata", f"Tema değiştirilemedi: {e}")
     
-    def apply_saved_theme(self):
-        """Dark theme uygula - Tek tema modu"""
+    def apply_system_theme(self):
+        """Sistem temasını uygula"""
         try:
-            # Sadece dark theme - light theme kaldırıldı
-            self.theme_var.set('dark')
+            # Önce sistem temasını kontrol et
+            system_theme = settings_manager.detect_system_theme()
+            saved_theme = settings_manager.get('appearance.theme', None)
             
-            # Dark theme uygula
-            self.style_manager.apply_dark_theme()
-            # Ana pencere arkaplan rengini ayarla
-            self.root.configure(bg='#1a1a1a')
-            # Mevcut widget'ları güncelle
-            self.update_existing_widgets_theme('dark')
+            # Eğer kaydedilmiş tema yoksa, sistem temasını kullan
+            if not saved_theme:
+                current_theme = system_theme
+                settings_manager.set_theme(current_theme)
+                settings_manager.save_settings()
+                app_logger.info(f"Sistem teması algılandı ve kaydedildi: {current_theme}")
+            else:
+                current_theme = saved_theme
+            
+            self.theme_var.set(current_theme)
+            
+            # StyleManager ile temayı uygula
+            self.style_manager.apply_theme(current_theme)
+            
+            # Ana pencere arka plan rengini ayarla
+            if current_theme == 'dark':
+                self.root.configure(bg='#1a1a1a')
+            else:
+                # Light theme için beyaz arka plan
+                self.root.configure(bg='white')
+            
+            # Panel'lara tema uygula
+            self.apply_theme_to_panels(current_theme)
+            
+            app_logger.info(f"Tema uygulandı: {current_theme} (sistem: {system_theme})")
                 
         except Exception as e:
-            app_logger.error(f"Dark tema uygulama hatası: {e}")
+            app_logger.error(f"Sistem tema uygulama hatası: {e}")
     
-    def update_existing_widgets_theme(self, theme):
-        """Mevcut widget'ların temasını güncelle - Sadece Dark Theme"""
+    def apply_theme_to_panels(self, theme):
+        """Panel'lara tema uygula"""
         try:
-            # Sadece dark theme - her zaman dark uygula
-            # Sol panel widget'larını güncelle
-            self.apply_dark_theme_to_left_panel()
-            
-            # Formula panel'deki widget'ları güncelle
+            # Formula panel
             if hasattr(self, 'formula_panel') and self.formula_panel:
-                # Listbox güncelle
-                if hasattr(self.formula_panel, 'formula_listbox'):
-                    self.style_manager.apply_dark_theme_to_widget(
-                        self.formula_panel.formula_listbox, 'listbox'
-                    )
-                
-                # Entry widget'larını güncelle
-                self.formula_panel.apply_dark_theme_to_entries()
+                self.formula_panel.apply_current_theme()
             
-            # Recording panel'deki widget'ları güncelle
+            # Recording panel
             if hasattr(self, 'recording_panel') and self.recording_panel:
-                self.recording_panel.apply_dark_theme()
-                
-            # Real time panel'deki widget'ları güncelle
-            if hasattr(self, 'realtime_panel') and self.realtime_panel:
-                # Real time panel için gerekli güncellemeler
-                pass
+                self.recording_panel.apply_current_theme()
             
-            # About paneli için tema uygula
-            if hasattr(self, 'about_frame') and self.about_frame:
-                self.apply_dark_theme_to_about_panel()
+            # Custom panel
+            if hasattr(self, 'custom_panel') and self.custom_panel:
+                self.custom_panel.apply_current_theme()
+            
+            # Realtime panel
+            if hasattr(self, 'realtime_panel') and self.realtime_panel:
+                self.realtime_panel.apply_current_theme()
+            
+            # Calibration window (eğer açıksa)
+            if hasattr(self, 'calibration_window') and self.calibration_window:
+                self.calibration_window.apply_current_theme()
+            
+            # Detector panel
+            if hasattr(self, 'detector_panel') and self.detector_panel:
+                self.detector_panel.apply_current_theme()
                 
         except Exception as e:
-            app_logger.error(f"Widget tema güncelleme hatası: {e}")
+            app_logger.error(f"Panel tema uygulama hatası: {e}")
     
     def apply_dark_theme_to_left_panel(self):
 
@@ -713,22 +686,109 @@ In this project, I undertook the following tasks:
                 except Exception as e:
                     app_logger.warning(f"Sampling label tema hatası: {e}")
             
-           
-            for sensor_name, labels in self.sensor_labels.items():
+            # Sensor labels kaldırıldı - tema artık Real Time Panel'de uygulanıyor
+            
+            # Main Controls butonları
+            if hasattr(self, 'start_btn') and self.start_btn:
                 try:
-                    if 'raw' in labels and labels['raw']:
-                        labels['raw'].configure(style='Dark.TLabel')
-                        widgets_updated += 1
-                    if 'calibrated' in labels and labels['calibrated']:
-                        labels['calibrated'].configure(style='Dark.TLabel')
-                        widgets_updated += 1
+                    self.start_btn.configure(style='Green.TButton')
+                    widgets_updated += 1
                 except Exception as e:
-                    app_logger.warning(f"Sensör label ({sensor_name}) tema hatası: {e}")
+                    app_logger.warning(f"Start button tema hatası: {e}")
+            
+            if hasattr(self, 'stop_btn') and self.stop_btn:
+                try:
+                    self.stop_btn.configure(style='Red.TButton')
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"Stop button tema hatası: {e}")
+            
+            if hasattr(self, 'export_btn') and self.export_btn:
+                try:
+                    self.export_btn.configure(style='Blue.TButton')
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"Export button tema hatası: {e}")
+            
+            if hasattr(self, 'calibration_btn') and self.calibration_btn:
+                try:
+                    # Dark theme için varsayılan stil
+                    self.calibration_btn.configure(style='TButton')
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"Calibration button tema hatası: {e}")
             
             app_logger.info(f"Sol panel dark theme uygulandı - {widgets_updated} widget güncellendi")
             
         except Exception as e:
             app_logger.error(f"Sol panel dark theme uygulama hatası: {e}")
+    
+    def apply_light_theme_to_left_panel(self):
+        """Sol panel widget'larına light theme uygula"""
+        try:
+            widgets_updated = 0
+            
+            if hasattr(self, 'main_frame') and self.main_frame:
+                self.main_frame.configure(bg='white')
+                widgets_updated += 1
+            
+            # Connection frame
+            if hasattr(self, 'connection_frame') and self.connection_frame:
+                try:
+                    self.connection_frame.configure(style='TLabelFrame')
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"Connection frame tema hatası: {e}")
+            
+            # Sensor combo
+            if hasattr(self, 'sensor_combo') and self.sensor_combo:
+                try:
+                    self.sensor_combo.configure(style='TCombobox')
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"Sensor combo tema hatası: {e}")
+            
+            # Status label
+            if hasattr(self, 'status_label') and self.status_label:
+                try:
+                    self.status_label.configure(style='TLabel')
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"Status label tema hatası: {e}")
+            
+            # Main Controls butonları
+            if hasattr(self, 'start_btn') and self.start_btn:
+                try:
+                    self.start_btn.configure(style='Green.TButton')
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"Start button tema hatası: {e}")
+            
+            if hasattr(self, 'stop_btn') and self.stop_btn:
+                try:
+                    self.stop_btn.configure(style='Red.TButton')
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"Stop button tema hatası: {e}")
+            
+            if hasattr(self, 'export_btn') and self.export_btn:
+                try:
+                    self.export_btn.configure(style='Blue.TButton')
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"Export button tema hatası: {e}")
+            
+            if hasattr(self, 'calibration_btn') and self.calibration_btn:
+                try:
+                    self.calibration_btn.configure(style='TButton')  # Default style for light theme
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"Calibration button tema hatası: {e}")
+            
+            app_logger.info(f"Sol panel light theme uygulandı - {widgets_updated} widget güncellendi")
+            
+        except Exception as e:
+            app_logger.error(f"Sol panel light theme uygulama hatası: {e}")
     
     def apply_dark_theme_to_about_panel(self):
        
@@ -784,6 +844,10 @@ In this project, I undertook the following tasks:
            
             if self.realtime_panel:
                 self.realtime_panel.close_all_windows()
+            
+            if self.detector_panel:
+                # Detector panel için özel cleanup varsa eklenebilir
+                pass
             
            
             settings_manager.save_settings()
@@ -945,4 +1009,25 @@ In this project, I undertook the following tasks:
             return {
                 'raw': {},
                 'calibrated': {}
+            }
+    
+    def get_data_for_detector_panel(self) -> Dict[str, Dict[str, float]]:
+        """Detector panel için veri al"""
+        try:
+            # Raw data
+            raw_values = self.data_processor.get_latest_values()
+            
+            # Calibrated data
+            calibrated_values = self.data_processor.get_latest_calibrated_values()
+            
+            return {
+                'raw_data': raw_values,
+                'calibrated_data': calibrated_values
+            }
+            
+        except Exception as e:
+            app_logger.error(f"Detector panel veri alma hatası: {e}")
+            return {
+                'raw_data': {},
+                'calibrated_data': {}
             }

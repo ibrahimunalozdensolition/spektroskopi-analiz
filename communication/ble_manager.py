@@ -27,6 +27,7 @@ from utils.helpers import convert_raw_to_voltage, parse_ble_data, map_device_nam
 class BLEManager:
     def __init__(self, data_callback: Optional[Callable] = None):
         self.data_callback = data_callback
+        self.disconnect_callback = None
         self.is_connected = False
         self.current_client = None
         self.current_device_address = None
@@ -47,6 +48,10 @@ class BLEManager:
     
     def is_available(self) -> bool:
         return BLEAK_AVAILABLE
+    
+    def set_disconnect_callback(self, callback: Optional[Callable] = None):
+        """Bağlantı kopma callback'ini ayarla"""
+        self.disconnect_callback = callback
     
     async def scan_devices(self, timeout: float = BLE_SCAN_TIMEOUT) -> Dict[str, Dict[str, Any]]:
         if not BLEAK_AVAILABLE:
@@ -178,6 +183,7 @@ class BLEManager:
                 while self.is_connected:
                     if not client.is_connected:
                         app_logger.warning("BLE cihazı bağlantısı kesildi")
+                        self.disconnect()
                         break
                     await asyncio.sleep(2.0)  
                     
@@ -267,8 +273,9 @@ class BLEManager:
             if self.current_client:
                 self.current_client = None
             
-            if self.current_device_name:
-                log_connection_event(app_logger, self.current_device_name, "DISCONNECTED", True)
+            device_name = self.current_device_name
+            if device_name:
+                log_connection_event(app_logger, device_name, "DISCONNECTED", True)
             
             # Değişkenleri sıfırla
             self.current_device_address = None
@@ -279,6 +286,13 @@ class BLEManager:
                 self.sensor_values[key] = 0
             
             app_logger.info("BLE bağlantısı kesildi")
+            
+            # Disconnect callback'ini çağır
+            if self.disconnect_callback:
+                try:
+                    self.disconnect_callback(device_name)
+                except Exception as callback_error:
+                    app_logger.error(f"Disconnect callback hatası: {callback_error}")
             
         except Exception as e:
             log_error(app_logger, e, "BLE bağlantı kesme hatası")

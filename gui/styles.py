@@ -13,7 +13,7 @@ class StyleManager:
     
     def setup_button_styles(self):
         self.style.configure("Green.TButton", 
-                           foreground="white", 
+                           foreground="black", 
                            background="green",
                            font=("Arial", 10, "bold"))
         
@@ -32,7 +32,7 @@ class StyleManager:
                            font=("Arial", 10, "bold"))
         
         self.style.configure("Purple.TButton", 
-                           foreground="white", 
+                           foreground="black", 
                            background="purple",
                            font=("Arial", 10, "bold"))
         
@@ -95,18 +95,32 @@ class StyleManager:
             'IR LED (940nm)': 'darkred'
         }
     
-    def apply_dark_theme(self):
+    def apply_theme(self, theme='auto'):
+        """Sistem temasını uygula - otomatik algılama"""
         try:
-            self.style.theme_use('default')
-            self.style.theme_use('clam')  # Base theme
+            # Sistem temasını algıla
+            if theme == 'auto':
+                from config.settings import settings_manager
+                theme = settings_manager.get_theme()
             
-            dark_bg = '#1a1a1a'        # Ana arkaplan (daha koyu)
-            panel_bg = '#252525'       # Panel arkaplan (daha koyu)
-            input_bg = '#333333'       # Input arkaplan
-            text_color = '#e8e8e8'      # Ana yazı rengi (daha yumuşak beyaz)
-            text_secondary = '#a0a0a0'  # İkincil yazı rengi
-            border_color = '#404040'    # Kenarlık rengi
-            highlight_bg = '#3a3a3a'    # Vurgu arkaplan
+            if theme == 'dark':
+                self._apply_dark_theme()
+            else:
+                self._apply_light_theme()
+                
+        except Exception as e:
+            print(f"Tema uygulama hatası: {e}")
+    
+    def _apply_dark_theme(self):
+        """Dark theme uygula"""
+        try:
+            # Sadece gerekli override'lar - sistem renklerini mümkün olduğunca koru
+            dark_bg = '#1a1a1a'
+            panel_bg = '#252525'
+            input_bg = '#333333'
+            text_color = '#e8e8e8'
+            border_color = '#404040'
+            highlight_bg = '#3a3a3a'
             
             self.style.configure('TLabel', 
                                background=dark_bg, 
@@ -256,6 +270,37 @@ class StyleManager:
             
             # Tkinter bileşenleri için root stilini ayarla
             self.apply_tkinter_dark_theme()
+            
+            # Dark theme buton stilleri - orijinal renkler
+            self.style.configure("Green.TButton", 
+                               foreground="black", 
+                               background="green",
+                               font=("Arial", 10, "bold"))
+            
+            self.style.configure("Red.TButton", 
+                               foreground="white", 
+                               background="red",
+                               font=("Arial", 10, "bold"))
+            
+            self.style.configure("Blue.TButton", 
+                               foreground="white", 
+                               background="blue",
+                               font=("Arial", 10, "bold"))
+            
+            self.style.configure("Orange.TButton", 
+                               foreground="white", 
+                               background="orange",
+                               font=("Arial", 10, "bold"))
+            
+            self.style.configure("Purple.TButton", 
+                               foreground="black", 
+                               background="purple",
+                               font=("Arial", 10, "bold"))
+            
+            self.style.configure("DarkGreen.TButton", 
+                               foreground="white", 
+                               background="darkgreen",
+                               font=("Arial", 10, "bold"))
             
         except Exception as e:
             print(f"Koyu tema uygulama hatası: {e}")
@@ -523,9 +568,214 @@ class StyleManager:
                 widget.configure(
                     bg='#1a1a1a'
                 )
+            
+            # Dark theme buton stilleri
+            self._setup_button_styles_for_dark()
+            
         except Exception as e:
             print(f"Widget dark theme uygulama hatası: {e}")
     
+    def _setup_button_styles_for_dark(self):
+        """Dark theme için buton stillerini ayarla"""
+        self.style.configure("Green.TButton", 
+                           foreground="black", 
+                           background="green",
+                           font=("Arial", 10, "bold"))
+        
+        self.style.configure("Red.TButton", 
+                           foreground="white", 
+                           background="red",
+                           font=("Arial", 10, "bold"))
+        
+        self.style.configure("Blue.TButton", 
+                           foreground="white", 
+                           background="blue",
+                           font=("Arial", 10, "bold"))
+        
+        self.style.configure("Orange.TButton", 
+                           foreground="white", 
+                           background="orange",
+                           font=("Arial", 10, "bold"))
+        
+        self.style.configure("Purple.TButton", 
+                           foreground="black", 
+                           background="purple",
+                           font=("Arial", 10, "bold"))
+        
+        self.style.configure("DarkGreen.TButton", 
+                           foreground="white", 
+                           background="darkgreen",
+                           font=("Arial", 10, "bold"))
+    
+    def _apply_light_theme(self):
+        """Light theme uygula - açık renkli stil"""
+        try:
+            # Light theme için açık renkli TTK stilleri
+            light_bg = 'white'
+            text_color = 'black'
+            
+            # Temel TTK widget'ları
+            self.style.configure('TLabel', 
+                               background=light_bg, 
+                               foreground=text_color)
+            
+            self.style.configure('TFrame', 
+                               background=light_bg)
+            
+            self.style.configure('TLabelFrame', 
+                               background=light_bg, 
+                               foreground=text_color,
+                               borderwidth=1,
+                               relief='solid')
+            
+            self.style.configure('TLabelFrame.Label',
+                               background=light_bg,
+                               foreground=text_color,
+                               font=('Arial', 10, 'bold'))
+            
+            # Entry widget'ları
+            self.style.configure('TEntry',
+                               fieldbackground=light_bg,
+                               foreground=text_color,
+                               borderwidth=1,
+                               relief='solid')
+            
+            # Combobox
+            self.style.configure('TCombobox',
+                               fieldbackground=light_bg,
+                               foreground=text_color,
+                               borderwidth=1,
+                               relief='solid')
+            
+            # Button (varsayılan)
+            self.style.configure('TButton',
+                               background='#f0f0f0',
+                               foreground=text_color,
+                               borderwidth=1,
+                               relief='solid')
+            
+            # Renkli butonlar için özel stiller
+            self._setup_button_styles_for_light()
+            
+            # Tkinter widget'ları için açık tema
+            self._apply_tkinter_light_theme()
+            
+        except Exception as e:
+            print(f"Light theme uygulama hatası: {e}")
+    
+    def _apply_tkinter_light_theme(self):
+        """Tkinter widget'ları için light theme"""
+        try:
+            import tkinter as tk
+            
+            # Tkinter için açık renkler
+            tk._default_root.option_add('*Background', 'white')
+            tk._default_root.option_add('*Foreground', 'black')
+            tk._default_root.option_add('*selectBackground', '#0078d4')
+            tk._default_root.option_add('*selectForeground', 'white')
+            tk._default_root.option_add('*insertBackground', 'black')
+            
+            # Listbox için açık ayarlar
+            tk._default_root.option_add('*Listbox*Background', 'white')
+            tk._default_root.option_add('*Listbox*Foreground', 'black')
+            tk._default_root.option_add('*Listbox*selectBackground', '#0078d4')
+            tk._default_root.option_add('*Listbox*selectForeground', 'white')
+            
+            # Text widget için açık ayarlar
+            tk._default_root.option_add('*Text*Background', 'white')
+            tk._default_root.option_add('*Text*Foreground', 'black')
+            tk._default_root.option_add('*Text*selectBackground', '#0078d4')
+            tk._default_root.option_add('*Text*selectForeground', 'white')
+            tk._default_root.option_add('*Text*insertBackground', 'black')
+            
+        except Exception as e:
+            print(f"Tkinter light theme uygulama hatası: {e}")
+    
+    def _calculate_optimal_text_color(self, bg_color_name):
+        """Bilimsel hesaplama ile optimal yazı rengini belirle"""
+        # Renk RGB değerleri
+        color_map = {
+            'lightgreen': (144, 238, 144),
+            'lightcoral': (240, 128, 128), 
+            'steelblue': (70, 130, 180),
+            'lightsalmon': (255, 160, 122),
+            'mediumpurple': (147, 112, 219),
+            'darkgreen': (0, 100, 0),
+            'green': (0, 128, 0),
+            'red': (255, 0, 0),
+            'blue': (0, 0, 255),
+            'orange': (255, 165, 0),
+            'purple': (128, 0, 128)
+        }
+        
+        if bg_color_name not in color_map:
+            return "black"  # Varsayılan
+            
+        r, g, b = color_map[bg_color_name]
+        
+        # Bilimsel parlaklık hesabı (WCAG standardı)
+        brightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+        
+        # Beyaz tema için özel kural: Hep siyah yazı kullan
+        return "black"
+    
+    def _setup_button_styles_for_light(self):
+        """Light theme için buton stillerini ayarla - Hep siyah yazı"""
+        # Beyaz tema: Tüm butonlarda siyah yazı
+        button_configs = [
+            ("Green.TButton", "lightgreen"),
+            ("Red.TButton", "lightcoral"), 
+            ("Blue.TButton", "steelblue"),
+            ("Orange.TButton", "lightsalmon"),
+            ("Purple.TButton", "mediumpurple"),
+            ("DarkGreen.TButton", "darkgreen")
+        ]
+        
+        for style_name, bg_color in button_configs:
+            self.style.configure(style_name,
+                               foreground="black",  # Hep siyah yazı
+                               background=bg_color,
+                               font=("Arial", 10, "bold"))
+    
+    def apply_light_theme_to_widget(self, widget, widget_type='auto'):
+        """Tek widget'a light theme uygula"""
+        try:
+            if widget_type == 'auto':
+                widget_type = widget.winfo_class().lower()
+            
+            if widget_type == 'listbox':
+                widget.configure(
+                    bg='white',
+                    fg='black',
+                    selectbackground='#0078d4',
+                    selectforeground='white',
+                    borderwidth=1,
+                    relief='solid',
+                    highlightthickness=0
+                )
+            elif widget_type == 'text':
+                widget.configure(
+                    bg='white',
+                    fg='black',
+                    insertbackground='black',
+                    selectbackground='#0078d4',
+                    selectforeground='white',
+                    borderwidth=1,
+                    relief='solid',
+                    highlightthickness=0
+                )
+            elif widget_type == 'label':
+                widget.configure(
+                    bg='white',
+                    fg='black'
+                )
+            elif widget_type == 'frame':
+                widget.configure(
+                    bg='white'
+                )
+        except Exception as e:
+            print(f"Widget light theme uygulama hatası: {e}")
+
     def get_style(self) -> ttk.Style:
         """Style nesnesini al"""
         return self.style

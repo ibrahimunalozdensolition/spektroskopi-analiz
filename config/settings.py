@@ -43,9 +43,7 @@ class SettingsManager:
                 'rate_ms': 500,
                 'buffer_size': 100
             },
-            'appearance': {
-                'theme': 'dark'  # Sadece dark theme destekleniyor
-            }
+            # appearance bölümü kaldırıldı - sistem teması otomatik algılanacak
         }
     
     def load_settings(self) -> Dict[str, Any]:
@@ -135,14 +133,31 @@ class SettingsManager:
     
     # Sampling rate fonksiyonları kaldırıldı - tüm veriler direkt işlenir
     
+    def detect_system_theme(self) -> str:
+        """macOS sistem temasını algıla"""
+        try:
+            import subprocess
+            result = subprocess.run(['defaults', 'read', '-g', 'AppleInterfaceStyle'], 
+                                  capture_output=True, text=True, timeout=2)
+            return 'dark' if result.returncode == 0 and result.stdout.strip() == 'Dark' else 'light'
+        except:
+            return 'light'  # Varsayılan olarak light tema
+    
     def get_theme(self) -> str:
-        """Tema ayarını al - Sadece dark theme"""
-        return 'dark'  # Her zaman dark theme döndür
+        """Tema ayarını al - sistem temasını algıla"""
+        # Önce kaydedilen kullanıcı tercihini kontrol et
+        saved_theme = self.get('appearance.theme', None)
+        if saved_theme and saved_theme in ['light', 'dark']:
+            return saved_theme
+        
+        # Kaydedilen tercih yoksa sistem temasını algıla
+        return self.detect_system_theme()
     
     def set_theme(self, theme: str) -> bool:
-        """Tema ayarını belirle - Sadece dark theme"""
-        # Her zaman dark theme ayarla
-        return self.set('appearance.theme', 'dark')
+        """Tema ayarını belirle"""
+        if theme in ['light', 'dark']:
+            return self.set('appearance.theme', theme)
+        return False
     
     def _deep_update(self, base_dict: Dict, update_dict: Dict):
         """İç içe sözlükleri derin güncelleme"""

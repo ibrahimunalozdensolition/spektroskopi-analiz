@@ -42,6 +42,10 @@ class FormulaPanel:
         self.last_calculation_time = datetime.now()
         self.calculation_interval_ms = 500  # 500ms'de bir hesapla
         
+        # Scroll için canvas referansı
+        self.canvas = None
+        self.scrollable_frame = None
+        
         self.setup_panel()
     
     def set_data_callback(self, callback: Callable):
@@ -50,7 +54,109 @@ class FormulaPanel:
     
     def setup_panel(self):
         """Ana paneli kur"""
-        main_frame = ttk.Frame(self.parent_frame)
+        # Scrollable container oluştur
+        self.canvas = tk.Canvas(self.parent_frame, highlightthickness=0)
+        scrollbar = ttk.Scrollbar(self.parent_frame, orient="vertical", command=self.canvas.yview)
+        self.scrollable_frame = ttk.Frame(self.canvas)
+
+        self.scrollable_frame.bind(
+            "<Configure>",
+            lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+        )
+        
+        # Canvas genişliğini içeriğe göre ayarla
+        def _configure_canvas(event):
+            self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+            canvas_width = event.width
+            # Canvas'ta window varsa genişliğini ayarla
+            canvas_items = self.canvas.find_all()
+            if canvas_items:
+                self.canvas.itemconfig(canvas_items[0], width=canvas_width)
+        
+        self.canvas.bind("<Configure>", _configure_canvas)
+
+        self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+        self.canvas.configure(yscrollcommand=scrollbar.set)
+
+        # Mouse wheel binding for scrolling (macOS compatible)
+        def _on_mousewheel(event):
+            # macOS ve diğer platformlar için uyumlu scroll
+            try:
+                if hasattr(event, 'delta'):
+                    if event.delta > 0:
+                        self.canvas.yview_scroll(-1, "units")
+                    elif event.delta < 0:
+                        self.canvas.yview_scroll(1, "units")
+                else:
+                    # Linux için
+                    if event.num == 4:
+                        self.canvas.yview_scroll(-1, "units")
+                    elif event.num == 5:
+                        self.canvas.yview_scroll(1, "units")
+            except Exception as e:
+                print(f"Scroll event error: {e}")
+        
+        def _bind_mousewheel(event):
+            # macOS için
+            self.canvas.bind_all("<MouseWheel>", _on_mousewheel)
+            # Linux için
+            self.canvas.bind_all("<Button-4>", _on_mousewheel)
+            self.canvas.bind_all("<Button-5>", _on_mousewheel)
+        
+        def _unbind_mousewheel(event):
+            self.canvas.unbind_all("<MouseWheel>")
+            self.canvas.unbind_all("<Button-4>")
+            self.canvas.unbind_all("<Button-5>")
+        
+        # Canvas'a odaklanabilirlik ekle
+        self.canvas.focus_set()
+        self.canvas.bind('<Enter>', _bind_mousewheel)
+        self.canvas.bind('<Leave>', _unbind_mousewheel)
+        
+        # Canvas'a tıklandığında da scroll aktif olsun
+        self.canvas.bind('<Button-1>', lambda e: self.canvas.focus_set())
+        
+        # Scrollable frame'e de mouse wheel binding ekle
+        def _bind_to_mousewheel(widget):
+            widget.bind("<MouseWheel>", _on_mousewheel)
+            widget.bind("<Button-4>", _on_mousewheel)
+            widget.bind("<Button-5>", _on_mousewheel)
+            for child in widget.winfo_children():
+                _bind_to_mousewheel(child)
+        
+        # İlk binding
+        _bind_mousewheel(None)
+        
+        # scrollable_frame ve çocuklarına da binding ekle
+        def _recursive_bind(widget):
+            try:
+                widget.bind("<MouseWheel>", _on_mousewheel)
+                widget.bind("<Button-4>", _on_mousewheel) 
+                widget.bind("<Button-5>", _on_mousewheel)
+                for child in widget.winfo_children():
+                    _recursive_bind(child)
+            except:
+                pass
+        
+        # Frame oluşturulduktan sonra binding eklemek için callback
+        def _delayed_bind():
+            try:
+                _recursive_bind(self.scrollable_frame)
+            except:
+                pass
+        
+        # 100ms sonra binding ekle (widget'lar oluşturulduktan sonra)
+        self.parent_frame.after(100, _delayed_bind)
+        
+        # Scroll binding'ini yenilemek için fonksiyonu sakla
+        self._refresh_scroll_binding = _delayed_bind
+
+        # Pack scrollbar and canvas
+        scrollbar.pack(side="right", fill="y")
+        self.canvas.pack(side="left", fill="both", expand=True)
+        
+        # Ana içerik frame'i scrollable_frame içinde oluştur
+        main_frame = ttk.Frame(self.scrollable_frame)
         main_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         
         # Başlık ve Live butonu - aynı satırda
@@ -100,6 +206,9 @@ class FormulaPanel:
         
         # Dark theme'i uygula (eğer gerekiyorsa)
         self.apply_current_theme()
+        
+        # Scroll binding'ini son kez yenile (tüm widget'lar oluşturulduktan sonra)
+        self.parent_frame.after(500, self._refresh_scroll_binding)
     
     def setup_formula_creation_panel(self, parent_frame):
         """Formül oluşturma paneli"""
@@ -110,12 +219,12 @@ class FormulaPanel:
         name_frame = ttk.Frame(create_frame)
         name_frame.pack(fill=tk.X, pady=(0, 10))
         
-        ttk.Label(name_frame, text="Data Name:", font=("Arial", 10, "bold")).pack(side=tk.LEFT)
-        self.formula_name_entry = ttk.Entry(name_frame, width=25, font=("Arial", 10))
+        ttk.Label(name_frame, text="Data Name:", font=("Arial", 16, "bold")).pack(side=tk.LEFT)
+        self.formula_name_entry = ttk.Entry(name_frame, width=25, font=("Arial", 16))
         self.formula_name_entry.pack(side=tk.LEFT, padx=(10, 20))
         
-        ttk.Label(name_frame, text="Unit:", font=("Arial", 10, "bold")).pack(side=tk.LEFT)
-        self.unit_entry = ttk.Entry(name_frame, width=12, font=("Arial", 10))
+        ttk.Label(name_frame, text="Unit:", font=("Arial", 16, "bold")).pack(side=tk.LEFT)
+        self.unit_entry = ttk.Entry(name_frame, width=12, font=("Arial", 16))
         self.unit_entry.pack(side=tk.LEFT, padx=(10, 0))
         self.unit_entry.insert(0, "ppm")
         
@@ -123,13 +232,13 @@ class FormulaPanel:
         formula_frame = ttk.Frame(create_frame)
         formula_frame.pack(fill=tk.X, pady=(0, 15))
         
-        ttk.Label(formula_frame, text="Formula:", font=("Arial", 10, "bold")).pack(anchor=tk.W, pady=(0, 5))
+        ttk.Label(formula_frame, text="Formula:", font=("Arial", 16, "bold")).pack(anchor=tk.W, pady=(0, 5))
         
         # Formül girişi ve buton aynı satırda
         entry_button_frame = ttk.Frame(formula_frame)
         entry_button_frame.pack(fill=tk.X)
         
-        self.formula_entry = ttk.Entry(entry_button_frame, font=("Arial", 10))
+        self.formula_entry = ttk.Entry(entry_button_frame, font=("Arial", 16))
         self.formula_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 10))
         
         # Oluştur butonu
@@ -149,16 +258,16 @@ class FormulaPanel:
         
         ttk.Label(left_col, text=" Available Sensors:", font=("Arial", 16, "bold")).pack(anchor=tk.W)
         sensor_text = self.get_sensor_text_from_settings()
-        self.sensor_info_label = ttk.Label(left_col, text=sensor_text, font=("Arial", 8))
+        self.sensor_info_label = ttk.Label(left_col, text=sensor_text, font=("Arial", 16))
         self.sensor_info_label.pack(anchor=tk.W, padx=(10, 0))
         
         # Sağ sütun - Formüller
         right_col = ttk.Frame(help_content_frame)
         right_col.pack(side=tk.RIGHT, fill=tk.X, expand=True)
         
-        ttk.Label(right_col, text="⚡ Created Data:", font=("Arial", 9, "bold")).pack(anchor=tk.W)
+        ttk.Label(right_col, text="⚡ Created Data:", font=("Arial", 16, "bold")).pack(anchor=tk.W)
         self.created_formulas_label = ttk.Label(right_col, text="None yet", 
-                                               font=("Arial", 8))
+                                               font=("Arial", 16))
         self.created_formulas_label.pack(anchor=tk.W, padx=(10, 0))
         
 
@@ -191,7 +300,7 @@ class FormulaPanel:
         
         # Status label - seçili formül sayısı
         self.status_label = ttk.Label(formulas_frame, text="Seçili formül sayısı: 0", 
-                                     font=("Arial", 9, "italic"))
+                                     font=("Arial", 16, "italic"))
         self.status_label.pack(anchor=tk.W, pady=(0, 5))
         
         # Butonlar - modern ikonlarla
@@ -229,7 +338,7 @@ class FormulaPanel:
         
         # Sol taraf - Label
         ttk.Label(value_display_frame, text="Current Value:", 
-                 font=("Arial", 11, "bold")).pack(side=tk.LEFT)
+                 font=("Arial", 16, "bold")).pack(side=tk.LEFT)
         
         # Sağ taraf - Değer ve birim
         value_container = ttk.Frame(value_display_frame)
@@ -240,7 +349,7 @@ class FormulaPanel:
         self.current_value_label.pack(side=tk.LEFT, padx=(10, 5))
         
         self.current_unit_label = ttk.Label(value_container, text="V", 
-                                          font=("Arial", 12))
+                                          font=("Arial", 16))
         self.current_unit_label.pack(side=tk.LEFT)
         
         # Ayırıcı çizgi
@@ -252,10 +361,10 @@ class FormulaPanel:
         info_frame.pack(fill=tk.X)
         
         ttk.Label(info_frame, text="Selected Formula:", 
-                 font=("Arial", 10, "bold")).pack(anchor=tk.W, pady=(0, 3))
+                 font=("Arial", 16, "bold")).pack(anchor=tk.W, pady=(0, 3))
         
         self.selected_formula_label = ttk.Label(info_frame, text="None selected", 
-                                              font=("Arial", 9), wraplength=400)
+                                              font=("Arial", 16), wraplength=400)
         self.selected_formula_label.pack(anchor=tk.W, padx=(10, 0))
     
     def setup_control_panel(self, parent_frame):
@@ -267,7 +376,7 @@ class FormulaPanel:
         file_frame = ttk.Frame(control_frame)
         file_frame.pack(fill=tk.X, pady=(0, 10))
         
-        ttk.Label(file_frame, text="File Operations:", font=("Arial", 10, "bold")).pack(anchor=tk.W, pady=(0, 5))
+        ttk.Label(file_frame, text="File Operations:", font=("Arial", 16, "bold")).pack(anchor=tk.W, pady=(0, 5))
         
         file_buttons_frame = ttk.Frame(file_frame)
         file_buttons_frame.pack(fill=tk.X)
@@ -751,6 +860,22 @@ class FormulaPanel:
                 
                 # TTK Entry widget'larına dark theme uygula
                 self.apply_dark_theme_to_entries()
+            else:
+                # Light theme
+                if hasattr(self, 'formula_listbox'):
+                    self.formula_listbox.configure(
+                        bg='white', 
+                        fg='black',
+                        selectbackground='#0078d4', 
+                        selectforeground='white',
+                        borderwidth=1, 
+                        relief='solid', 
+                        highlightthickness=0,
+                        activestyle='none'
+                    )
+                
+                # TTK Entry widget'larına light theme uygula
+                self.apply_light_theme_to_entries()
                 
         except Exception as e:
             app_logger.error(f"Tema uygulama hatası: {e}")
@@ -790,3 +915,35 @@ class FormulaPanel:
                                
         except Exception as e:
             app_logger.error(f"Entry dark theme uygulama hatası: {e}")
+    
+    def apply_light_theme_to_entries(self):
+        """TTK Entry widget'larına light theme uygula"""
+        try:
+            # Entry widget'larının listesi
+            entries = [
+                self.formula_name_entry,
+                self.unit_entry,
+                self.formula_entry
+            ]
+            
+            for entry in entries:
+                if entry:
+                    # TTK Entry için style güncellemesi
+                    entry.configure(style='Light.TEntry')
+            
+            # Light.TEntry stilini tanımla
+            from tkinter import ttk
+            style = ttk.Style()
+            style.configure('Light.TEntry',
+                          fieldbackground='white',
+                          foreground='black',
+                          borderwidth=1,
+                          relief='solid',
+                          focuscolor='none')
+            
+            style.map('Light.TEntry',
+                    focuscolor=[('focus', '#0078d4')],
+                    bordercolor=[('focus', '#0078d4')])
+            
+        except Exception as e:
+            app_logger.error(f"Entry light theme uygulama hatası: {e}")

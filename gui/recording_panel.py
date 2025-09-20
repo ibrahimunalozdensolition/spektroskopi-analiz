@@ -42,30 +42,23 @@ class RecordingPanel:
         # Veri callback
         self.data_callback = None
         
-        # Kayıt süresi (saniye)
-        self.recording_duration = 15
+        self.recording_duration = 10
         
-        # Records klasörü
         self.records_dir = "records"
         self.ensure_records_directory()
         
-        # Son kayıt verileri
         self.last_record_data = None
         
-        # Status messages
         self.status_messages = self.load_status_messages()
         
         self.setup_panel()
         
-        # Dark theme'i uygula (eğer gerekiyorsa)
         self.apply_current_theme()
     
     def set_data_callback(self, callback: Callable):
-        """Veri callback'ini ayarla"""
         self.data_callback = callback
     
     def load_status_messages(self) -> Dict:
-        """Status messages JSON dosyasını yükle"""
         try:
             status_file = os.path.join("config", "status_messages.json")
             if os.path.exists(status_file):
@@ -104,8 +97,8 @@ class RecordingPanel:
         
         # Açıklama
         desc_label = ttk.Label(controls_frame, 
-                              text="Press 'Start Recording' to collect data for 15 seconds and calculate averages",
-                              font=("Arial", 10))
+                              text="Press 'Start Recording' to collect data ",
+                              font=("Arial", 16))
         desc_label.pack(pady=(0, 10))
         
         # Butonlar
@@ -115,7 +108,7 @@ class RecordingPanel:
         self.record_btn = ttk.Button(button_frame, text="🔴 Start Recording", 
                                     command=self.start_recording,
                                     style="Green.TButton")
-        self.record_btn.pack(side=tk.LEFT, padx=(0, 10))
+        self.record_btn.pack(side=tk.LEFT, padx=(0, 16))
         
         self.stop_btn = ttk.Button(button_frame, text="⏹️ Stop Recording", 
                                   command=self.stop_recording,
@@ -167,10 +160,10 @@ class RecordingPanel:
         left_frame = ttk.Frame(records_frame)
         left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=(0, 10))
         
-        ttk.Label(left_frame, text="Previous Records:", font=("Arial", 12, "bold")).pack(anchor=tk.W, pady=(0, 5))
+        ttk.Label(left_frame, text="Previous Records:", font=("Arial", 16, "bold")).pack(anchor=tk.W, pady=(0, 5))
         
         # Kayıtlar listesi
-        self.records_listbox = tk.Listbox(left_frame, height=8, font=("Arial", 10),
+        self.records_listbox = tk.Listbox(left_frame, height=8, font=("Arial", 16),
                                          bg='#252525', fg='#e8e8e8',
                                          selectbackground='#3a3a3a', selectforeground='#ffffff',
                                          borderwidth=1, relief='solid', highlightthickness=0)
@@ -193,14 +186,14 @@ class RecordingPanel:
         # Birinci kayıt seçimi
         first_record_frame = ttk.Frame(compare_frame)
         first_record_frame.pack(fill=tk.X, pady=(0, 5))
-        ttk.Label(first_record_frame, text="First Record:", font=("Arial", 10, "bold")).pack(anchor=tk.W)
+        ttk.Label(first_record_frame, text="First Record:", font=("Arial", 16, "bold")).pack(anchor=tk.W)
         self.first_record_combo = ttk.Combobox(first_record_frame, state="readonly", width=30)
         self.first_record_combo.pack(fill=tk.X, pady=(2, 0))
         
         # İkinci kayıt seçimi
         second_record_frame = ttk.Frame(compare_frame)
         second_record_frame.pack(fill=tk.X, pady=(5, 10))
-        ttk.Label(second_record_frame, text="Second Record:", font=("Arial", 10, "bold")).pack(anchor=tk.W)
+        ttk.Label(second_record_frame, text="Second Record:", font=("Arial", 16, "bold")).pack(anchor=tk.W)
         self.second_record_combo = ttk.Combobox(second_record_frame, state="readonly", width=30)
         self.second_record_combo.pack(fill=tk.X, pady=(2, 0))
         
@@ -215,7 +208,7 @@ class RecordingPanel:
         
         # Karşılaştırma sonuçları başlığı
         ttk.Label(self.comparison_frame, text="Comparison Results:", 
-                 font=("Arial", 11, "bold")).pack(anchor=tk.W, pady=(0, 5))
+                 font=("Arial", 16, "bold")).pack(anchor=tk.W, pady=(0, 5))
         
         # Sonuçlar için scrollable text
         self.comparison_text = tk.Text(self.comparison_frame, height=6, width=40,
@@ -224,19 +217,17 @@ class RecordingPanel:
                                       selectbackground='#3a3a3a',
                                       selectforeground='#ffffff',
                                       borderwidth=1, relief='solid',
-                                      font=("Courier", 9))
+                                      font=("Courier", 16))
         self.comparison_text.pack(fill=tk.BOTH, expand=True)
         
         # Başlangıçta kayıtları yükle
         self.load_records_list()
     
     def update_duration(self):
-        """Kayıt süresini güncelle"""
         self.recording_duration = self.duration_var.get()
         app_logger.info(f"Recording duration updated: {self.recording_duration} seconds")
     
     def start_recording(self):
-        """Kayıt başlat"""
         if self.is_recording:
             app_logger.warning("Recording already in progress")
             return
@@ -735,6 +726,8 @@ class RecordingPanel:
             
             if current_theme == 'dark':
                 self.apply_dark_theme()
+            else:
+                self.apply_light_theme()
                 
         except Exception as e:
             app_logger.error(f"Recording panel tema uygulama hatası: {e}")
@@ -751,3 +744,15 @@ class RecordingPanel:
             
         except Exception as e:
             app_logger.error(f"Recording panel dark theme hatası: {e}")
+    
+    def apply_light_theme(self):
+        try:
+            # Spinbox için light theme
+            if hasattr(self, 'duration_var'):
+                # TTK Spinbox için özel stil uygulama gerekebilir
+                pass
+            
+            app_logger.debug("Recording panel light theme uygulandı")
+            
+        except Exception as e:
+            app_logger.error(f"Recording panel light theme hatası: {e}")

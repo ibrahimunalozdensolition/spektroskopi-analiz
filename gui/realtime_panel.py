@@ -210,5 +210,17 @@ class RealTimePanel:
             
         except Exception as e:
             app_logger.error(f"Grafik pencere kapatma hatası: {e}")
+    
+    def apply_current_theme(self):
+        """Mevcut temayı uygula"""
+        try:
+            from config.settings import settings_manager
+            current_theme = settings_manager.get_theme()
+            
+            # Bu panel butonları otomatik olarak StyleManager tarafından güncelleniyor
+            app_logger.debug(f"Realtime panel {current_theme} tema uygulandı")
+            
+        except Exception as e:
+            app_logger.error(f"Realtime panel tema uygulama hatası: {e}")
 
 
