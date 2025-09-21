@@ -68,7 +68,7 @@ Formül tabanlı veri üretim paneli kullanım şekli:
 
 ### Formül Yazarken Kullanabileceğiniz Operatörler ve Fonksiyonlar:
 - **Operatörler:** +, -, *, /, (, )
-- **Fonksiyonlar:** abs, max, min, sqrt, pow
+- **Fonksiyonlar:** abs, max, min, sqrt, pow (üs alma)
 
 ### Formül Yazarken Kullanabileceğiniz Değişkenler:
 - UV_360nm (ch1)
@@ -87,6 +87,7 @@ Formül tabanlı veri üretim paneli kullanım şekli:
 - `abs(ch1 - ch3)` → UV ile IR850 arasındaki mutlak fark (dalga boyu karşılaştırması)
 - `max(ch1, ch2, ch3, ch4)` → Tüm sensörler arasından en yüksek değer (maksimum sinyal)
 - `sqrt(ch1 * ch1 + ch2 * ch2)` → UV ve Blue sensörlerinin geometrik büyüklüğü (vektör uzunluğu)(çıktı değerinin karekökünü alır)
+- `pow(ch1, 2)` → UV sensörünün karesi (sinyal güçlendirme, 3mV → 9)
 - `ch1 * 0.85 + ch2 * 1.15 - 0.05` → Kalibrasyonlu ağırlıklı toplam (offset düzeltmeli)
 
 ### Live Modu:
