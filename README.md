@@ -6,7 +6,43 @@
 
 **Stop:** Stop tuşuna basılınca verilerin kaydı durdurulur.
 
-**Calibration:** 4 adet sensörden gelen verilerin kalibrasyonu sağlanır.
+**Calibration:** 4 adet sensörden gelen verilerin kalibrasyonu sağlanır. Bu butona basıldığında "Calibration Panel" penceresi açılır.
+
+### Calibration Panel (Kalibrasyon Paneli)
+
+Calibration butonuna basıldığında açılan bu pencere, spektroskopi sensörlerinin kalibrasyonu için kullanılır.
+
+#### Sensor Selection (Sensör Seçimi):
+- **Sensor to Calibrate:** Kalibre edilecek sensörü seçmek için kullanılır
+  - UV Sensor (360nm)
+  - Blue Sensor (450nm) 
+  - IR Sensor (850nm)
+  - IR Sensor (940nm)
+- **Molecule Name:** Ölçülecek molekülün adı girilir (opsiyonel)
+- **Unit:** Ölçüm birimi girilir (ppm, mg/L, mol/L vb.)
+
+#### Calibration Values (Kalibrasyon Değerleri) Tablosu:
+- **No.:** Kalibrasyon noktası numarası (maksimum 5 nokta)
+- **Concentration:** Bilinen konsantrasyon değeri girilir
+- **Measured Value (V):** Sensörden ölçülen voltaj değeri otomatik olarak görüntülenir
+- **Status:** Kalibrasyon noktasının durumu (Waiting/Saved/Loaded)
+- **Action:** "OK" butonu ile kalibrasyon noktası kaydedilir
+
+#### Control Panel (Kontrol Paneli):
+- **CALIBRATE:** Minimum 3 nokta kaydedildikten sonra aktif olur, kalibrasyon hesaplamasını yapar
+- **Clear:** Tüm kalibrasyon verilerini temizler
+- **Save:** Kalibrasyon verilerini JSON dosyası olarak kaydeder
+- **Load:** Önceden kaydedilmiş kalibrasyon dosyasını yükler
+- **Close:** Kalibrasyon penceresini kapatır
+
+#### Kullanım Adımları:
+1. Kalibre edilecek sensörü seçin
+2. Molekül adı ve birimini girin
+3. Bilinen konsantrasyon değerini girin
+4. Sensör değeri otomatik olarak güncellenecek
+5. "OK" butonuna basarak noktayı kaydedin
+6. En az 3 nokta için bu işlemi tekrarlayın
+7. "CALIBRATE" butonuna basarak kalibrasyonu tamamlayın
 
 **Export:** Start butonuna basıldığı andan stop tuşuna basılan ana kadar olan tüm veriler CSV formatında dışa aktarılır ve Excel dosyası ile açılabilir hale getirilir. 
 
@@ -44,14 +80,14 @@ Formül tabanlı veri üretim paneli kullanım şekli:
 - mV, Prime_İndex, mol/L, Litre
 
 ### Örnek Formüller:
-- `ch1 + ch2 + ch3`
-- `ch1 * 2.5 + ch2 * 1.8`
-- `(ch1 + ch2) / 2`
-- `ch1 - ch2`
-- `abs(ch1 - ch3)`
-- `max(ch1, ch2, ch3, ch4)`
-- `sqrt(ch1 * ch1 + ch2 * ch2)`
-- `ch1 * 0.85 + ch2 * 1.15 - 0.05`
+- `ch1 + ch2 + ch3` → UV, Blue ve IR850 sensörlerinin toplamı (üç dalga boyunun birleşik ölçümü)
+- `ch1 * 2.5 + ch2 * 1.8` → UV sensörünün 2.5 katı + Blue sensörünün 1.8 katı (ağırlıklı toplam)
+- `(ch1 + ch2) / 2` → UV ve Blue sensörlerinin ortalaması (görünür spektrum ortalaması)
+- `ch1 - ch2` → UV ile Blue sensör arasındaki fark (spektral kontrast)
+- `abs(ch1 - ch3)` → UV ile IR850 arasındaki mutlak fark (dalga boyu karşılaştırması)
+- `max(ch1, ch2, ch3, ch4)` → Tüm sensörler arasından en yüksek değer (maksimum sinyal)
+- `sqrt(ch1 * ch1 + ch2 * ch2)` → UV ve Blue sensörlerinin geometrik büyüklüğü (vektör uzunluğu)(çıktı değerinin karekökünü alır)
+- `ch1 * 0.85 + ch2 * 1.15 - 0.05` → Kalibrasyonlu ağırlıklı toplam (offset düzeltmeli)
 
 ### Live Modu:
 Formül yazarken formülün sonucunu canlı olarak gösterir. Üretilen formülün çıktısının alınması için hem verinin ekran üzerinden çift tıklanarak seçili hale getirilmesi hem de live modun açılması gerekmektedir. Bu işlemin yapılmasının sebebi işlemci yükünü azaltarak kapasitesi düşük bilgisayarlarda performans sağlamaktır. 
@@ -77,6 +113,7 @@ Karşılaştırma için yapılması gereken comparison kısmında iki adet isten
 ## Hakkında Ekranı
 
 About ekranı geliştirici olan İbrahim ÜNAL hakkında hem mail adresi hem de geliştirme motivasyonu hakkında bilgi verir. Uygulama özellikleri hakkında da kısa bir bilgilendirme manifestosu şeklindedir. 
+
 
 
 ## LED İsimlerini Değiştirme:
