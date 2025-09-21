@@ -46,20 +46,20 @@ Calibration butonuna basıldığında açılan bu pencere, spektroskopi sensörl
 
 **Export:** Start butonuna basıldığı andan stop tuşuna basılan ana kadar olan tüm veriler CSV formatında dışa aktarılır ve Excel dosyası ile açılabilir hale getirilir. 
 
-## Grafik Pencereleri:
+## Graph Windows:
 
 **Raw Data:** Seçilen sensörlerden gelen ham verileri mV cinsinden ekrana yansıtır.
 
-**Calibrated Data:** Sensörlerden gelen veriler kalibrasyon ekranında yapılan kalibrasyon işlemi sonucunda oluşan işlenmiş verileri gösterir. 
+**Calibrated Data:** Sensörlerden gelen veriler kalibrasyon ekranında yapılan kalibrasyon işlemi sonucunda oluşan işlenmiş verileri gösterir.
 
 
-## Gerçek Zamanlı Panel:
+## Real Time Panel:
 
 4 adet sensörden gelen verileri hem kalibre edilmiş hem de ham şeklinde gösteren panel.
 
 Tam ekran yapılması durumunda en-boy oranını bozmadan büyüme gösterir. Veriler kaydırılabilir formattadır. Bu ekranda 4 adet sensör beraber yukarı-aşağı kaydırılabilir, grafiklerin rahat görülümü sağlanır.
 
-## Özel Veri Üretici
+## Custom Data Generator
 
 Formül tabanlı veri üretim paneli kullanım şekli:
 
@@ -95,7 +95,7 @@ Formül yazarken formülün sonucunu canlı olarak gösterir. Üretilen formül�
 ### Kontroller:
 Bu program ile yapılan başka bir denklemi içeriye aktarma ya da halihazırda var olan denklemi dışarıya aktarma işlemi. Bu uygulamanın olduğu başka programlarda kullanmak için. 
 
-## Veri Kaydetme:
+## Data Recording:
 
 Panelin amacı seçilen süre kadar (varsayılan olarak 15 saniye) 4 sensör için veri kaydı yapmaktır.
 
@@ -110,7 +110,7 @@ Hangi çıktının verilmesi isteniyorsa bu yazılar `config` klasörünün içi
 ### Karşılaştırma:
 Karşılaştırma için yapılması gereken comparison kısmında iki adet istenilen veri seçilir ve "Compare Selected Records" tuşuna basılır. Ardından karşılaştırma işlemi gerçekleştirilmiş olur.
 
-## Hakkında Ekranı
+## About
 
 About ekranı geliştirici olan İbrahim ÜNAL hakkında hem mail adresi hem de geliştirme motivasyonu hakkında bilgi verir. Uygulama özellikleri hakkında da kısa bir bilgilendirme manifestosu şeklindedir. 
 
