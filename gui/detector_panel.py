@@ -4,20 +4,27 @@ from typing import Dict, List, Optional, Callable, Any
 
 from utils.logger import app_logger
 from config.constants import SENSOR_INFO
+from config.settings import settings_manager
 
 class DetectorPanel:
-    """4 Detector Real-Time Panel - UV, Blue, IR1, IR2"""
     
     def __init__(self, parent_frame: tk.Frame):
         self.parent_frame = parent_frame
         self.data_callback = None
         
-        # Detector bilgileri
+        led_names = settings_manager.get_led_names()
+        led_key_mapping = {
+            "UV_360nm": "UV LED (360nm)",
+            "Blue_450nm": "Blue LED (450nm)", 
+            "IR_850nm": "IR LED (850nm)",
+            "IR_940nm": "IR LED (940nm)"
+        }
+        
         self.detectors = {
-            "UV_DETECTOR": {"name": "UV Detector", "sensor_key": "UV_360nm"},
-            "BLUE_DETECTOR": {"name": "Blue Detector", "sensor_key": "Blue_450nm"},
-            "IR_DETECTOR_1": {"name": "IR Detector 1", "sensor_key": "IR_850nm"},
-            "IR_DETECTOR_2": {"name": "IR Detector 2", "sensor_key": "IR_940nm"}
+            "UV_DETECTOR": {"name": led_names.get(led_key_mapping["UV_360nm"], "UV Detector"), "sensor_key": "UV_360nm"},
+            "BLUE_DETECTOR": {"name": led_names.get(led_key_mapping["Blue_450nm"], "Blue Detector"), "sensor_key": "Blue_450nm"},
+            "IR_DETECTOR_1": {"name": led_names.get(led_key_mapping["IR_850nm"], "IR Detector 1"), "sensor_key": "IR_850nm"},
+            "IR_DETECTOR_2": {"name": led_names.get(led_key_mapping["IR_940nm"], "IR Detector 2"), "sensor_key": "IR_940nm"}
         }
         
         # Veri label'ları
@@ -33,6 +40,24 @@ class DetectorPanel:
     def set_data_callback(self, callback: Callable):
         """Veri callback'ini ayarla"""
         self.data_callback = callback
+    
+    def _get_calibration_unit(self, sensor_key: str) -> str:
+        """Sensör için kalibrasyon birimini al"""
+        try:
+            if self.data_callback:
+                # Ana pencereden verileri al
+                data = self.data_callback()
+                if 'calibration_functions' in data:
+                    calibration_functions = data['calibration_functions']
+                    if (calibration_functions and 
+                        sensor_key in calibration_functions and 
+                        calibration_functions[sensor_key]):
+                        unit = calibration_functions[sensor_key].get('unit', 'N/A')
+                        return unit
+        except Exception as e:
+            app_logger.error(f"Kalibrasyon birimi alma hatası: {e}")
+        
+        return "N/A"
     
     def setup_panel(self):
         """Ana paneli kur"""
@@ -164,7 +189,7 @@ class DetectorPanel:
                                    font=("Arial", 24, "bold"), anchor="center")
         raw_value_label.pack(expand=True, fill=tk.BOTH)
         
-        raw_unit_label = ttk.Label(raw_frame, text="V", 
+        raw_unit_label = ttk.Label(raw_frame, text="mV", 
                                   font=("Arial", 16), anchor="center")
         raw_unit_label.pack(fill=tk.X)
         
@@ -173,11 +198,11 @@ class DetectorPanel:
         cal_frame.grid(row=0, column=1, padx=(3, 0), pady=0, sticky="nsew")
         
         # CAL içeriği - responsive
-        cal_value_label = ttk.Label(cal_frame, text="0.000", 
+        cal_value_label = ttk.Label(cal_frame, text="N/A", 
                                    font=("Arial", 24, "bold"), anchor="center")
         cal_value_label.pack(expand=True, fill=tk.BOTH)
         
-        cal_unit_label = ttk.Label(cal_frame, text="ppm", 
+        cal_unit_label = ttk.Label(cal_frame, text="N/A", 
                                   font=("Arial", 16), anchor="center")
         cal_unit_label.pack(fill=tk.X)
         
@@ -268,25 +293,43 @@ class DetectorPanel:
             for detector_key, detector_info in self.detectors.items():
                 sensor_key = detector_info["sensor_key"]
                 
-                # Raw data güncelle
+                # Raw data güncelle - mV formatında (4 haneli)
                 if "raw_data" in data and sensor_key in data["raw_data"]:
                     raw_value = data["raw_data"][sensor_key]
                     self.current_raw_values[detector_key] = raw_value
                     
                     if detector_key in self.raw_data_labels:
+                        # mV formatına çevir (4 haneli sayı)
+                        mv_value = max(0, min(9999, int(raw_value)))
                         self.raw_data_labels[detector_key]["value"].configure(
-                            text=f"{raw_value:.3f}"
+                            text=f"{mv_value:04d}"  # 4 haneli format: 0001, 0123, 1234
                         )
+                        # Unit'i mV olarak ayarla
+                        self.raw_data_labels[detector_key]["unit"].configure(text="mV")
                 
-                # Calibrated data güncelle
-                if "calibrated_data" in data and sensor_key in data["calibrated_data"]:
+                # Calibrated data güncelle - N/A kontrolü ile
+                if ("calibrated_data" in data and 
+                    sensor_key in data["calibrated_data"] and
+                    "calibration_functions" in data and
+                    sensor_key in data["calibration_functions"] and
+                    data["calibration_functions"][sensor_key] is not None):
+                    
                     cal_value = data["calibrated_data"][sensor_key]
                     self.current_cal_values[detector_key] = cal_value
                     
                     if detector_key in self.cal_data_labels:
+                        # Gerçek kalibrasyon verisi var - değeri ve birimi göster
                         self.cal_data_labels[detector_key]["value"].configure(
                             text=f"{cal_value:.3f}"
                         )
+                        # Unit'i gerçek kalibrasyon biriminden al
+                        unit = self._get_calibration_unit(sensor_key)
+                        self.cal_data_labels[detector_key]["unit"].configure(text=unit)
+                else:
+                    # Kalibrasyon yok - N/A göster
+                    if detector_key in self.cal_data_labels:
+                        self.cal_data_labels[detector_key]["value"].configure(text="N/A")
+                        self.cal_data_labels[detector_key]["unit"].configure(text="N/A")
                         
         except Exception as e:
             app_logger.error(f"Detector panel değer güncelleme hatası: {e}")

@@ -59,6 +59,12 @@ class CalibrationManager:
             'unit': unit
         }
         
+        # Debug: Gelen parametreleri logla
+        app_logger.info(f"CALIBRATION MANAGER - start_calibration:")
+        app_logger.info(f"  sensor_key: '{sensor_key}'")
+        app_logger.info(f"  molecule_name: '{molecule_name}'")
+        app_logger.info(f"  unit: '{unit}'")
+        
         log_calibration_event(app_logger, sensor_key, "CALIBRATION_STARTED", 
                             f"Molecule: {molecule_name}, Unit: {unit}")
         return True

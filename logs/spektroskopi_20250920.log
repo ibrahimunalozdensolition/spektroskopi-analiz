@@ -6025,3 +6025,13 @@
 2025-09-20 14:55:40 - spektroskopi - INFO - Ana GUI başlatıldı
 2025-09-20 14:55:41 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
 2025-09-20 14:55:51 - spektroskopi - INFO - Tarama tamamlandı: 0 cihaz bulundu
+2025-09-20 14:57:53 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2025-09-20 14:57:53 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2025-09-20 14:57:53 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-09-20 14:57:53 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-09-20 14:57:53 - spektroskopi - INFO - Tema uygulandı: light (sistem: light)
+2025-09-20 14:57:53 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2025-09-20 14:57:53 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2025-09-20 14:57:53 - spektroskopi - INFO - Ana GUI başlatıldı
+2025-09-20 14:57:54 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2025-09-20 14:58:04 - spektroskopi - INFO - Tarama tamamlandı: 0 cihaz bulundu

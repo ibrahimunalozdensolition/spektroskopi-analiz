@@ -364,6 +364,9 @@ In this project, I undertook the following tasks:
         
         self.update_custom_panels()
         
+        # Calibration window'a anlık değerleri gönder
+        self.update_calibration_window_with_live_data()
+        
         self.root.after(UPDATE_INTERVAL_MS, self.update_data)
     
     def update_plots(self):
@@ -394,6 +397,23 @@ In this project, I undertook the following tasks:
                 self.calibration_window.update_live_measurement(sensor_key, raw_value)
         except Exception as e:
             app_logger.error(f"Kalibrasyon penceresi ölçüm güncelleme hatası: {e}")
+    
+    def update_calibration_window_with_live_data(self):
+        """Calibration window'a anlık raw data gönder"""
+        try:
+            if (self.calibration_window and 
+                self.calibration_window.is_window_open()):
+                
+                # En güncel raw değerleri al
+                latest_values = self.data_processor.get_latest_values()
+                
+                # Her sensör için calibration window'u güncelle
+                for sensor_key, raw_value in latest_values.items():
+                    if raw_value > 0:  # Sadece geçerli değerler için
+                        self.calibration_window.update_live_measurement(sensor_key, raw_value)
+                        
+        except Exception as e:
+            app_logger.error(f"Calibration window live data güncelleme hatası: {e}")
     
     
     def update_custom_panels(self):
@@ -472,10 +492,31 @@ In this project, I undertook the following tasks:
             self.calibration_window = CalibrationWindow(self.root, self.calibration_manager)
             self.calibration_window.set_callbacks(
                 data_callback=self.get_current_sensor_value,
-                led_control_callback=self.control_calibration_led
+                led_control_callback=self.control_calibration_led,
+                calibration_completed_callback=self.on_calibration_completed
             )
         
         self.calibration_window.open_window()
+    
+    def on_calibration_completed(self, sensor_key: str, calibration_function: Dict[str, Any]):
+        """Kalibrasyon tamamlandığında çağrılır - sadece ilgili sensörü günceller"""
+        try:
+            # Sadece ilgili sensörün kalibrasyonunu güncelle
+            current_calibrations = self.data_processor.calibration_functions.copy()
+            current_calibrations[sensor_key] = calibration_function
+            
+            # Data processor'ı güncelle
+            self.data_processor.set_calibration_functions(current_calibrations)
+            
+            # Settings'e kaydet
+            from config.settings import settings_manager
+            settings_manager.set_calibration_function(sensor_key, calibration_function)
+            settings_manager.save_settings()
+            
+            app_logger.info(f"Kalibrasyon tamamlandı ve kaydedildi: {sensor_key}")
+            
+        except Exception as e:
+            app_logger.error(f"Kalibrasyon tamamlama callback hatası: {e}")
     
     def export_data(self):
         """Verileri dışa aktar"""
@@ -872,8 +913,9 @@ In this project, I undertook the following tasks:
                 if func:
                     calibration_functions[sensor_key] = func
             
-            self.data_processor.set_calibration_functions(calibration_functions)
-            self.calibration_manager.calibration_functions = calibration_functions
+            # Her sistem için ayrı kopya oluştur (paylaşımlı referans sorununu önler)
+            self.data_processor.set_calibration_functions(calibration_functions.copy())
+            self.calibration_manager.calibration_functions = calibration_functions.copy()
             
             if self.formula_panel:
                 self.formula_panel.load_formulas_from_settings()
@@ -971,8 +1013,23 @@ In this project, I undertook the following tasks:
                     'IR_940nm': [self.data_processor.last_sensor_values['IR_940nm']]
                 }
                 
-                app_logger.debug(f"RealTimePanel için son değerlerden veri oluşturuldu")
-                return (timestamps, temp_measurements, spectrum_intensities, calibrated_data)
+                # Calibrated data için de son değerlerden veri oluştur
+                temp_calibrated_data = {
+                    'timestamps': timestamps,
+                    'UV_360nm': [],
+                    'Blue_450nm': [],
+                    'IR_850nm': [],
+                    'IR_940nm': []
+                }
+                
+                # Her sensör için kalibrasyon uygula
+                for sensor_key in ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']:
+                    raw_value = self.data_processor.last_sensor_values[sensor_key]
+                    calibrated_value = self.data_processor._apply_calibration(sensor_key, raw_value)
+                    temp_calibrated_data[sensor_key] = [calibrated_value]
+                
+                app_logger.debug(f"RealTimePanel için son değerlerden raw ve calibrated veri oluşturuldu")
+                return (timestamps, temp_measurements, spectrum_intensities, temp_calibrated_data)
             
             # Debug: Veri durumunu kontrol et
             if timestamps:
@@ -1020,9 +1077,13 @@ In this project, I undertook the following tasks:
             # Calibrated data
             calibrated_values = self.data_processor.get_latest_calibrated_values()
             
+            # Calibration functions (unit bilgisi için)
+            calibration_functions = self.data_processor.calibration_functions.copy()
+            
             return {
                 'raw_data': raw_values,
-                'calibrated_data': calibrated_values
+                'calibrated_data': calibrated_values,
+                'calibration_functions': calibration_functions
             }
             
         except Exception as e:

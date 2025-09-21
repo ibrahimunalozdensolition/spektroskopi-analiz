@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-09-21T17:57:12.864651",
+  "calibration_functions": {
+    "UV_360nm": {
+      "slope": -0.06880733944953797,
+      "intercept": 204.13302752293188,
+      "r_squared": 0.17201834862384957,
+      "molecule": "",
+      "unit": "Prime_İndex",
+      "calibration_points": 3,
+      "created_at": "2025-09-21T17:18:21.914061"
+    },
+    "Blue_450nm": {
+      "slope": 0.051114023591086834,
+      "intercept": 53.08781127129896,
+      "r_squared": 0.6644823066841401,
+      "molecule": "",
+      "unit": "Prime_İndex",
+      "calibration_points": 3,
+      "created_at": "2025-09-21T17:17:38.888740"
+    },
+    "IR_850nm": {
+      "slope": 0.6428571428572012,
+      "intercept": -1028.8571428572475,
+      "r_squared": 0.9642857142856981,
+      "molecule": "",
+      "unit": "Prime_İndex",
+      "calibration_points": 3,
+      "created_at": "2025-09-21T17:24:42.255773"
+    },
+    "IR_940nm": {
+      "slope": -0.09999999999998949,
+      "intercept": 344.4999999999769,
+      "r_squared": 0.25,
+      "molecule": "şeker",
+      "unit": "Prime_İndex",
+      "calibration_points": 3,
+      "created_at": "2025-09-21T17:39:14.308381"
+    }
+  },
+  "calibration_history": []
+}

@@ -65,7 +65,6 @@ class DataProcessor:
         # Kalibrasyon fonksiyonları (dışarıdan set edilecek)
         self.calibration_functions = {}
         
-        # Son sensör değerleri (tüm sensörler için)
         self.last_sensor_values = {
             'UV_360nm': 0.0,
             'Blue_450nm': 0.0,
@@ -174,6 +173,12 @@ class DataProcessor:
         try:
             current_time = data_packet.get('timestamp', datetime.now())
             
+            # Zaman sıralama kontrolü - geriye gitmeyi önle
+            if hasattr(self, 'last_display_time') and current_time < self.last_display_time:
+                # Geriye giden zaman durumunda, son zamandan 1ms sonra ayarla
+                current_time = self.last_display_time + timedelta(milliseconds=1)
+                app_logger.warning(f"Zaman sıralama düzeltildi: {current_time}")
+            
             # Önce gelen veriyi son değerlere kaydet
             for pi_sensor, gui_sensor in SENSOR_MAPPING.items():
                 if pi_sensor in data_packet and data_packet[pi_sensor] > 0:
@@ -187,7 +192,7 @@ class DataProcessor:
             
             self._cleanup_synchronized_buffers()
             
-            # Tek timestamp ekle
+            # Tek timestamp ekle - düzeltilmiş zamanla
             self.measurements['timestamps'].append(current_time)
             
             # Display zamanını güncelle
@@ -221,8 +226,11 @@ class DataProcessor:
             return False
     
     def _process_averaged_data(self, current_time: datetime) -> bool:
-        """Ortalama alınmış veriyi işle"""
         try:
+            if hasattr(self, 'last_output_time') and current_time < self.last_output_time:
+                current_time = self.last_output_time + timedelta(milliseconds=1)
+                app_logger.warning(f"Zaman sıralama düzeltildi (averaged): {current_time}")
+            
             app_logger.debug("Veri işleme tamamlandı - sampling rate kontrolü kaldırıldı")
             
             # Her sensör için ortalama hesapla
@@ -333,14 +341,17 @@ class DataProcessor:
         return latest_values
     
     def get_latest_calibrated_values(self) -> Dict[str, float]:
-        """En son kalibre edilmiş değerleri al"""
+        """En son kalibre edilmiş değerleri al - sadece kalibre edilmiş sensörler için"""
         latest_values = {}
         
         for sensor_key in ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']:
-            if sensor_key in self.calibrated_data and self.calibrated_data[sensor_key]:
+            # Sadece kalibrasyon fonksiyonu olan ve calibrated_data'sı bulunan sensörler
+            if (sensor_key in self.calibration_functions and 
+                self.calibration_functions[sensor_key] is not None and
+                sensor_key in self.calibrated_data and 
+                self.calibrated_data[sensor_key]):
                 latest_values[sensor_key] = self.calibrated_data[sensor_key][-1]
-            else:
-                latest_values[sensor_key] = 0.0
+            # Kalibre edilmemiş sensörler için değer döndürme - None veya hiç ekleme
         
         return latest_values
     

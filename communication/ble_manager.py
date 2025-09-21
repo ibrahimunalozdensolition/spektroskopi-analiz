@@ -209,6 +209,9 @@ class BLEManager:
     def _notification_handler(self, sender, data: bytes):
         """BLE notification handler"""
         try:
+            # Veri alım zamanını hemen kaydet (zaman sıralama sorununu önler)
+            receive_timestamp = datetime.now()
+            
             app_logger.info(f"Raspberry Pi'dan veri alındı: {sender}, uzunluk: {len(data)}")
             
             # Veriyi parse et
@@ -226,9 +229,10 @@ class BLEManager:
             if sensor_key:
                 self.sensor_values[sensor_key] = voltage
                 
-                # Veri paketini oluştur
+                # Veri paketini oluştur - timestamp'i en başta aldığımız zamanla kullan
                 data_packet = {
-                    'timestamp': datetime.now(),
+                    'timestamp': receive_timestamp,  # Sabit zaman kullan
+                    'sensor_key': sensor_key,  # Hangi sensörden geldiğini belirt
                     'sensor_2': voltage if sensor_key == "SENSOR_2" else 0,
                     'sensor_5': voltage if sensor_key == "SENSOR_5" else 0,
                     'sensor_7': voltage if sensor_key == "SENSOR_7" else 0,

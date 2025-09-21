@@ -11,7 +11,6 @@ from utils.logger import app_logger
 from config.constants import SENSOR_INFO
 
 class RecordingPanel:
-    """Data Recording paneli - 15 saniye kayıt ve ortalama"""
     
     def __init__(self, parent_frame: tk.Frame):
         self.parent_frame = parent_frame
@@ -42,7 +41,7 @@ class RecordingPanel:
         # Veri callback
         self.data_callback = None
         
-        self.recording_duration = 10
+        self.recording_duration = 15
         
         self.records_dir = "records"
         self.ensure_records_directory()

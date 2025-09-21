@@ -73,8 +73,12 @@ class StandalonePlotWindow:
             # Plot widget oluştur
             self.plot_widget = pg.PlotWidget()
 
-            # Grafik ayarları
-            self.plot_widget.setLabel('left', 'Voltage (mV)')
+            # Grafik ayarları - Y ekseni formatını belirle
+            if "Calibrated" in self.title:
+                self.plot_widget.setLabel('left', 'Calibrated Value (N/A if no calibration)')
+            else:
+                self.plot_widget.setLabel('left', 'Voltage (mV)')
+            
             self.plot_widget.setLabel('bottom', 'Time (seconds)')
             # Title'ı kaldırdık, üstte büyük başlık var
             self.plot_widget.showGrid(x=True, y=True, alpha=0.3)
@@ -241,10 +245,28 @@ class StandalonePlotWindow:
                 if timestamps_iso and sensor_data:
                     timestamps = [datetime.fromisoformat(t) for t in timestamps_iso]
                     
+                    # Zaman sıralaması kontrolü - geriye giden zamanları düzelt
+                    sorted_timestamps = []
+                    last_time = None
+                    
+                    for t in timestamps:
+                        if last_time is None:
+                            sorted_timestamps.append(t)
+                            last_time = t
+                        elif t >= last_time:
+                            sorted_timestamps.append(t)
+                            last_time = t
+                        else:
+                            # Geriye giden zaman - son zamandan 1ms sonra ayarla
+                            corrected_time = last_time + timedelta(milliseconds=1)
+                            sorted_timestamps.append(corrected_time)
+                            last_time = corrected_time
+                            print(f"Zaman sıralama düzeltildi: {t} -> {corrected_time}")
+                    
                     # Zaman verilerini saniye cinsine çevir
-                    if len(timestamps) > 0:
-                        start_time = timestamps[0]
-                        time_seconds = [(t - start_time).total_seconds() for t in timestamps]
+                    if len(sorted_timestamps) > 0:
+                        start_time = sorted_timestamps[0]
+                        time_seconds = [(t - start_time).total_seconds() for t in sorted_timestamps]
                         
                         # Her sensör için veriyi güncelle
                         for sensor_key in self.selected_sensors:
@@ -252,12 +274,28 @@ class StandalonePlotWindow:
                                 if sensor_key in self.plot_curves:
                                     sensor_values = sensor_data[sensor_key]
                                     
+                                    # Veri formatını kontrol et ve işle
+                                    processed_values = []
+                                    for value in sensor_values:
+                                        if "Calibrated" in self.title:
+                                            # Calibrated data için N/A kontrolü
+                                            if value is None or (isinstance(value, (int, float)) and value == 0):
+                                                processed_values.append(float('nan'))  # N/A için NaN kullan
+                                            else:
+                                                processed_values.append(float(value))
+                                        else:
+                                            # Raw data için mV formatı (4 haneli)
+                                            if isinstance(value, (int, float)):
+                                                processed_values.append(max(0, min(9999, int(value))))
+                                            else:
+                                                processed_values.append(0)
+                                    
                                     # Veri uzunluklarını eşitle
-                                    min_len = min(len(time_seconds), len(sensor_values))
+                                    min_len = min(len(time_seconds), len(processed_values))
                                     if min_len > 0:
                                         self.plot_curves[sensor_key].setData(
                                             time_seconds[:min_len], 
-                                            sensor_values[:min_len]
+                                            processed_values[:min_len]
                                         )
                                         print(f"Sensör güncellendi: {sensor_key}, {min_len} nokta")
                                 else:

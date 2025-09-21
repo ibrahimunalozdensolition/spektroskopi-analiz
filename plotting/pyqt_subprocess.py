@@ -7,6 +7,7 @@ import json
 import tempfile
 import os
 import threading
+import platform
 from typing import List, Dict, Any, Optional
 from datetime import datetime
 
@@ -19,9 +20,16 @@ class PyQtSubprocessManager:
         self.active_processes = {}
         self.data_files = {}
     
+    def _get_python_command(self) -> str:
+        """Platform'a göre python komutunu belirle"""
+        system = platform.system().lower()
+        if system == "windows":
+            return "python"
+        else:  # macOS, Linux ve diğerleri için
+            return "python3"
+    
     def create_graph_window(self, window_id: str, selected_sensors: List[str], 
                            title: str, graph_type: str = "line") -> bool:
-        """Ayrı process'te PyQt grafik penceresi oluştur"""
         try:
             # Geçici veri dosyası oluştur
             temp_file = tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False)
@@ -45,8 +53,9 @@ class PyQtSubprocessManager:
             script_path = os.path.join(os.path.dirname(__file__), 'pyqt_standalone.py')
             
             # Subprocess başlat
+            python_cmd = self._get_python_command()
             process = subprocess.Popen([
-                'python3', script_path, data_file_path
+                python_cmd, script_path, data_file_path
             ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             
             self.active_processes[window_id] = process

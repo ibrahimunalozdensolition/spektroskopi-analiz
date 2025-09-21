@@ -11,10 +11,9 @@ class SettingsManager:
         self.current_settings = self.load_settings()
     
     def _get_default_settings(self) -> Dict[str, Any]:
-        """Varsayılan ayarları döndür"""
         return {
             'led_names': {
-                'UV LED (360nm)': 'UV',
+                'UV LED (360nm)': 'Uv',
                 'Blue LED (450nm)': 'Blue',
                 'IR LED (850nm)': 'IR850', 
                 'IR LED (940nm)': 'IR940'
@@ -22,7 +21,7 @@ class SettingsManager:
             'custom_data': {
                 'selected_sensor': None,
                 'multiplier': 1.0,
-                'unit': 'V'
+                'unit': 'mV'
             },
             'graph_settings': {
                 'update_interval': 100,
@@ -43,11 +42,10 @@ class SettingsManager:
                 'rate_ms': 500,
                 'buffer_size': 100
             },
-            # appearance bölümü kaldırıldı - sistem teması otomatik algılanacak
+           
         }
     
     def load_settings(self) -> Dict[str, Any]:
-        """Ayarları dosyadan yükle"""
         try:
             if os.path.exists(self.settings_file):
                 with open(self.settings_file, 'r', encoding='utf-8') as f:
@@ -96,7 +94,6 @@ class SettingsManager:
             return default
     
     def set(self, key_path: str, value: Any) -> bool:
-        """Noktalı yol ile ayar değeri belirle"""
         keys = key_path.split('.')
         target = self.current_settings
         

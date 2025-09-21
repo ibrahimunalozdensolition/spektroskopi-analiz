@@ -314,9 +314,7 @@ class FormulaPanel:
         ttk.Button(button_frame, text="✏️ Edit", 
                   command=self.edit_selected_formula).pack(side=tk.LEFT, padx=(0, 10))
         
-        ttk.Button(button_frame, text="🧪 Test", 
-                  command=self.test_selected_formula,
-                  style="Blue.TButton").pack(side=tk.LEFT, padx=(0, 10))
+      
         
         ttk.Button(button_frame, text="☑ Select All", 
                   command=self.select_all_formulas,
