@@ -4,6 +4,7 @@ PyQt Tabanlı İnteraktif Grafik Modülü
 
 import sys
 import os
+import json
 import platform
 from typing import Dict, List, Optional, Tuple
 from datetime import datetime
@@ -41,7 +42,6 @@ from utils.logger import app_logger
 from utils.helpers import filter_data_by_time_range
 
 class PyQtPlotter:
-    """PyQt tabanlı interaktif grafik sınıfı"""
     
     def __init__(self):
         self.qt_app = None
@@ -49,9 +49,59 @@ class PyQtPlotter:
         self.plot_curves = {}
         self.is_initialized = False
         
+        # LED isimlerini yükle
+        self.led_names = self._load_app_settings()
+        
         if PYQTGRAPH_AVAILABLE:
             self.setup_qt_application()
             self.setup_plot_widget()
+    
+    def _load_app_settings(self):
+        try:
+            # Script'in bulunduğu dizinin parent dizininde app_settings.json'ı ara
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            parent_dir = os.path.dirname(script_dir)
+            settings_path = os.path.join(parent_dir, 'app_settings.json')
+            
+            if os.path.exists(settings_path):
+                with open(settings_path, 'r', encoding='utf-8') as f:
+                    settings = json.load(f)
+                return settings.get('led_names', {})
+            else:
+                app_logger.warning(f"app_settings.json bulunamadı: {settings_path}")
+                return {}
+        except Exception as e:
+            app_logger.error(f"Settings yükleme hatası: {e}")
+            return {}
+    
+    def _get_led_name_for_sensor(self, sensor_key: str) -> str:
+        """Sensor key'e göre LED ismini döndür"""
+        default_names = {
+            'UV_360nm': 'UV LED (360nm)',
+            'Blue_450nm': 'Blue LED (450nm)', 
+            'IR_850nm': 'IR LED (850nm)',
+            'IR_940nm': 'IR LED (940nm)'
+        }
+        
+        # Sensor key'e göre LED ismini bul - value'ları kullan
+        led_name = None
+        if sensor_key == 'UV_360nm':
+            key = next((key for key in self.led_names.keys() if '360nm' in key), None)
+            led_name = self.led_names.get(key) if key else None
+        elif sensor_key == 'Blue_450nm':
+            key = next((key for key in self.led_names.keys() if '450nm' in key), None)
+            led_name = self.led_names.get(key) if key else None
+        elif sensor_key == 'IR_850nm':
+            key = next((key for key in self.led_names.keys() if '850nm' in key), None)
+            led_name = self.led_names.get(key) if key else None
+        elif sensor_key == 'IR_940nm':
+            key = next((key for key in self.led_names.keys() if '940nm' in key), None)
+            led_name = self.led_names.get(key) if key else None
+        
+        if not led_name:
+            led_name = default_names.get(sensor_key, sensor_key)
+        
+        return led_name
     
     def setup_qt_application(self):
         """Qt Application kurulumu"""
@@ -104,14 +154,18 @@ class PyQtPlotter:
     
     def setup_plot_curves(self):
         """Grafik eğrilerini kurulum"""
-        sensor_names = ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']
+        sensor_keys = ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']
         
-        for i, sensor in enumerate(sensor_names):
+        for i, sensor_key in enumerate(sensor_keys):
             color = PLOT_COLORS[i % len(PLOT_COLORS)]
-            self.plot_curves[sensor] = self.plot_widget.plot(
+            
+            # LED ismini app_settings.json'dan çek
+            led_name = self._get_led_name_for_sensor(sensor_key)
+            
+            self.plot_curves[sensor_key] = self.plot_widget.plot(
                 [], [], 
                 pen=pg.mkPen(color=color, width=2),
-                name=sensor
+                name=led_name
             )
     
     def show_window(self, title: str = "Interactive Real-Time Sensor Data", 
@@ -140,26 +194,53 @@ class PyQtPlotter:
             return
         
         try:
+            # Veri doğrulama - boş veya geçersiz veriler için kontrol
+            if not isinstance(timestamps, list) or len(timestamps) == 0:
+                app_logger.warning("PyQtGraph: Geçersiz timestamp verisi")
+                return
+            
             # Zaman verilerini saniye cinsine çevir
             start_time = timestamps[0]
             time_seconds = [(t - start_time).total_seconds() for t in timestamps]
             
-            # Her sensör için veriyi güncelle - uzunluk kontrolü gevşetildi
+            # Veri senkronizasyonu için güvenli uzunluk hesaplama
+            valid_data_found = False
+            
+            # Her sensör için veriyi güncelle - sıkı uzunluk kontrolü
             for sensor_key in ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']:
                 if (sensor_key in data_dict and 
                     sensor_key in self.plot_curves and 
+                    isinstance(data_dict[sensor_key], list) and
                     len(data_dict[sensor_key]) > 0):
                     
-                    # Veri uzunluklarını eşitle
-                    min_len = min(len(time_seconds), len(data_dict[sensor_key]))
-                    if min_len > 0:
-                        self.plot_curves[sensor_key].setData(
-                            time_seconds[:min_len], 
-                            data_dict[sensor_key][:min_len]
-                        )
+                    sensor_data = data_dict[sensor_key]
+                    
+                    # Veri uzunluklarını kesin olarak eşitle
+                    min_len = min(len(time_seconds), len(sensor_data))
+                    
+                    # Minimum veri kontrolü - çok az veri varsa güncelleme yapma
+                    if min_len >= 1:
+                        # Veri türü kontrolü - sayısal değerler olduğundan emin ol
+                        try:
+                            clean_time_data = time_seconds[:min_len]
+                            clean_sensor_data = [float(x) for x in sensor_data[:min_len]]
+                            
+                            self.plot_curves[sensor_key].setData(clean_time_data, clean_sensor_data)
+                            valid_data_found = True
+                            
+                        except (ValueError, TypeError) as ve:
+                            app_logger.warning(f"PyQtGraph {sensor_key} veri dönüşüm hatası: {ve}")
+                            continue
+                    else:
+                        app_logger.debug(f"PyQtGraph {sensor_key}: Yetersiz veri (min_len={min_len})")
+            
+            if not valid_data_found:
+                app_logger.warning("PyQtGraph: Hiç geçerli sensör verisi bulunamadı")
             
         except Exception as e:
             app_logger.error(f"PyQtGraph veri güncelleme hatası: {e}")
+            import traceback
+            app_logger.debug(f"PyQtGraph traceback: {traceback.format_exc()}")
     
     def reset_view(self):
         """Grafik görünümünü sıfırla"""
@@ -253,8 +334,59 @@ class CustomGraphWindow:
         self.plot_curves = {}
         self.is_open = False
         
+        # LED isimlerini yükle
+        self.led_names = self._load_app_settings()
+        
         if PYQTGRAPH_AVAILABLE:
             self.setup_custom_window()
+    
+    def _load_app_settings(self):
+        """app_settings.json dosyasından LED isimlerini yükle"""
+        try:
+            # Script'in bulunduğu dizinin parent dizininde app_settings.json'ı ara
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            parent_dir = os.path.dirname(script_dir)
+            settings_path = os.path.join(parent_dir, 'app_settings.json')
+            
+            if os.path.exists(settings_path):
+                with open(settings_path, 'r', encoding='utf-8') as f:
+                    settings = json.load(f)
+                return settings.get('led_names', {})
+            else:
+                app_logger.warning(f"app_settings.json bulunamadı: {settings_path}")
+                return {}
+        except Exception as e:
+            app_logger.error(f"Settings yükleme hatası: {e}")
+            return {}
+    
+    def _get_led_name_for_sensor(self, sensor_key: str) -> str:
+        """Sensor key'e göre LED ismini döndür"""
+        default_names = {
+            'UV_360nm': 'UV LED (360nm)',
+            'Blue_450nm': 'Blue LED (450nm)', 
+            'IR_850nm': 'IR LED (850nm)',
+            'IR_940nm': 'IR LED (940nm)'
+        }
+        
+        # Sensor key'e göre LED ismini bul - value'ları kullan
+        led_name = None
+        if sensor_key == 'UV_360nm':
+            key = next((key for key in self.led_names.keys() if '360nm' in key), None)
+            led_name = self.led_names.get(key) if key else None
+        elif sensor_key == 'Blue_450nm':
+            key = next((key for key in self.led_names.keys() if '450nm' in key), None)
+            led_name = self.led_names.get(key) if key else None
+        elif sensor_key == 'IR_850nm':
+            key = next((key for key in self.led_names.keys() if '850nm' in key), None)
+            led_name = self.led_names.get(key) if key else None
+        elif sensor_key == 'IR_940nm':
+            key = next((key for key in self.led_names.keys() if '940nm' in key), None)
+            led_name = self.led_names.get(key) if key else None
+        
+        if not led_name:
+            led_name = default_names.get(sensor_key, sensor_key)
+        
+        return led_name
     
     def setup_custom_window(self):
         """Özel grafik penceresini kur"""
@@ -280,10 +412,14 @@ class CustomGraphWindow:
             # Seçilen sensörler için curves oluştur
             for i, sensor_key in enumerate(self.selected_sensors):
                 color = PLOT_COLORS[i % len(PLOT_COLORS)]
+                
+                # LED ismini app_settings.json'dan çek
+                led_name = self._get_led_name_for_sensor(sensor_key)
+                
                 self.plot_curves[sensor_key] = self.plot_widget.plot(
                     [], [], 
                     pen=pg.mkPen(color=color, width=2),
-                    name=sensor_key
+                    name=led_name
                 )
             
             # Legend ekle
@@ -319,20 +455,50 @@ class CustomGraphWindow:
             return
         
         try:
+            # Veri doğrulama
+            if not isinstance(timestamps, list) or len(timestamps) == 0:
+                app_logger.warning("CustomGraphWindow: Geçersiz timestamp verisi")
+                return
+            
             # Zaman verilerini saniye cinsine çevir
             start_time = timestamps[0]
             time_seconds = [(t - start_time).total_seconds() for t in timestamps]
             
-            # Seçilen sensörler için veriyi güncelle
+            valid_updates = 0
+            
+            # Seçilen sensörler için veriyi güncelle - sıkı senkronizasyon kontrolü
             for sensor_key in self.selected_sensors:
                 if (sensor_key in data_dict and 
                     sensor_key in self.plot_curves and 
-                    len(data_dict[sensor_key]) == len(time_seconds)):
+                    isinstance(data_dict[sensor_key], list) and
+                    len(data_dict[sensor_key]) > 0):
                     
-                    self.plot_curves[sensor_key].setData(time_seconds, data_dict[sensor_key])
+                    sensor_data = data_dict[sensor_key]
+                    
+                    # Veri uzunluklarını kesin olarak eşitle
+                    min_len = min(len(time_seconds), len(sensor_data))
+                    
+                    if min_len >= 1:
+                        try:
+                            clean_time_data = time_seconds[:min_len]
+                            clean_sensor_data = [float(x) for x in sensor_data[:min_len]]
+                            
+                            self.plot_curves[sensor_key].setData(clean_time_data, clean_sensor_data)
+                            valid_updates += 1
+                            
+                        except (ValueError, TypeError) as ve:
+                            app_logger.warning(f"CustomGraphWindow {sensor_key} veri dönüşüm hatası: {ve}")
+                            continue
+                    else:
+                        app_logger.debug(f"CustomGraphWindow {sensor_key}: Yetersiz veri (min_len={min_len})")
+            
+            if valid_updates == 0:
+                app_logger.warning("CustomGraphWindow: Hiç geçerli sensör verisi güncellenmedi")
             
         except Exception as e:
             app_logger.error(f"Özel PyQt veri güncelleme hatası: {e}")
+            import traceback
+            app_logger.debug(f"CustomGraphWindow traceback: {traceback.format_exc()}")
     
     def close(self):
         """Pencereyi kapat"""

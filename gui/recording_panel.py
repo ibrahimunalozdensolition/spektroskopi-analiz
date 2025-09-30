@@ -35,11 +35,15 @@ class RecordingPanel:
         self.start_time = None
         self.recorded_data = {
             'raw': {'UV_360nm': [], 'Blue_450nm': [], 'IR_850nm': [], 'IR_940nm': []},
-            'calibrated': {'UV_360nm': [], 'Blue_450nm': [], 'IR_850nm': [], 'IR_940nm': []}
+            'calibrated': {'UV_360nm': [], 'Blue_450nm': [], 'IR_850nm': [], 'IR_940nm': []},
+            'custom': {'timestamps': []}
         }
         
         # Veri callback
         self.data_callback = None
+        
+        # Data processor referansı (custom data almak için)
+        self.data_processor = None
         
         self.recording_duration = 15
         
@@ -56,6 +60,10 @@ class RecordingPanel:
     
     def set_data_callback(self, callback: Callable):
         self.data_callback = callback
+    
+    def set_data_processor(self, data_processor):
+        """Data processor referansını ayarla"""
+        self.data_processor = data_processor
     
     def load_status_messages(self) -> Dict:
         try:
@@ -254,7 +262,7 @@ class RecordingPanel:
         self.status_label.configure(text="Status: Recording...")
         
         # Veri listelerini temizle
-        for data_type in ['raw', 'calibrated']:
+        for data_type in ['raw', 'calibrated', 'custom']:
             for sensor_key in self.recorded_data[data_type]:
                 self.recorded_data[data_type][sensor_key].clear()
         
@@ -326,6 +334,23 @@ class RecordingPanel:
                                     value = latest_data['calibrated'][sensor_key]
                                     if value is not None:  
                                         self.recorded_data['calibrated'][sensor_key].append(value)
+                            
+                            # Custom data kaydet (data_processor'dan al)
+                            if self.data_processor and data_added:
+                                try:
+                                    custom_data = self.data_processor.get_custom_data()
+                                    if custom_data and 'timestamps' in custom_data and len(custom_data['timestamps']) > 0:
+                                        # Timestamp ekle
+                                        self.recorded_data['custom']['timestamps'].append(current_time)
+                                        
+                                        # Her custom formula için son değeri al
+                                        for formula_name, values in custom_data.items():
+                                            if formula_name != 'timestamps' and len(values) > 0:
+                                                if formula_name not in self.recorded_data['custom']:
+                                                    self.recorded_data['custom'][formula_name] = []
+                                                self.recorded_data['custom'][formula_name].append(values[-1])
+                                except Exception as custom_error:
+                                    app_logger.error(f"Custom data recording error: {custom_error}")
                             
                             if data_added:
                                 sample_count += 1

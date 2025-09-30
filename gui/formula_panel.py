@@ -31,6 +31,9 @@ class FormulaPanel:
         # Veri callback
         self.data_callback = None
         
+        # Data processor referansı (custom data kaydetmek için)
+        self.data_processor = None
+        
         # Mevcut hesaplanan değerler
         self.calculated_values = {}
         
@@ -51,6 +54,10 @@ class FormulaPanel:
     def set_data_callback(self, callback: Callable):
         """Veri callback'ini ayarla"""
         self.data_callback = callback
+    
+    def set_data_processor(self, data_processor):
+        """Data processor referansını ayarla"""
+        self.data_processor = data_processor
     
     def setup_panel(self):
         """Ana paneli kur"""
@@ -316,13 +323,7 @@ class FormulaPanel:
         
       
         
-        ttk.Button(button_frame, text="☑ Select All", 
-                  command=self.select_all_formulas,
-                  style="Green.TButton").pack(side=tk.LEFT, padx=(0, 10))
-        
-        ttk.Button(button_frame, text="☐ Deselect All", 
-                  command=self.deselect_all_formulas,
-                  style="Orange.TButton").pack(side=tk.LEFT)
+        # Seçim butonları kaldırıldı - artık tüm formüller otomatik hesaplanıyor
     
     def setup_calculated_values_panel(self, parent_frame):
         """Hesaplanan değerler paneli"""
@@ -417,25 +418,23 @@ class FormulaPanel:
             messagebox.showerror("Error", f"Formül oluşturulamadı:\n{message}")
     
     def update_formula_list(self):
-        """Formül listesini güncelle - seçim durumu ile"""
+        """Formül listesini güncelle"""
         self.formula_listbox.delete(0, tk.END)
         
         for name, info in self.formula_engine.get_all_formulas().items():
             formula = info['formula']
             unit = info['unit']
             last_value = info.get('last_value', 0.0)
-            selected = info.get('selected', False)
             
-            # Seçili formülleri işaretle
-            checkbox = "☑" if selected else "☐"
-            display_text = f"{checkbox} {name} = {formula} [{unit}] → {last_value:.0f}"
+            # Basit görünüm - seçim box'ı yok
+            display_text = f"{name} = {formula} [{unit}] → {last_value:.0f}"
             self.formula_listbox.insert(tk.END, display_text)
         
         self.update_created_formulas_display()
         
         if hasattr(self, 'status_label'):
-            selected_count = self.formula_engine.get_selected_formula_count()
-            self.status_label.configure(text=f"Seçili formül sayısı: {selected_count}")
+            formula_count = len(self.formula_engine.get_all_formulas())
+            self.status_label.configure(text=f"Toplam formül sayısı: {formula_count}")
     
     def on_formula_selected(self, event):
         """Formül seçildiğinde"""
@@ -459,41 +458,17 @@ class FormulaPanel:
                     self.current_unit_label.configure(text=formula_info['unit'])
     
     def on_formula_double_click(self, event):
-        """Formül double-click - seçimi değiştir"""
-        selection = self.formula_listbox.curselection()
-        if selection:
-            index = selection[0]
-            formula_names = list(self.formula_engine.get_all_formulas().keys())
-            
-            if index < len(formula_names):
-                formula_name = formula_names[index]
-                # Formül seçimini değiştir
-                success = self.formula_engine.toggle_formula_selection(formula_name)
-                if success:
-                    # Liste görünümünü güncelle
-                    self.update_formula_list()
-                    
-                    selected_count = self.formula_engine.get_selected_formula_count()
-                    app_logger.info(f"Formül seçimi değişti: {formula_name}, Toplam seçili: {selected_count}")
-                    
-                    # Status güncelle
-                    if hasattr(self, 'status_label'):
-                        self.status_label.configure(text=f"Seçili formül sayısı: {selected_count}")
+        """Formül double-click - sadece bilgi göster"""
+        # Seçim özelliği kaldırıldı - sadece bilgi gösterimi
+        pass
     
     def select_all_formulas(self):
-        self.formula_engine.select_all_formulas(True)
-        self.update_formula_list()
-        selected_count = self.formula_engine.get_selected_formula_count()
-        app_logger.info(f"Tüm formüller seçildi: {selected_count} formül")
-        messagebox.showinfo("Success", f"{selected_count} formül seçildi")
+        # Seçim özelliği kaldırıldı
+        pass
     
     def deselect_all_formulas(self):
-        """Tüm formül seçimlerini kaldır"""
-        self.formula_engine.select_all_formulas(False)
-        self.update_formula_list()
-        selected_count = self.formula_engine.get_selected_formula_count()
-        app_logger.info(f"Tüm formül seçimleri kaldırıldı: {selected_count} formül")
-        messagebox.showinfo("Success", "Tüm formül seçimleri kaldırıldı")
+        # Seçim özelliği kaldırıldı
+        pass
     
     def remove_selected_formula(self):
         """Seçili formülü kaldır"""
@@ -614,9 +589,10 @@ class FormulaPanel:
             app_logger.error(f"Live mod değiştirme hatası: {e}")
     
     def update_calculated_values_display(self, sensor_data: Dict[str, float]):
-        """Hesaplanan değerleri güncelle (sadece Live modu aktifken)"""
+        """Hesaplanan değerleri güncelle (sadece Live modu ve sistem çalışırken)"""
         try:
-            if not self.is_live_active:
+            # Hem LIVE modu hem de sistem durumu kontrol et
+            if not self.is_live_active or not (self.data_processor and self.data_processor.system_running):
                 return
                 
             current_time = datetime.now()
@@ -624,7 +600,11 @@ class FormulaPanel:
             
             if time_since_last_calc >= self.calculation_interval_ms:
                 if self.formula_engine.formulas:
-                    self.calculated_values = self.formula_engine.calculate_selected_formulas(sensor_data)
+                    self.calculated_values = self.formula_engine.calculate_all_available_formulas(sensor_data)
+                    
+                    # Custom data'yı data processor'a kaydet (sistem zaten çalışıyor kontrolü yukarıda yapıldı)
+                    if self.calculated_values:
+                        self.data_processor.add_custom_data(self.calculated_values)
                     
                     # Formül listesini güncelle (değerler ile)
                     self.update_formula_list()
@@ -650,6 +630,24 @@ class FormulaPanel:
                 
         except Exception as e:
             app_logger.error(f"Hesaplanan değer güncelleme hatası: {e}")
+    
+    def start_system_integration(self):
+        """Sistem başlatıldığında çağrılır - tüm formülleri otomatik hesaplamaya başlat"""
+        try:
+            if self.formula_engine.formulas and not self.is_live_active:
+                self.toggle_live_mode()
+                app_logger.info("Sistem başlatıldı - Custom data hesaplamaları otomatik başlatıldı")
+        except Exception as e:
+            app_logger.error(f"Sistem entegrasyonu başlatma hatası: {e}")
+    
+    def stop_system_integration(self):
+        """Sistem durdurulduğunda çağrılır - live modu durdur"""
+        try:
+            if self.is_live_active:
+                self.toggle_live_mode()
+                app_logger.info("Sistem durduruldu - Custom data hesaplamaları durduruldu")
+        except Exception as e:
+            app_logger.error(f"Sistem entegrasyonu durdurma hatası: {e}")
     
     def clear_inputs(self):
         """Girişleri temizle"""

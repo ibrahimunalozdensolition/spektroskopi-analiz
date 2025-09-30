@@ -274,18 +274,16 @@ class DetectorPanel:
         """Veri güncelleme"""
         try:
             if self.data_callback:
-                # Veri callback'inden güncel verileri al
                 data = self.data_callback()
                 if data:
                     self.update_display_values(data)
             
-            # 100ms sonra tekrar güncelle
-            self.parent_frame.after(100, self.update_data)
+            self.parent_frame.after(2000, self.update_data)
             
         except Exception as e:
             app_logger.error(f"Detector panel veri güncelleme hatası: {e}")
-            # Hata durumunda da güncellemeye devam et
-            self.parent_frame.after(100, self.update_data)
+            # Hata durumunda da güncellemeye devam et - YAVAŞ GÜNCELLEMe
+            self.parent_frame.after(2000, self.update_data)
     
     def update_display_values(self, data):
         """Görüntülenen değerleri güncelle"""

@@ -7,7 +7,7 @@ import sys
 import json
 import time
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Dict, List
 
 try:
@@ -20,6 +20,24 @@ except ImportError:
     print("PyQt5 veya PyQtGraph yüklü değil!")
     sys.exit(1)
 
+def load_app_settings():
+    try:
+        # Script'in bulunduğu dizinin parent dizininde app_settings.json'ı ara
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        parent_dir = os.path.dirname(script_dir)
+        settings_path = os.path.join(parent_dir, 'app_settings.json')
+        
+        if os.path.exists(settings_path):
+            with open(settings_path, 'r', encoding='utf-8') as f:
+                settings = json.load(f)
+            return settings.get('led_names', {})
+        else:
+            print(f"app_settings.json bulunamadı: {settings_path}")
+            return {}
+    except Exception as e:
+        print(f"Settings yükleme hatası: {e}")
+        return {}
+
 class StandalonePlotWindow:
     """Standalone PyQt grafik penceresi"""
     
@@ -29,6 +47,9 @@ class StandalonePlotWindow:
         self.plot_widget = None
         self.plot_curves = {}
         self.update_timer = None
+
+        # LED isimlerini yükle
+        self.led_names = load_app_settings()
 
         # Başlangıç verilerini yükle
         self.load_initial_data()
@@ -50,7 +71,13 @@ class StandalonePlotWindow:
             self.title = data.get('title', 'PyQt Graph')
             self.graph_type = data.get('graph_type', 'line')
             
+            # Mevcut verileri yükle
+            self.initial_timestamps = data.get('timestamps', [])
+            self.initial_data = data.get('data', {})
+            
             print(f"Başlangıç verileri yüklendi: {self.title}")
+            if self.initial_timestamps:
+                print(f"Mevcut veri noktası sayısı: {len(self.initial_timestamps)}")
             
         except Exception as e:
             print(f"Veri yükleme hatası: {e}")
@@ -116,32 +143,87 @@ class StandalonePlotWindow:
                 window_title = f"Spektroskopi - {self.title}"
             
             self.main_widget.setWindowTitle(window_title)
+            
+            # Başlangıç verilerini çiz
+            self.plot_initial_data()
 
             print(f"PyQt grafik penceresi oluşturuldu: {self.title}")
 
         except Exception as e:
             print(f"Grafik penceresi kurulum hatası: {e}")
+    
+    def plot_initial_data(self):
+        """Başlangıç verilerini grafik üzerinde çiz"""
+        try:
+            if not self.initial_timestamps or not self.initial_data:
+                print("Başlangıç verisi yok, boş grafik gösteriliyor")
+                return
+            
+            # Timestamp'leri datetime'a çevir
+            timestamps = []
+            for ts in self.initial_timestamps:
+                if isinstance(ts, str):
+                    timestamps.append(datetime.fromisoformat(ts))
+                else:
+                    timestamps.append(ts)
+            
+            if not timestamps:
+                return
+            
+            # Zaman verilerini saniye cinsine çevir
+            start_time = timestamps[0]
+            time_seconds = [(t - start_time).total_seconds() for t in timestamps]
+            
+            # Her sensör için veriyi çiz
+            for sensor_key in self.selected_sensors:
+                if sensor_key in self.initial_data and sensor_key in self.plot_curves:
+                    sensor_values = self.initial_data[sensor_key]
+                    
+                    if sensor_values and len(sensor_values) > 0:
+                        # Veri formatını işle
+                        processed_values = []
+                        for value in sensor_values:
+                            if "Calibrated" in self.title:
+                                # Calibrated data için N/A kontrolü
+                                if value is None or (isinstance(value, (int, float)) and value == 0):
+                                    processed_values.append(float('nan'))
+                                else:
+                                    processed_values.append(float(value))
+                            else:
+                                # Raw data için mV formatı
+                                if isinstance(value, (int, float)):
+                                    processed_values.append(max(0, min(9999, int(value))))
+                                else:
+                                    processed_values.append(0)
+                        
+                        # Veri uzunluklarını eşitle
+                        min_len = min(len(time_seconds), len(processed_values))
+                        if min_len > 0:
+                            self.plot_curves[sensor_key].setData(
+                                time_seconds[:min_len], 
+                                processed_values[:min_len]
+                            )
+                            print(f"Başlangıç verisi çizildi: {sensor_key} - {min_len} nokta")
+            
+        except Exception as e:
+            print(f"Başlangıç veri çizim hatası: {e}")
 
     def create_main_title(self, layout):
-        """Ana başlığı oluştur"""
         try:
-            # Başlık widget'ı
             title_widget = QWidget()
             title_layout = QHBoxLayout(title_widget)
             title_layout.setContentsMargins(10, 10, 10, 5)
             
-            # Başlık metnini belirle
             if "Raw Data" in self.title:
                 title_text = "📊 Raw Data"
-                title_color = "#FF6B6B"  # Kırmızı
+                title_color = "#FF6B6B"  
             elif "Calibrated Data" in self.title:
                 title_text = "📈 Calibrated Data"
-                title_color = "#4ECDC4"  # Turkuaz
+                title_color = "#4ECDC4"  
             else:
                 title_text = f"📊 {self.title}"
-                title_color = "#333333"  # Koyu gri
+                title_color = "#333333"  #
             
-            # Başlık etiketi
             main_title = QLabel(title_text)
             main_title.setStyleSheet(f"""
                 QLabel {{
@@ -168,12 +250,40 @@ class StandalonePlotWindow:
         """LED renk göstergesini oluştur"""
         try:
             # LED renk mapping - Beyaz, Mavi, Kırmızı, Yeşil
-            led_info = {
-                'UV_360nm': ('UV LED (360nm)', '#FFFFFF'),    # Beyaz
-                'Blue_450nm': ('Blue LED (450nm)', '#0066FF'), # Mavi
-                'IR_850nm': ('IR LED (850nm)', '#FF0000'),     # Kırmızı
-                'IR_940nm': ('IR LED (940nm)', '#00CC00')      # Yeşil
+            # LED isimlerini app_settings.json'dan çek
+            default_names = {
+                'UV_360nm': 'UV LED (360nm)',
+                'Blue_450nm': 'Blue LED (450nm)', 
+                'IR_850nm': 'IR LED (850nm)',
+                'IR_940nm': 'IR LED (940nm)'
             }
+            
+            led_info = {}
+            colors = ['#FFFFFF', '#0066FF', '#FF0000', '#00CC00']  
+            sensor_keys = ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']
+            
+            for i, sensor_key in enumerate(sensor_keys):
+                # app_settings.json'dan LED ismini çek, yoksa default kullan
+                led_name = None
+                
+                # Sensor key'e göre LED ismini bul - value'ları kullan
+                if sensor_key == 'UV_360nm':
+                    key = next((key for key in self.led_names.keys() if '360nm' in key), None)
+                    led_name = self.led_names.get(key) if key else None
+                elif sensor_key == 'Blue_450nm':
+                    key = next((key for key in self.led_names.keys() if '450nm' in key), None)
+                    led_name = self.led_names.get(key) if key else None
+                elif sensor_key == 'IR_850nm':
+                    key = next((key for key in self.led_names.keys() if '850nm' in key), None)
+                    led_name = self.led_names.get(key) if key else None
+                elif sensor_key == 'IR_940nm':
+                    key = next((key for key in self.led_names.keys() if '940nm' in key), None)
+                    led_name = self.led_names.get(key) if key else None
+                
+                if not led_name:
+                    led_name = default_names.get(sensor_key, sensor_key)
+                
+                led_info[sensor_key] = (led_name, colors[i])
 
             # Legend container
             legend_widget = QWidget()
@@ -190,13 +300,14 @@ class StandalonePlotWindow:
                 if sensor_key in led_info:
                     led_name, color_hex = led_info[sensor_key]
 
-                    # Renk kutusu
-                    color_label = QLabel("█")
-                    if color_hex == '#FFFFFF':  # Beyaz renk için border ekle
-                        color_label.setStyleSheet(f"color: {color_hex}; font-size: 20px; margin-right: 3px; border: 1px solid #333333;")
+                    # Renk kutusu - QWidget kullanarak gerçek renk kutusu oluştur
+                    color_box = QWidget()
+                    color_box.setFixedSize(20, 20)
+                    if color_hex == '#FFFFFF':  # Beyaz renk için siyah border ekle
+                        color_box.setStyleSheet(f"background-color: {color_hex}; border: 2px solid #333333; margin-right: 5px;")
                     else:
-                        color_label.setStyleSheet(f"color: {color_hex}; font-size: 20px; margin-right: 3px;")
-                    legend_layout.addWidget(color_label)
+                        color_box.setStyleSheet(f"background-color: {color_hex}; border: 1px solid #CCCCCC; margin-right: 5px;")
+                    legend_layout.addWidget(color_box)
 
                     # LED adı
                     name_label = QLabel(led_name)

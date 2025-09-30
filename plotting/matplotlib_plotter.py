@@ -52,6 +52,10 @@ class MatplotlibPlotter:
         self.y_min = None
         self.y_max = None
         
+        # Performans iyileştirmesi için line objelerini sakla
+        self.plot_lines = {}
+        self.legend_created = False
+        
         self.setup_matplotlib_plot()
     
     def setup_matplotlib_plot(self):
@@ -79,27 +83,25 @@ class MatplotlibPlotter:
         self.ax.set_ylabel("Voltage (mV)")
         self.ax.grid(True, alpha=0.3)
         
-        # Boş çizgiler oluştur (legend için)
-        for i, (sensor_key, color) in enumerate(zip(
-            ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm'],
-            MATPLOTLIB_COLORS)):
-            self.ax.plot([], [], label=sensor_key, color=color, linewidth=2)
+        # Performans iyileştirmesi: Line objelerini oluştur ve sakla
+        sensor_keys = ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']
+        for i, (sensor_key, color) in enumerate(zip(sensor_keys, MATPLOTLIB_COLORS)):
+            line, = self.ax.plot([], [], label=sensor_key, color=color, linewidth=2)
+            self.plot_lines[sensor_key] = line
         
         self.ax.legend()
+        self.legend_created = True
         self.canvas.draw()
     
     def update_data(self, timestamps: List[datetime], 
                    data_dict: Dict[str, List[float]],
                    led_names: Optional[List[str]] = None):
-        """Grafik verilerini güncelle"""
+        """Grafik verilerini güncelle - performans optimizasyonu"""
         try:
-            self.ax.clear()
-            self.ax.set_title("Real-Time Sensor Data")
-            self.ax.set_xlabel("Time")
-            self.ax.set_ylabel("Voltage (mV)")
-            self.ax.grid(True, alpha=0.3)
-            
             if not timestamps:
+                # Boş veri durumunda line'ları temizle
+                for line in self.plot_lines.values():
+                    line.set_data([], [])
                 self.canvas.draw()
                 return
             
@@ -108,6 +110,9 @@ class MatplotlibPlotter:
                 timestamps, data_dict, self.x_range)
             
             if not filtered_timestamps:
+                # Filtrelenmiş veri yoksa line'ları temizle
+                for line in self.plot_lines.values():
+                    line.set_data([], [])
                 self.canvas.draw()
                 return
             
@@ -116,31 +121,45 @@ class MatplotlibPlotter:
             if led_names:
                 labels = [clean_sensor_name(name) for name in led_names]
             
-            # Her sensör için çizgi çiz - veri uzunluklarını eşitle
-            for i, (sensor_key, label, color) in enumerate(zip(
-                ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm'],
-                labels, MATPLOTLIB_COLORS)):
-                
-                if sensor_key in filtered_data and filtered_data[sensor_key]:
+            # Her sensör için line verilerini güncelle - ax.clear() kullanma
+            updated_lines = 0
+            for i, sensor_key in enumerate(['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']):
+                if sensor_key in self.plot_lines and sensor_key in filtered_data:
                     plot_data = filtered_data[sensor_key]
-                    # Veri uzunluklarını eşitle
-                    min_len = min(len(filtered_timestamps), len(plot_data))
-                    if min_len > 0:
-                        plot_times = filtered_timestamps[:min_len]
-                        plot_values = plot_data[:min_len]
-                        
-                        self.ax.plot(plot_times, plot_values, 
-                                   label=label, color=color, linewidth=2)
+                    if plot_data:
+                        # Veri uzunluklarını eşitle
+                        min_len = min(len(filtered_timestamps), len(plot_data))
+                        if min_len > 0:
+                            plot_times = filtered_timestamps[:min_len]
+                            plot_values = plot_data[:min_len]
+                            
+                            # Line objesini güncelle (clear yapmadan)
+                            self.plot_lines[sensor_key].set_data(plot_times, plot_values)
+                            updated_lines += 1
+                        else:
+                            # Veri yoksa boş line
+                            self.plot_lines[sensor_key].set_data([], [])
+                    else:
+                        # Veri yoksa boş line
+                        self.plot_lines[sensor_key].set_data([], [])
             
             # Y ekseni kontrolü
             if self.y_min is not None and self.y_max is not None:
                 self.ax.set_ylim(self.y_min, self.y_max)
+            else:
+                # Auto-scale sadece gerektiğinde
+                self.ax.relim()
+                self.ax.autoscale_view()
             
-            self.ax.legend()
+            # Sadece canvas'ı yeniden çiz (legend zaten mevcut)
             self.canvas.draw()
+            
+            app_logger.debug(f"Matplotlib güncelleme: {updated_lines} line güncellendi")
             
         except Exception as e:
             app_logger.error(f"Matplotlib veri güncelleme hatası: {e}")
+            import traceback
+            app_logger.debug(f"Matplotlib traceback: {traceback.format_exc()}")
     
     def increase_x_range(self):
         """X eksen aralığını artır"""

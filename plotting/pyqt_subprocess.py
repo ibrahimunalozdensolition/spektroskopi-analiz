@@ -19,6 +19,8 @@ class PyQtSubprocessManager:
     def __init__(self):
         self.active_processes = {}
         self.data_files = {}
+        self.last_update_times = {}  # Son güncelleme zamanlarını takip et
+        self.update_throttle_ms = 500  # Minimum güncelleme aralığı (ms) - DONMA ÖNLEMİ: 100->500
     
     def _get_python_command(self) -> str:
         """Platform'a göre python komutunu belirle"""
@@ -29,39 +31,51 @@ class PyQtSubprocessManager:
             return "python3"
     
     def create_graph_window(self, window_id: str, selected_sensors: List[str], 
-                           title: str, graph_type: str = "line") -> bool:
+                           title: str, graph_type: str = "line", 
+                           initial_timestamps: List = None, initial_data: Dict = None) -> bool:
         try:
             # Geçici veri dosyası oluştur
             temp_file = tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False)
             data_file_path = temp_file.name
             temp_file.close()
             
-            # Başlangıç verileri
-            initial_data = {
+            # Başlangıç verileri - mevcut veriler varsa kullan
+            graph_data = {
                 'window_id': window_id,
                 'selected_sensors': selected_sensors,
                 'title': title,
                 'graph_type': graph_type,
-                'timestamps': [],
-                'data': {sensor: [] for sensor in selected_sensors}
+                'timestamps': initial_timestamps if initial_timestamps else [],
+                'data': {}
             }
             
+            # Her sensör için veri hazırla
+            for sensor in selected_sensors:
+                if initial_data and sensor in initial_data:
+                    graph_data['data'][sensor] = initial_data[sensor]
+                else:
+                    graph_data['data'][sensor] = []
+            
             with open(data_file_path, 'w') as f:
-                json.dump(initial_data, f)
+                json.dump(graph_data, f)
             
             # PyQt script'ini çalıştır
             script_path = os.path.join(os.path.dirname(__file__), 'pyqt_standalone.py')
             
-            # Subprocess başlat
+            # Subprocess başlat - PIPE dolma problemini çöz
             python_cmd = self._get_python_command()
-            process = subprocess.Popen([
-                python_cmd, script_path, data_file_path
-            ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            
+            # DEVNULL kullanarak pipe dolma problemini önle
+            with open(os.devnull, 'w') as devnull:
+                process = subprocess.Popen([
+                    python_cmd, script_path, data_file_path
+                ], stdout=devnull, stderr=devnull, 
+                   start_new_session=True)  # Yeni session - zombie process önleme
             
             self.active_processes[window_id] = process
             self.data_files[window_id] = data_file_path
             
-            app_logger.info(f"PyQt subprocess başlatıldı: {window_id}")
+            app_logger.info(f"PyQt subprocess başlatıldı (PIPE-safe): {window_id}")
             return True
             
         except Exception as e:
@@ -83,12 +97,21 @@ class PyQtSubprocessManager:
     
     def update_graph_data(self, window_id: str, timestamps: List, 
                          data_dict: Dict[str, List[float]]):
-        """Grafik verilerini güncelle"""
+        """Grafik verilerini güncelle - throttling ile"""
         try:
             if window_id not in self.data_files:
                 app_logger.warning(f"PyQt pencere bulunamadı: {window_id}")
                 return
             
+            # Güncelleme throttling - çok sık güncellemeyi önle
+            current_time = datetime.now()
+            if window_id in self.last_update_times:
+                time_diff = (current_time - self.last_update_times[window_id]).total_seconds() * 1000
+                if time_diff < self.update_throttle_ms:
+                    app_logger.debug(f"PyQt güncelleme throttled: {window_id} (son güncelleme: {time_diff:.1f}ms önce)")
+                    return
+            
+            self.last_update_times[window_id] = current_time
             data_file_path = self.data_files[window_id]
             
             # Mevcut konfigürasyonu oku
@@ -135,23 +158,47 @@ class PyQtSubprocessManager:
             app_logger.error(f"Traceback: {traceback.format_exc()}")
     
     def close_window(self, window_id: str):
-        """Grafik penceresini kapat"""
+        """Grafik penceresini kapat - gelişmiş process temizleme"""
         try:
             if window_id in self.active_processes:
                 process = self.active_processes[window_id]
+                
+                # Önce nazikçe terminate dene
                 process.terminate()
+                
+                # 2 saniye bekle
+                import time
+                try:
+                    process.wait(timeout=2)
+                except subprocess.TimeoutExpired:
+                    # Hala çalışıyorsa zorla öldür
+                    app_logger.warning(f"Process {window_id} zorla öldürülüyor")
+                    process.kill()
+                    process.wait()  # Zombie process önleme
+                
                 del self.active_processes[window_id]
+                app_logger.info(f"PyQt subprocess temizlendi: {window_id}")
             
+            # Data file temizleme
             if window_id in self.data_files:
                 data_file_path = self.data_files[window_id]
                 if os.path.exists(data_file_path):
-                    os.unlink(data_file_path)
+                    try:
+                        os.unlink(data_file_path)
+                    except OSError as e:
+                        app_logger.warning(f"Data file silinemedi {data_file_path}: {e}")
                 del self.data_files[window_id]
+            
+            # Update time temizleme
+            if window_id in self.last_update_times:
+                del self.last_update_times[window_id]
             
             app_logger.info(f"PyQt subprocess kapatıldı: {window_id}")
             
         except Exception as e:
             app_logger.error(f"PyQt subprocess kapatma hatası: {e}")
+            import traceback
+            app_logger.debug(f"Close window traceback: {traceback.format_exc()}")
     
     def close_all_windows(self):
         """Tüm grafik pencerelerini kapat"""

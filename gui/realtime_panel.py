@@ -153,14 +153,32 @@ class RealTimePanel:
             messagebox.showwarning("Warning", "En az bir sensör seçin!")
             return
         
-        if not self.pyqt_manager.is_window_active("raw_data"):
-            pass  
+        # Pencere zaten aktifse, gereksiz yeniden oluşturma
+        if self.pyqt_manager.is_window_active("raw_data"):
+            app_logger.info("Raw Data penceresi zaten aktif, yeniden oluşturulmuyor")
+            return
+        
+        # Mevcut verileri al
+        current_timestamps = []
+        current_data = {}
+        
+        if self.data_callback:
+            try:
+                timestamps, raw_data, spectrum_data, calibrated_data = self.data_callback()
+                if timestamps and raw_data:
+                    current_timestamps = timestamps
+                    current_data = raw_data
+                    app_logger.info(f"Grafik için mevcut veri gönderiliyor: {len(timestamps)} nokta")
+            except Exception as e:
+                app_logger.warning(f"Mevcut veri alınamadı: {e}")
         
         success = self.pyqt_manager.create_graph_window(
             "raw_data", 
             selected_sensors, 
             "Raw Data - Real Time",
-            "line"
+            "line",
+            current_timestamps,
+            current_data
         )
         
         if success:
@@ -215,14 +233,32 @@ class RealTimePanel:
             except Exception as e:
                 app_logger.warning(f"Calibrated data kontrolü yapılamadı: {e}")
         
-        if not self.pyqt_manager.is_window_active("cal_data"):
-            pass  # Pencere zaten kapalı, yeniden açmaya gerek yok
+        # Pencere zaten aktifse, gereksiz yeniden oluşturma
+        if self.pyqt_manager.is_window_active("cal_data"):
+            app_logger.info("Calibrated Data penceresi zaten aktif, yeniden oluşturulmuyor")
+            return
+        
+        # Mevcut verileri al
+        current_timestamps = []
+        current_data = {}
+        
+        if self.data_callback:
+            try:
+                timestamps, raw_data, spectrum_data, calibrated_data = self.data_callback()
+                if timestamps and calibrated_data:
+                    current_timestamps = timestamps
+                    current_data = calibrated_data
+                    app_logger.info(f"Calibrated grafik için mevcut veri gönderiliyor: {len(timestamps)} nokta")
+            except Exception as e:
+                app_logger.warning(f"Mevcut calibrated veri alınamadı: {e}")
         
         success = self.pyqt_manager.create_graph_window(
             "cal_data", 
             selected_sensors, 
             "Calibrated Data - Real Time",
-            "line"
+            "line",
+            current_timestamps,
+            current_data
         )
         
         if success:
@@ -233,54 +269,140 @@ class RealTimePanel:
     def update_graphs(self, timestamps: List, raw_data: Dict[str, List], 
                      spectrum_data: List[float], calibrated_data: Dict[str, List]):
         try:
-            if not timestamps or len(timestamps) < 2:
+            # Gelişmiş veri doğrulama
+            if not self._validate_graph_data(timestamps, raw_data, calibrated_data):
                 return
                 
             if timestamps and raw_data:
                 app_logger.debug(f"RealTimePanel veri alındı: {len(timestamps)} zaman, {len(raw_data)} sensör")
+                
+                # BÜYÜK VERİ SETİ OPTİMİZASYONU - Son 1000 veri noktasını göster
+                max_display_points = 1000
+                if len(timestamps) > max_display_points:
+                    display_timestamps = timestamps[-max_display_points:]
+                    display_raw_data = {}
+                    for sensor_key, values in raw_data.items():
+                        if sensor_key != 'timestamps' and values and len(values) > max_display_points:
+                            display_raw_data[sensor_key] = values[-max_display_points:]
+                        else:
+                            display_raw_data[sensor_key] = values
+                    app_logger.debug(f"VERİ OPTİMİZASYONU: {len(timestamps)} -> {len(display_timestamps)} veri noktası (grafik performansı için)")
+                else:
+                    display_timestamps = timestamps
+                    display_raw_data = raw_data
                 
                 # Raw Data grafiği güncelle (mV formatında)
                 if self.pyqt_manager.is_window_active("raw_data"):
                     app_logger.debug("Raw Data penceresi güncelleniyor...")
                     # Raw data'yı mV formatına çevir (4 haneli sayı)
                     formatted_raw_data = {}
-                    for sensor_key, values in raw_data.items():
+                    for sensor_key, values in display_raw_data.items():
                         if sensor_key != 'timestamps' and values:
                             # Değerleri mV olarak formatla (4 haneli)
                             formatted_values = [max(0, min(9999, int(v))) for v in values]
                             formatted_raw_data[sensor_key] = formatted_values
                     
-                    self.pyqt_manager.update_graph_data("raw_data", timestamps, formatted_raw_data)
+                    self.pyqt_manager.update_graph_data("raw_data", display_timestamps, formatted_raw_data)
                 
-                # Calibrated Data grafiği güncelle (N/A kontrolü ile)
+                # Calibrated Data grafiği güncelle (N/A kontrolü ile) - OPTİMİZE EDİLDİ
                 if self.pyqt_manager.is_window_active("cal_data"):
                     app_logger.debug("Cal Data penceresi güncelleniyor...")
                     
-                    # Debug: Calibrated data durumunu kontrol et
-                    app_logger.debug(f"Calibrated data keys: {list(calibrated_data.keys())}")
-                    for sensor_key in ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']:
-                        if sensor_key in calibrated_data:
-                            data_length = len(calibrated_data[sensor_key]) if calibrated_data[sensor_key] else 0
-                            app_logger.debug(f"{sensor_key} calibrated data length: {data_length}")
+                    # Calibrated data için de aynı optimizasyon
+                    display_cal_data = {}
+                    if len(timestamps) > max_display_points:
+                        for sensor_key in ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']:
+                            if (sensor_key in calibrated_data and 
+                                calibrated_data[sensor_key] and 
+                                len(calibrated_data[sensor_key]) > max_display_points):
+                                display_cal_data[sensor_key] = calibrated_data[sensor_key][-max_display_points:]
+                            elif (sensor_key in calibrated_data and calibrated_data[sensor_key]):
+                                display_cal_data[sensor_key] = calibrated_data[sensor_key]
+                            else:
+                                # N/A durumu - son 1000 nokta için 0 değeri
+                                display_cal_data[sensor_key] = [0] * len(display_timestamps)
+                    else:
+                        # Tüm veri seti küçük - normal işlem
+                        for sensor_key in ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']:
+                            if (sensor_key in calibrated_data and 
+                                calibrated_data[sensor_key] and 
+                                len(calibrated_data[sensor_key]) > 0):
+                                display_cal_data[sensor_key] = calibrated_data[sensor_key]
+                            else:
+                                # N/A durumu - 0 değeri ile göster
+                                display_cal_data[sensor_key] = [0] * len(timestamps)
                     
-                    # Calibrated data kontrolü ve N/A işleme
-                    processed_cal_data = {}
-                    for sensor_key in ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']:
-                        if (sensor_key in calibrated_data and 
-                            calibrated_data[sensor_key] and 
-                            len(calibrated_data[sensor_key]) > 0):
-                            # Calibrated data mevcut
-                            processed_cal_data[sensor_key] = calibrated_data[sensor_key]
-                            app_logger.debug(f"{sensor_key}: Calibrated data kullanılıyor ({len(calibrated_data[sensor_key])} nokta)")
-                        else:
-                            # N/A durumu - 0 değeri ile göster (grafik için)
-                            processed_cal_data[sensor_key] = [0] * len(timestamps)
-                            app_logger.debug(f"{sensor_key}: N/A durumu - 0 değerleri kullanılıyor")
-                    
-                    self.pyqt_manager.update_graph_data("cal_data", timestamps, processed_cal_data)
+                    self.pyqt_manager.update_graph_data("cal_data", display_timestamps, display_cal_data)
                 
         except Exception as e:
             app_logger.error(f"Real time panel güncelleme hatası: {e}")
+    
+    def _validate_graph_data(self, timestamps: List, raw_data: Dict[str, List], 
+                           calibrated_data: Dict[str, List]) -> bool:
+        """Grafik verilerini doğrula"""
+        try:
+            # Temel veri kontrolü
+            if not timestamps or len(timestamps) < 1:
+                app_logger.debug("RealTimePanel: Timestamp verisi yok veya yetersiz")
+                return False
+            
+            # Timestamps türü kontrolü
+            if not isinstance(timestamps, list):
+                app_logger.warning("RealTimePanel: Timestamps list tipinde değil")
+                return False
+            
+            # Raw data kontrolü
+            if not isinstance(raw_data, dict):
+                app_logger.warning("RealTimePanel: Raw data dict tipinde değil")
+                return False
+            
+            # Calibrated data kontrolü
+            if not isinstance(calibrated_data, dict):
+                app_logger.warning("RealTimePanel: Calibrated data dict tipinde değil")
+                return False
+            
+            # Sensör verilerinin uzunluk kontrolü
+            expected_sensors = ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']
+            timestamp_count = len(timestamps)
+            
+            for sensor_key in expected_sensors:
+                # Raw data kontrolleri
+                if sensor_key in raw_data:
+                    if not isinstance(raw_data[sensor_key], list):
+                        app_logger.warning(f"RealTimePanel: {sensor_key} raw data list tipinde değil")
+                        continue
+                    
+                    raw_len = len(raw_data[sensor_key])
+                    if raw_len > 0 and abs(raw_len - timestamp_count) > 1:
+                        app_logger.warning(f"RealTimePanel: {sensor_key} raw data uzunluk uyumsuzluğu (timestamps: {timestamp_count}, data: {raw_len})")
+                
+                # Calibrated data kontrolleri
+                if sensor_key in calibrated_data:
+                    if not isinstance(calibrated_data[sensor_key], list):
+                        app_logger.warning(f"RealTimePanel: {sensor_key} calibrated data list tipinde değil")
+                        continue
+                    
+                    cal_len = len(calibrated_data[sensor_key])
+                    if cal_len > 0 and abs(cal_len - timestamp_count) > 1:
+                        app_logger.warning(f"RealTimePanel: {sensor_key} calibrated data uzunluk uyumsuzluğu (timestamps: {timestamp_count}, data: {cal_len})")
+            
+            # Minimum veri eşiği kontrolü
+            has_valid_raw_data = any(
+                sensor_key in raw_data and 
+                isinstance(raw_data[sensor_key], list) and 
+                len(raw_data[sensor_key]) > 0 
+                for sensor_key in expected_sensors
+            )
+            
+            if not has_valid_raw_data:
+                app_logger.debug("RealTimePanel: Hiç geçerli raw data bulunamadı")
+                return False
+            
+            return True
+            
+        except Exception as e:
+            app_logger.error(f"RealTimePanel veri doğrulama hatası: {e}")
+            return False
     
     def close_all_windows(self):
         try:

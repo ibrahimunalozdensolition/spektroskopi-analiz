@@ -44,6 +44,11 @@ class DataProcessor:
             'timestamps': []
         }
         
+        # Custom data depoları
+        self.custom_data = {
+            'timestamps': []
+        }
+        
         # Veri buffer (örnekleme için)
         self.data_buffer = {
             'UV_360nm': [],
@@ -73,19 +78,21 @@ class DataProcessor:
         }
     
     def _cleanup_synchronized_buffers(self):
+        """VERİ TEMİZLEME TAMAMEN DEVRE DIŞI - TÜM VERİLER KORUNUYOR"""
         try:
             if 'timestamps' not in self.measurements:
                 return
                 
             current_length = len(self.measurements['timestamps'])
             
-            # CPU dostu büyük buffer - 3000 veri noktası limiti
-            buffer_limit = 3000
+            # SADECE KRİTİK BELLEK DURUMU - 24 saat veri (86400 veri noktası)
+            critical_limit = 86400  # 24 saat * 60 dakika * 60 saniye / 1 saniye
             
-            # Sadece limit aşıldığında temizle
-            if current_length > buffer_limit:
-                keep_size = int(buffer_limit * 0.8)  # 2400 veri noktası tut
-                app_logger.info(f"CPU dostu buffer temizleme: {current_length} -> {keep_size} veri noktası")
+            # SADECE gerçekten kritik durumlarda minimal temizleme
+            if current_length > critical_limit:
+                # MINIMAL temizleme - sadece %5 sil (%95 koru)
+                keep_size = int(critical_limit * 0.95)  # 82080 veri noktası koru
+                app_logger.error(f"KRİTİK BELLEK DURUMU - Minimal temizleme: {current_length} -> {keep_size} veri noktası")
                 
                 # Tüm buffer'ları senkronize şekilde temizle
                 for key in ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm', 'timestamps']:
@@ -96,16 +103,16 @@ class DataProcessor:
                 # Temizlik sonrası senkronizasyon kontrolü
                 self._verify_buffer_synchronization()
                 
-                # Garbage collection önerisi
+                # Garbage collection
                 import gc
                 gc.collect()
-                app_logger.debug("Buffer temizleme tamamlandı, garbage collection çalıştırıldı")
+                app_logger.error(f"KRİTİK temizleme tamamlandı: {current_length - keep_size} veri noktası silindi")
             else:
-                # Limit aşılmadı, temizlik yapma (CPU tasarrufu)
-                app_logger.debug(f"Buffer temizleme atlandı: {current_length}/{buffer_limit} veri noktası")
+                # NORMAL DURUM - HİÇBİR VERİ SİLİNMİYOR
+                app_logger.debug(f"TÜM VERİLER KORUNUYOR: {current_length}/{critical_limit} veri noktası (VERİ TEMİZLEME DEVRE DIŞI)")
                         
         except Exception as e:
-            app_logger.error(f"Senkronize buffer temizleme hatası: {e}")
+            app_logger.error(f"Buffer kontrol hatası: {e}")
     
     def _verify_buffer_synchronization(self):
         """Buffer senkronizasyonunu doğrula"""
@@ -186,16 +193,8 @@ class DataProcessor:
                     self.last_sensor_values[gui_sensor] = raw_value
                     log_data_event(app_logger, f"{pi_sensor}->{gui_sensor}", raw_value, "realtime_update")
             
-            for gui_sensor in ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']:
-                current_value = self.last_sensor_values[gui_sensor]
-                self.measurements[gui_sensor].append(current_value)
             
-            self._cleanup_synchronized_buffers()
-            
-            # Tek timestamp ekle - düzeltilmiş zamanla
-            self.measurements['timestamps'].append(current_time)
-            
-            # Display zamanını güncelle
+
             self.last_display_time = current_time
             app_logger.debug(f"Display güncellendi: UV={int(self.last_sensor_values['UV_360nm']):04d}mV, "
                            f"Blue={int(self.last_sensor_values['Blue_450nm']):04d}mV, "
@@ -287,17 +286,34 @@ class DataProcessor:
             return raw_value  # Kalibrasyon yoksa ham değeri döndür
     
     def _limit_data_points(self):
-        """Veri noktalarını sınırla - bellek yönetimi iyileştirmesi"""
-        for data_store in [self.measurements, self.raw_data, self.calibrated_data]:
-            # Her data store için bellek limiti kontrolü
+        """VERİ NOKTALARI SINIRLANDIRMAsI TAMAMEN DEVRE DIŞI - TÜM VERİLER KORUNUYOR"""
+        
+        # VERİ TEMİZLEME TAMAMEN DEVRE DIŞI - EXPORT İÇİN TÜM VERİLER SAKLANACAK
+        app_logger.debug("Veri sınırlandırma DEVRE DIŞI - tüm veriler export için korunuyor")
+        
+        # Sadece istatistiksel bilgi için veri sayılarını logla
+        for data_store_name, data_store in [("measurements", self.measurements), 
+                                           ("raw_data", self.raw_data), 
+                                           ("calibrated_data", self.calibrated_data)]:
             for key, data_list in data_store.items():
-                if isinstance(data_list, list) and len(data_list) > MAX_MEMORY_BUFFER_SIZE:
-                    # Yarı yarıya azalt - bellek sızıntısını önle
-                    data_store[key] = data_list[-(MAX_MEMORY_BUFFER_SIZE//2):]
-                    app_logger.debug(f"Bellek yönetimi: {key} buffer'ı {len(data_list)}'dan {len(data_store[key])}'e düşürüldü")
-            
-            # Eski limit fonksiyonunu da çalıştır
-            limit_data_points(data_store, MAX_DATA_POINTS)
+                if isinstance(data_list, list) and len(data_list) > 0:
+                    if len(data_list) % 1000 == 0:  # Her 1000 veri noktasında bir logla
+                        app_logger.info(f"VERİ İSTATİSTİĞİ: {data_store_name}.{key} = {len(data_list)} veri noktası (KORUNUYOR)")
+        
+        # Buffer temizleme de DEVRE DIŞI
+        # self._cleanup_data_buffers()  # DEVRE DIŞI
+    
+    def _cleanup_data_buffers(self):
+        """Veri buffer'larını temizle"""
+        buffer_cleaned = 0
+        for sensor_key, buffer_list in self.data_buffer.items():
+            if isinstance(buffer_list, list) and len(buffer_list) > DATA_BUFFER_SIZE:
+                original_size = len(buffer_list)
+                self.data_buffer[sensor_key] = buffer_list[-DATA_BUFFER_SIZE:]
+                buffer_cleaned += original_size - DATA_BUFFER_SIZE
+        
+        if buffer_cleaned > 0:
+            app_logger.debug(f"Buffer temizleme: {buffer_cleaned} veri noktası temizlendi")
     
     def clear_buffers(self):
         """Veri buffer'larını temizle"""
@@ -311,7 +327,10 @@ class DataProcessor:
             for key in data_store:
                 data_store[key] = []
         
-        app_logger.info("Tüm veriler temizlendi")
+        # Custom data'yı da temizle
+        self.clear_custom_data()
+        
+        app_logger.info("Tüm veriler temizlendi (custom data dahil)")
     
     def get_measurements(self) -> Dict[str, List]:
         """Ölçüm verilerini al"""
@@ -495,7 +514,8 @@ class DataProcessor:
             row = {
                 'timestamp': self.measurements['timestamps'][i],
                 'raw_data': {},
-                'calibrated_data': {}
+                'calibrated_data': {},
+                'custom_data': {}
             }
             
             # Ham veri
@@ -513,6 +533,15 @@ class DataProcessor:
                 else:
                     row['calibrated_data'][sensor_key] = None
             
+            # Custom data ekle - ana measurements ile senkronize et
+            for formula_name, values in self.custom_data.items():
+                if formula_name != 'timestamps':
+                    if i < len(values):
+                        row['custom_data'][formula_name] = values[i]
+                    else:
+                        # Eğer custom data bu index'te yoksa None ekle
+                        row['custom_data'][formula_name] = None
+            
             export_data.append(row)
         
         return export_data
@@ -526,3 +555,36 @@ class DataProcessor:
                                 self.calibration_functions[sensor_key] is not None)
         
         return status
+    
+    def add_custom_data(self, custom_values: Dict[str, float], timestamp: datetime = None):
+        """Custom data ekle"""
+        try:
+            if timestamp is None:
+                timestamp = datetime.now()
+            
+            # Timestamp ekle
+            self.custom_data['timestamps'].append(timestamp)
+            
+            # Her custom data değeri için
+            for formula_name, value in custom_values.items():
+                if formula_name not in self.custom_data:
+                    self.custom_data[formula_name] = []
+                self.custom_data[formula_name].append(value)
+            
+            # Mevcut formüllerde olmayan eski formüller için None ekle
+            for existing_formula in self.custom_data.keys():
+                if existing_formula != 'timestamps' and existing_formula not in custom_values:
+                    self.custom_data[existing_formula].append(None)
+            
+            app_logger.debug(f"Custom data eklendi: {len(custom_values)} formül, timestamp: {timestamp}")
+            
+        except Exception as e:
+            app_logger.error(f"Custom data ekleme hatası: {e}")
+    
+    def get_custom_data(self) -> Dict[str, List]:
+        """Custom data'yı al"""
+        return self.custom_data.copy()
+    
+    def clear_custom_data(self):
+        """Custom data'yı temizle"""
+        self.custom_data = {'timestamps': []}

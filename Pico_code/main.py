@@ -7,6 +7,9 @@ import utime
 from machine import ADC, Pin
 
 
+status_led = Pin("LED", Pin.OUT)
+ 
+
 sensor_2 = ADC(0)   
 sensor_5 = ADC(1)   
 sensor_7 = ADC(2)   
@@ -47,6 +50,13 @@ def measure_average(gpio: Pin, adc: ADC, delay_ms: int, sample_ms: int):
     elif avg_mv > 0xFFFF:
         avg_mv = 0xFFFF
     return avg_mv
+
+async def blink_status_led():
+    while True:
+        status_led.value(1)
+        await asyncio.sleep_ms(500)
+        status_led.value(0)
+        await asyncio.sleep_ms(500)
 
 async def notify_if_conn(conn, char, mv_value):
     if not conn or not conn.is_connected():
@@ -110,8 +120,19 @@ async def peripheral():
             print("Peripheral error:", e)
             await asyncio.sleep(5)
 
-def main():
-    asyncio.run(peripheral())
+async def main():
+    print("Pico W başlatılıyor...")
+    print("LED yanıp sönmeye başlıyor")
+    
+    blink_task = asyncio.create_task(blink_status_led())
+    peripheral_task = asyncio.create_task(peripheral())
+    
+    try:
+        await asyncio.gather(blink_task, peripheral_task)
+    except KeyboardInterrupt:
+        print("Program durduruldu")
+    except Exception as e:
+        print("Ana program hatası:", e)
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

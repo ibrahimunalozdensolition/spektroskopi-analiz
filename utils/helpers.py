@@ -230,8 +230,8 @@ def limit_data_points(data_dict: Dict[str, List], max_points: int = 1000):
             data_dict[key] = data_list[-max_points:]
 
 def generate_filename(prefix: str, extension: str = "csv") -> str:
-    """Zaman damgası ile dosya ismi oluştur"""
-    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    """Zaman damgası ile dosya ismi oluştur (Türkçe format: dd-mm-yyyy_HH.MM.SS)"""
+    timestamp = datetime.now().strftime('%d-%m-%Y_%H.%M.%S')
     return f"{prefix}_{timestamp}.{extension}"
 
 def safe_float_conversion(value: str, default: float = 0.0) -> float:

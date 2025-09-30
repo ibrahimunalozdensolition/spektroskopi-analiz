@@ -236,11 +236,13 @@ class SpektroskpiGUI:
         self.notebook.add(self.formula_frame, text="Custom Data Generator")
         self.formula_panel = FormulaPanel(self.formula_frame)
         self.formula_panel.set_data_callback(self.get_data_for_formula_panel)
+        self.formula_panel.set_data_processor(self.data_processor)
         
         self.recording_frame = ttk.Frame(self.notebook)
         self.notebook.add(self.recording_frame, text="Data Recording")
         self.recording_panel = RecordingPanel(self.recording_frame)
         self.recording_panel.set_data_callback(self.get_data_for_recording_panel)
+        self.recording_panel.set_data_processor(self.data_processor)
         
         self.about_frame = ttk.Frame(self.notebook)
         self.notebook.add(self.about_frame, text="About")
@@ -470,15 +472,23 @@ In this project, I undertook the following tasks:
         
         self.data_processor.set_system_state(True)
         
+        # Formula panel'i otomatik başlat
+        if self.formula_panel:
+            self.formula_panel.start_system_integration()
+        
         self.start_btn.configure(state=tk.DISABLED)
         self.stop_btn.configure(state=tk.NORMAL)
         self.export_btn.configure(state=tk.DISABLED)
         
         log_system_event(app_logger, "SYSTEM_STARTED", "Real-time processing enabled")
-        messagebox.showinfo("System", "Sistem başlatıldı!")
+        messagebox.showinfo("System", "Sistem başlatıldı! Custom data hesaplamaları otomatik başlatıldı.")
     
     def stop_system(self):
         self.data_processor.set_system_state(False)
+        
+        # Formula panel'i durdur
+        if self.formula_panel:
+            self.formula_panel.stop_system_integration()
         
         self.start_btn.configure(state=tk.NORMAL)
         self.stop_btn.configure(state=tk.DISABLED)

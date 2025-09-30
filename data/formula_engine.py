@@ -193,6 +193,39 @@ class FormulaEngine:
         app_logger.warning("calculate_all_formulas deprecated - calculate_selected_formulas kullanılıyor")
         return self.calculate_selected_formulas(sensor_data)
     
+    def calculate_all_available_formulas(self, sensor_data: Dict[str, float]) -> Dict[str, float]:
+        """Tüm mevcut formülleri hesapla (seçili olma şartı yok)"""
+        results = {}
+        
+        if not self.formulas:
+            app_logger.debug("Hiç formül yok, hesaplama atlandı")
+            return results
+        
+        app_logger.debug(f"Tüm formüller hesaplanıyor: {list(self.formulas.keys())}")
+        
+        # Tüm formülleri hesapla - tek geçiş
+        for name, formula_info in self.formulas.items():
+            try:
+                result = self.calculate_formula(
+                    formula_info['formula'], 
+                    sensor_data, 
+                    results  # Önceki hesaplanmış veriler
+                )
+                
+                if result is not None:
+                    results[name] = result
+                    # Son değeri güncelle
+                    self.formulas[name]['last_value'] = result
+                    app_logger.debug(f"Formül hesaplandı: {name} = {result:.3f}")
+                else:
+                    results[name] = 0.0
+                    
+            except Exception as e:
+                app_logger.warning(f"Formül hesaplama hatası ({name}): {e}")
+                results[name] = 0.0
+        
+        return results
+    
     def select_formula(self, name: str, selected: bool = True) -> bool:
         """Formülü seç/seçimi kaldır"""
         if name in self.formulas:
