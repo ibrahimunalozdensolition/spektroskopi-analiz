@@ -228,10 +228,8 @@ class CalibrationWindow:
             
             unit = self.molecule_unit.get().strip()
             if unit == "mg/L, ppm, etc." or not unit:
-                # Unit boşsa kullanıcıya uyarı ver, varsayılan atama yapma
-                messagebox.showwarning("Unit Gerekli", 
-                                     "Lütfen bir birim girin (örn: ppm, mg/L, mol/L)")
-                return
+                unit = "N/A"
+                app_logger.warning("Unit boş bırakıldı, 'N/A' olarak ayarlandı")
             else:
                 app_logger.info(f"Unit: '{unit}'")
             

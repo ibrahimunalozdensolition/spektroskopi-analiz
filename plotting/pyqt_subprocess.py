@@ -39,13 +39,26 @@ class PyQtSubprocessManager:
             data_file_path = temp_file.name
             temp_file.close()
             
+            # Timestamps'leri string'e çevir (datetime JSON serializable değil)
+            timestamps_str = []
+            if initial_timestamps:
+                for t in initial_timestamps:
+                    try:
+                        if hasattr(t, 'isoformat'):
+                            timestamps_str.append(t.isoformat())
+                        else:
+                            timestamps_str.append(str(t))
+                    except Exception as ts_e:
+                        app_logger.warning(f"Timestamp çevirme hatası: {ts_e}")
+                        timestamps_str.append("invalid")
+            
             # Başlangıç verileri - mevcut veriler varsa kullan
             graph_data = {
                 'window_id': window_id,
                 'selected_sensors': selected_sensors,
                 'title': title,
                 'graph_type': graph_type,
-                'timestamps': initial_timestamps if initial_timestamps else [],
+                'timestamps': timestamps_str,
                 'data': {}
             }
             
