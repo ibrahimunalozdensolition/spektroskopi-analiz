@@ -1,0 +1,11 @@
+2025-10-03 10:40:01 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2025-10-03 10:40:01 - spektroskopi - INFO - Export için 1 formül yüklendi
+2025-10-03 10:40:01 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2025-10-03 10:40:01 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-10-03 10:40:01 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-10-03 10:40:01 - spektroskopi - INFO - Tema uygulandı: light (sistem: dark)
+2025-10-03 10:40:01 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2025-10-03 10:40:01 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2025-10-03 10:40:01 - spektroskopi - INFO - Ana GUI başlatıldı
+2025-10-03 10:40:02 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2025-10-03 10:40:13 - spektroskopi - INFO - Tarama tamamlandı: 0 cihaz bulundu
