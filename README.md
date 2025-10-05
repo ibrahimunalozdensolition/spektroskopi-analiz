@@ -1,125 +1,141 @@
-# Spektroskopi Sistemi Kullanım Kılavuzu
+# Spectroscopy System User Guide
 
-## Ana Kontroller (Sol taraftaki yönetim paneli):
+## Description
 
-**Start:** Kalibre edilmiş verilerin görüntülenmesi ve grafik ekranlarının oluşması için gereklidir. Aynı zamanda veri kayıtları başlatılır.
+This advanced spectroscopy analysis application has been specially developed for **Prof. Dr. Uğur Aksu** to meet the requirements of modern analytical chemistry and spectroscopic research. The application provides comprehensive data acquisition, real-time analysis, and calibration capabilities for multi-wavelength spectroscopic measurements.
 
-**Stop:** Stop tuşuna basılınca verilerin kaydı durdurulur.
+### Key Features:
+- **Multi-Sensor Support**: Simultaneous data collection from 4 different wavelength sensors (UV 360nm, Blue 450nm, IR 850nm, IR 940nm)
+- **Real-Time Analysis**: Live data visualization and processing with customizable formulas
+- **Advanced Calibration**: Precise calibration system with up to 5-point calibration curves
+- **Data Export**: Professional CSV export functionality for further analysis
+- **Custom Formula Engine**: Create complex mathematical formulas using sensor data
+- **Professional Interface**: User-friendly PyQt5-based interface designed for laboratory use
 
-**Calibration:** 4 adet sensörden gelen verilerin kalibrasyonu sağlanır. Bu butona basıldığında "Calibration Panel" penceresi açılır.
+This application represents a collaboration between advanced software engineering and analytical chemistry expertise, specifically tailored to support Prof. Dr. Uğur Aksu's research and educational activities in spectroscopic analysis.
 
-### Calibration Panel (Kalibrasyon Paneli)
+---
 
-Calibration butonuna basıldığında açılan bu pencere, spektroskopi sensörlerinin kalibrasyonu için kullanılır.
+## Main Controllers (Left-side management panel):
 
-#### Sensor Selection (Sensör Seçimi):
-- **Sensor to Calibrate:** Kalibre edilecek sensörü seçmek için kullanılır
+**Start:** Required for displaying calibrated data and creating graph screens. Data recording is also initiated.
+
+**Stop:** When the Stop button is pressed, data recording is stopped.
+
+**Calibration:** Provides calibration of data from 4 sensors. When this button is pressed, the "Calibration Panel" window opens.
+
+### Calibration Panel
+
+This window, which opens when the Calibration button is pressed, is used for calibrating spectroscopy sensors.
+
+#### Sensor Selection:
+- **Sensor to Calibrate:** Used to select the sensor to be calibrated
   - UV Sensor (360nm)
   - Blue Sensor (450nm) 
   - IR Sensor (850nm)
   - IR Sensor (940nm)
-- **Molecule Name:** Ölçülecek molekülün adı girilir (opsiyonel)
-- **Unit:** Ölçüm birimi girilir (ppm, mg/L, mol/L vb.)
+- **Molecule Name:** Enter the name of the molecule to be measured (optional)
+- **Unit:** Enter the measurement unit (ppm, mg/L, mol/L, etc.)
 
-#### Calibration Values (Kalibrasyon Değerleri) Tablosu:
-- **No.:** Kalibrasyon noktası numarası (maksimum 5 nokta)
-- **Concentration:** Bilinen konsantrasyon değeri girilir
-- **Measured Value (V):** Sensörden ölçülen voltaj değeri otomatik olarak görüntülenir
-- **Status:** Kalibrasyon noktasının durumu (Waiting/Saved/Loaded)
-- **Action:** "OK" butonu ile kalibrasyon noktası kaydedilir
+#### Calibration Values Table:
+- **No.:** Calibration point number (maximum 5 points)
+- **Concentration:** Enter the known concentration value
+- **Measured Value (V):** The voltage value measured from the sensor is automatically displayed
+- **Status:** Status of the calibration point (Waiting/Saved/Loaded)
+- **Action:** The calibration point is saved with the "OK" button
 
-#### Control Panel (Kontrol Paneli):
-- **CALIBRATE:** Minimum 3 nokta kaydedildikten sonra aktif olur, kalibrasyon hesaplamasını yapar
-- **Clear:** Tüm kalibrasyon verilerini temizler
-- **Save:** Kalibrasyon verilerini JSON dosyası olarak kaydeder
-- **Load:** Önceden kaydedilmiş kalibrasyon dosyasını yükler
-- **Close:** Kalibrasyon penceresini kapatır
+#### Control Panel:
+- **CALIBRATE:** Becomes active after at least 3 points are saved, performs calibration calculation
+- **Clear:** Clears all calibration data
+- **Save:** Saves calibration data as a JSON file
+- **Load:** Loads a previously saved calibration file
+- **Close:** Closes the calibration window
 
-#### Kullanım Adımları:
-1. Kalibre edilecek sensörü seçin
-2. Molekül adı ve birimini girin
-3. Bilinen konsantrasyon değerini girin
-4. Sensör değeri otomatik olarak güncellenecek
-5. "OK" butonuna basarak noktayı kaydedin
-6. En az 3 nokta için bu işlemi tekrarlayın
-7. "CALIBRATE" butonuna basarak kalibrasyonu tamamlayın
+#### Usage Steps:
+1. Select the sensor to be calibrated
+2. Enter the molecule name and unit
+3. Enter the known concentration value
+4. The sensor value will be updated automatically
+5. Save the point by pressing the "OK" button
+6. Repeat this process for at least 3 points
+7. Complete the calibration by pressing the "CALIBRATE" button
 
-**Export:** Start butonuna basıldığı andan stop tuşuna basılan ana kadar olan tüm veriler CSV formatında dışa aktarılır ve Excel dosyası ile açılabilir hale getirilir. 
+**Export:** All data from the moment the Start button is pressed until the Stop button is pressed is exported in CSV format and made available for opening with Excel files. 
 
 ## Graph Windows:
 
-**Raw Data:** Seçilen sensörlerden gelen ham verileri mV cinsinden ekrana yansıtır.
+**Raw Data:** Displays raw data from selected sensors on the screen in mV units.
 
-**Calibrated Data:** Sensörlerden gelen veriler kalibrasyon ekranında yapılan kalibrasyon işlemi sonucunda oluşan işlenmiş verileri gösterir.
+**Calibrated Data:** Shows processed data resulting from the calibration process performed on the calibration screen for data from sensors.
 
 
 ## Real Time Panel:
 
-4 adet sensörden gelen verileri hem kalibre edilmiş hem de ham şeklinde gösteren panel.
+Panel that displays data from 4 sensors in both calibrated and raw formats.
 
-Tam ekran yapılması durumunda en-boy oranını bozmadan büyüme gösterir. Veriler kaydırılabilir formattadır. Bu ekranda 4 adet sensör beraber yukarı-aşağı kaydırılabilir, grafiklerin rahat görülümü sağlanır.
+When made full screen, it grows without distorting the aspect ratio. Data is in scrollable format. On this screen, 4 sensors can be scrolled up and down together, providing comfortable viewing of the graphs.
 
 ## Custom Data Generator
 
-Formül tabanlı veri üretim paneli kullanım şekli:
+How to use the formula-based data generation panel:
 
-### Kullanım Adımları:
-1. İlk başta üretmek istediğiniz verinin adını yazınız ve formülünü yazınız.
+### Usage Steps:
+1. First, write the name of the data you want to generate and write its formula.
 
-### Formül Yazarken Kullanabileceğiniz Operatörler ve Fonksiyonlar:
-- **Operatörler:** +, -, *, /, (, )
-- **Fonksiyonlar:** abs, max, min, sqrt, pow (üs alma)
+### Operators and Functions You Can Use When Writing Formulas:
+- **Operators:** +, -, *, /, (, )
+- **Functions:** abs, max, min, sqrt, pow (exponentiation)
 
-### Formül Yazarken Kullanabileceğiniz Değişkenler:
+### Variables You Can Use When Writing Formulas:
 - UV_360nm (ch1)
 - Blue_450nm (ch2) 
 - IR_850nm (ch3)
 - IR_940nm (ch4)
 
-### Formül Yazarken Kullanabileceğiniz Birimler:
-- mV, Prime_İndex, mol/L, Litre
+### Units You Can Use When Writing Formulas:
+- mV, Prime_Index, mol/L, Liter
 
-### Örnek Formüller:
-- `ch1 + ch2 + ch3` → UV, Blue ve IR850 sensörlerinin toplamı (üç dalga boyunun birleşik ölçümü)
-- `ch1 * 2.5 + ch2 * 1.8` → UV sensörünün 2.5 katı + Blue sensörünün 1.8 katı (ağırlıklı toplam)
-- `(ch1 + ch2) / 2` → UV ve Blue sensörlerinin ortalaması (görünür spektrum ortalaması)
-- `ch1 - ch2` → UV ile Blue sensör arasındaki fark (spektral kontrast)
-- `abs(ch1 - ch3)` → UV ile IR850 arasındaki mutlak fark (dalga boyu karşılaştırması)
-- `max(ch1, ch2, ch3, ch4)` → Tüm sensörler arasından en yüksek değer (maksimum sinyal)
-- `sqrt(ch1 * ch1 + ch2 * ch2)` → UV ve Blue sensörlerinin geometrik büyüklüğü (vektör uzunluğu)(çıktı değerinin karekökünü alır)
-- `pow(ch1, 2)` → UV sensörünün karesi (sinyal güçlendirme, 3mV → 9)
-- `ch1 * 0.85 + ch2 * 1.15 - 0.05` → Kalibrasyonlu ağırlıklı toplam (offset düzeltmeli)
+### Example Formulas:
+- `ch1 + ch2 + ch3` → Sum of UV, Blue and IR850 sensors (combined measurement of three wavelengths)
+- `ch1 * 2.5 + ch2 * 1.8` → 2.5 times UV sensor + 1.8 times Blue sensor (weighted sum)
+- `(ch1 + ch2) / 2` → Average of UV and Blue sensors (visible spectrum average)
+- `ch1 - ch2` → Difference between UV and Blue sensor (spectral contrast)
+- `abs(ch1 - ch3)` → Absolute difference between UV and IR850 (wavelength comparison)
+- `max(ch1, ch2, ch3, ch4)` → Highest value among all sensors (maximum signal)
+- `sqrt(ch1 * ch1 + ch2 * ch2)` → Geometric magnitude of UV and Blue sensors (vector length)(takes square root of output value)
+- `pow(ch1, 2)` → Square of UV sensor (signal amplification, 3mV → 9)
+- `ch1 * 0.85 + ch2 * 1.15 - 0.05` → Calibrated weighted sum (with offset correction)
 
-### Live Modu:
-Formül yazarken formülün sonucunu canlı olarak gösterir. Üretilen formülün çıktısının alınması için hem verinin ekran üzerinden çift tıklanarak seçili hale getirilmesi hem de live modun açılması gerekmektedir. Bu işlemin yapılmasının sebebi işlemci yükünü azaltarak kapasitesi düşük bilgisayarlarda performans sağlamaktır. 
+### Live Mode:
+Shows the result of the formula live while writing the formula. For the output of the generated formula to be obtained, both the data must be selected by double-clicking on the screen and live mode must be turned on. The reason for doing this process is to reduce processor load and provide performance on low-capacity computers. 
 
-### Kontroller:
-Bu program ile yapılan başka bir denklemi içeriye aktarma ya da halihazırda var olan denklemi dışarıya aktarma işlemi. Bu uygulamanın olduğu başka programlarda kullanmak için. 
+### Controls:
+Importing another equation made with this program or exporting an existing equation. For use in other programs where this application exists. 
 
 ## Data Recording:
 
-Panelin amacı seçilen süre kadar (varsayılan olarak 15 saniye) 4 sensör için veri kaydı yapmaktır.
+The purpose of the panel is to record data for 4 sensors for the selected duration (15 seconds by default).
 
-Bu veriler raw_data ve cal_data olarak incelenir. Eğer eşik %10'dan fazla ya da %10'dan az ya da bu iki değerin arasındaysa buna göre bir pop-up şeklinde çıktı verir.
+This data is examined as raw_data and cal_data. If the threshold is more than 10% or less than 10% or between these two values, it gives an output in the form of a pop-up accordingly.
 
-Hangi çıktının verilmesi isteniyorsa bu yazılar `config` klasörünün içinde bulunan `status_messages.json` dosyası ile düzenlenir.
+Which output is desired to be given, these texts are edited with the `status_messages.json` file located in the `config` folder.
 
-### Düzenlenme Şekli:
-- `sensor_order` kısmında yazdığı gibi 4 adet sensörün adının yazıldığı sırada durumlar yazılır.
-- ":" işareti kullanımının ardından çift tırnak içine yazılan mesaj, istenilen durum elde edildiği zaman gösterilir. 
+### Editing Method:
+- In the `sensor_order` section, as written, the states are written in the order in which the names of 4 sensors are written.
+- After using the ":" sign, the message written in double quotes is shown when the desired state is achieved. 
 
-### Karşılaştırma:
-Karşılaştırma için yapılması gereken comparison kısmında iki adet istenilen veri seçilir ve "Compare Selected Records" tuşuna basılır. Ardından karşılaştırma işlemi gerçekleştirilmiş olur.
+### Comparison:
+For comparison, two desired data are selected in the comparison section and the "Compare Selected Records" button is pressed. Then the comparison process is performed.
 
 ## About
 
-About ekranı geliştirici olan İbrahim ÜNAL hakkında hem mail adresi hem de geliştirme motivasyonu hakkında bilgi verir. Uygulama özellikleri hakkında da kısa bir bilgilendirme manifestosu şeklindedir. 
+The About screen provides information about the developer İbrahim ÜNAL, including both his email address and development motivation. It is also in the form of a short informational manifesto about application features. 
 
 
 
-## LED İsimlerini Değiştirme:
+## Changing LED Names:
 
-Ana sayfada bulunan `app_settings.json` dosyasında bulunan `led_names` kısmından isim değişikliği yapılabilir durumdadır.
+Name changes can be made from the `led_names` section in the `app_settings.json` file located on the main page.
 
-":" işaretinden sonra gelen kısma (tırnak işaretinin içi için geçerli bu durum) verilen isim, uygulamanın yeniden başlatılması ile uygulanacaktır. 
+The name given to the part that comes after the ":" sign (this applies to the inside of the quotation mark) will be applied when the application is restarted. 
 
