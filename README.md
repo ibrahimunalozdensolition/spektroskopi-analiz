@@ -4,6 +4,8 @@
 
 This advanced spectroscopy analysis application has been specially developed for **Prof. Dr. Uğur Aksu** to meet the requirements of modern analytical chemistry and spectroscopic research. The application provides comprehensive data acquisition, real-time analysis, and calibration capabilities for multi-wavelength spectroscopic measurements.
 
+**🆕 Latest Update**: Automatic update system added - The application now checks for updates from GitHub automatically on startup!
+
 ### Key Features:
 - **Multi-Sensor Support**: Simultaneous data collection from 4 different wavelength sensors (UV 360nm, Blue 450nm, IR 850nm, IR 940nm)
 - **Real-Time Analysis**: Live data visualization and processing with customizable formulas
