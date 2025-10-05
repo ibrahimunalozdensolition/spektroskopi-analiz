@@ -145,8 +145,7 @@ async def peripheral():
                     await asyncio.sleep(5)
                     continue
 
-            print("Advertising pico-sensors-2")
-            async with await aioble.advertise(100_000, name="pico-sensors-4", services=[SERVICE_UUID]) as conn:
+            async with await aioble.advertise(100_000, name="pico-sensors-5", services=[SERVICE_UUID]) as conn:
                 print("Connected:", conn.device)
                 gc.collect()
 
