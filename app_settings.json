@@ -1,9 +1,9 @@
 {
   "led_names": {
-    "UV LED (360nm)": "UV LED (360nm)",
-    "Blue LED (450nm)": "Blue LED (450nm)",
-    "IR LED (850nm)": "IR LED (850nm)",
-    "IR LED (940nm)": "IR LED (940nm)"
+    "UV LED (360nm)": "UV LED",
+    "Blue LED (450nm)": "Blue LED",
+    "IR LED (850nm)": "IR LED",
+    "IR LED (940nm)": "IR LED"
   },
   "custom_data": {
     "selected_sensor": null,

@@ -20774,3 +20774,13 @@
 2025-10-05 19:36:27 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 17): Unknown, uzunluk: 2
 2025-10-05 19:36:27 - spektroskopi - INFO - Raspberry Pi verisi: Ham=629, Voltaj=629.000V
 2025-10-05 19:36:27 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 629.000V
+2025-10-05 21:12:10 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2025-10-05 21:12:10 - spektroskopi - INFO - Export için 1 formül yüklendi
+2025-10-05 21:12:10 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2025-10-05 21:12:10 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-10-05 21:12:10 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-10-05 21:12:10 - spektroskopi - INFO - Tema uygulandı: light (sistem: dark)
+2025-10-05 21:12:10 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2025-10-05 21:12:10 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2025-10-05 21:12:10 - spektroskopi - INFO - Ana GUI başlatıldı
+2025-10-05 21:12:11 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)

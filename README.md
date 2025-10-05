@@ -14,7 +14,7 @@ This advanced spectroscopy analysis application has been specially developed for
 
 This application represents a collaboration between advanced software engineering and analytical chemistry expertise, specifically tailored to support Prof. Dr. Uğur Aksu's research and educational activities in spectroscopic analysis.
 
----
+
 
 ## Main Controllers (Left-side management panel):
 
