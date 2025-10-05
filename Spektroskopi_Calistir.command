@@ -6,6 +6,25 @@
 # Betik dosyasının bulunduğu dizine git
 cd "$(dirname "$0")"
 
+# Dosya izinlerini kontrol et ve gerekirse düzelt
+SCRIPT_PATH="$(realpath "$0")"
+if [ ! -x "$SCRIPT_PATH" ]; then
+    echo "🔧 Dosya izinleri düzeltiliyor..."
+    chmod +x "$SCRIPT_PATH"
+    if [ $? -eq 0 ]; then
+        echo "✅ İzinler başarıyla ayarlandı"
+        echo "🔄 Betik yeniden başlatılıyor..."
+        exec "$SCRIPT_PATH"
+    else
+        echo "❌ İzin ayarlama başarısız! Manuel olarak şu komutu çalıştırın:"
+        echo "chmod +x '$SCRIPT_PATH'"
+        echo ""
+        echo "Devam etmek için herhangi bir tuşa basın..."
+        read -n 1
+        exit 1
+    fi
+fi
+
 # Terminal penceresinin başlığını ayarla
 echo -e "\033]0;Spektroskopi Uygulaması\007"
 
