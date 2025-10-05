@@ -1,0 +1,12 @@
+[
+  {
+    "timestamp": "2025-10-05 11:20:28",
+    "level": "INFO",
+    "message": "Otomatik güncelleme kontrolü başlatılıyor..."
+  },
+  {
+    "timestamp": "2025-10-05 11:20:28",
+    "level": "WARNING",
+    "message": "Yerel değişiklikler tespit edildi, güncelleme atlanıyor"
+  }
+]

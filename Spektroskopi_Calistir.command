@@ -47,6 +47,15 @@ source venv/bin/activate
 echo "🔄 Pip güncelleniyor..."
 python3.13 -m pip install --upgrade pip
 
+# Otomatik güncelleme kontrolü
+echo "🔄 Güncellemeler kontrol ediliyor..."
+python3.13 utils/auto_updater.py
+if [ $? -eq 0 ]; then
+    echo "✅ Güncelleme kontrolü tamamlandı"
+else
+    echo "⚠️  Güncelleme kontrolünde sorun oluştu, devam ediliyor..."
+fi
+
 # Gerekli paketleri yükle
 if [ -f "requirements.txt" ]; then
     echo "📋 Gerekli paketler kontrol ediliyor..."
