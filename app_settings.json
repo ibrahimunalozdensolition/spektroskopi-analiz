@@ -2,8 +2,8 @@
   "led_names": {
     "UV LED (360nm)": "UV LED (360nm)",
     "Blue LED (450nm)": "Blue LED (450nm)",
-    "IR LED (850nm)": "IR LED (940nm)",
-    "IR LED (940nm)": "IR LED (850nm)"
+    "IR LED (850nm)": "IR LED (850nm)",
+    "IR LED (940nm)": "IR LED (940nm)"
   },
   "custom_data": {
     "selected_sensor": null,
@@ -66,7 +66,7 @@
     "rate_ms": 1000,
     "buffer_size": 100
   },
-  "last_updated": "2025-10-04T22:28:53.060476",
+  "last_updated": "2025-10-04T22:43:25.781528",
   "formulas": {
     "formulas": {
       "prime_index": {
@@ -84,8 +84,8 @@
       "ch4": "IR_940nm",
       "sensor_2": "UV_360nm",
       "sensor_extra": "Blue_450nm",
-      "sensor_5": "IR_850nm",
-      "sensor_7": "IR_940nm",
+      "sensor_5": "IR_940nm",
+      "sensor_7": "IR_850nm",
       "uv": "UV_360nm",
       "blue": "Blue_450nm",
       "ir850": "IR_850nm",

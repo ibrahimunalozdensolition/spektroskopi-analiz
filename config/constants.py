@@ -12,15 +12,15 @@ BLE_CHARACTERISTICS = {
 SENSOR_MAPPING = {
     'sensor_2': 'UV_360nm',      
     'sensor_extra': 'Blue_450nm',
-    'sensor_5': 'IR_850nm',   
-    'sensor_7': 'IR_940nm'      
+    'sensor_5': 'IR_940nm',   
+    'sensor_7': 'IR_850nm'      
 }
 
 LED_MAPPING = {
     'sensor_2': 'UV LED (360nm)',      
     'sensor_extra': 'Blue LED (450nm)', 
-    'sensor_5': 'IR LED (850nm)',      
-    'sensor_7': 'IR LED (940nm)'      
+    'sensor_5': 'IR LED (940nm)',      
+    'sensor_7': 'IR LED (850nm)'      
 }
 
 SENSOR_INFO = [

@@ -16,12 +16,12 @@ class FormulaEngine:
         self.sensor_mapping = {
             'ch1': 'UV_360nm',      # SENSOR_2
             'ch2': 'Blue_450nm',    # SENSOR_EXTRA  
-            'ch3': 'IR_850nm',      # SENSOR_5
-            'ch4': 'IR_940nm',      # SENSOR_7
+            'ch3': 'IR_850nm',      # SENSOR_7
+            'ch4': 'IR_940nm',      # SENSOR_5
             'sensor_2': 'UV_360nm',
             'sensor_extra': 'Blue_450nm',
-            'sensor_5': 'IR_850nm',
-            'sensor_7': 'IR_940nm',
+            'sensor_5': 'IR_940nm',
+            'sensor_7': 'IR_850nm',
             'uv': 'UV_360nm',
             'blue': 'Blue_450nm',
             'ir850': 'IR_850nm',
