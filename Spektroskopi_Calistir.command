@@ -47,6 +47,82 @@ fi
 
 echo "✅ Python 3.13 bulundu: $(python3.13 --version)"
 
+# Git varlığını kontrol et
+if ! command -v git &> /dev/null; then
+    echo "⚠️  Git bulunamadı! Güncelleme kontrolü atlanıyor..."
+else
+    echo "🔍 Güncelleme kontrol ediliyor..."
+    
+    # Git repository olup olmadığını kontrol et
+    if [ -d ".git" ]; then
+        # Mevcut branch'i al
+        CURRENT_BRANCH=$(git branch --show-current)
+        echo "📍 Mevcut branch: $CURRENT_BRANCH"
+        
+        # Remote'dan son değişiklikleri getir
+        echo "📡 GitHub'dan güncellemeler kontrol ediliyor..."
+        git fetch origin $CURRENT_BRANCH --quiet
+        
+        # Local ve remote arasındaki farkı kontrol et
+        LOCAL_COMMIT=$(git rev-parse HEAD)
+        REMOTE_COMMIT=$(git rev-parse origin/$CURRENT_BRANCH)
+        
+        if [ "$LOCAL_COMMIT" != "$REMOTE_COMMIT" ]; then
+            echo ""
+            echo "🆕 YENİ GÜNCELLEME BULUNDU!"
+            echo "=================================================="
+            
+            # Değişiklikleri göster
+            echo "📋 Güncellemeler:"
+            git log --oneline $LOCAL_COMMIT..$REMOTE_COMMIT | head -5
+            echo ""
+            
+            # Kullanıcıya sor
+            echo "Güncellemeleri şimdi yüklemek istiyor musunuz? (y/n)"
+            read -n 1 -r UPDATE_CHOICE
+            echo ""
+            
+            if [[ $UPDATE_CHOICE =~ ^[Yy]$ ]]; then
+                echo "⬇️  Güncellemeler indiriliyor..."
+                
+                # Değişiklikleri stash'le (eğer varsa)
+                if ! git diff --quiet; then
+                    echo "💾 Yerel değişiklikler geçici olarak kaydediliyor..."
+                    git stash push -m "Auto-stash before update $(date)"
+                fi
+                
+                # Güncellemeleri çek
+                git pull origin $CURRENT_BRANCH --quiet
+                
+                if [ $? -eq 0 ]; then
+                    echo "✅ Güncellemeler başarıyla yüklendi!"
+                    
+                    # Stash'lenmiş değişiklikler varsa geri yükle
+                    if git stash list | grep -q "Auto-stash before update"; then
+                        echo "🔄 Yerel değişiklikler geri yükleniyor..."
+                        git stash pop --quiet
+                    fi
+                    
+                    echo "🔄 Uygulama yeniden başlatılıyor..."
+                    echo ""
+                    exec "$SCRIPT_PATH"
+                else
+                    echo "❌ Güncelleme sırasında hata oluştu!"
+                    echo "Manuel olarak 'git pull origin $CURRENT_BRANCH' komutunu çalıştırın."
+                fi
+            else
+                echo "⏭️  Güncellemeler atlandı. Uygulama mevcut sürümle başlatılıyor..."
+            fi
+            echo ""
+        else
+            echo "✅ Uygulama güncel!"
+        fi
+    else
+        echo "⚠️  Git repository bulunamadı. Güncelleme kontrolü atlanıyor..."
+    fi
+fi
+echo ""
+
 # Virtual environment kontrol et ve oluştur/aktifleştir
 if [ ! -d "venv" ]; then
     echo "📦 Virtual environment oluşturuluyor..."
