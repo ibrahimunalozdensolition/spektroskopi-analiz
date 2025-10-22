@@ -86,7 +86,12 @@ class RealTimePanel:
         self.raw_data_btn = ttk.Button(button_frame, text="Create Graph", 
                                       command=self.create_raw_data_graph,
                                       style="Green.TButton")
-        self.raw_data_btn.pack(side=tk.RIGHT)
+        self.raw_data_btn.pack(side=tk.RIGHT, padx=(5, 0))
+        
+        self.raw_all_graphs_btn = ttk.Button(button_frame, text="Open All Graphs", 
+                                            command=self.create_all_raw_graphs,
+                                            style="Blue.TButton")
+        self.raw_all_graphs_btn.pack(side=tk.RIGHT)
         
         
     
@@ -135,7 +140,12 @@ class RealTimePanel:
         self.cal_data_btn = ttk.Button(button_frame, text="Create Graph", 
                                       command=self.create_cal_data_graph,
                                       style="Purple.TButton")
-        self.cal_data_btn.pack(side=tk.RIGHT)
+        self.cal_data_btn.pack(side=tk.RIGHT, padx=(5, 0))
+        
+        self.cal_all_graphs_btn = ttk.Button(button_frame, text="Open All Graphs", 
+                                            command=self.create_all_cal_graphs,
+                                            style="Blue.TButton")
+        self.cal_all_graphs_btn.pack(side=tk.RIGHT)
         
         
     
@@ -422,5 +432,57 @@ class RealTimePanel:
             
         except Exception as e:
             app_logger.error(f"Realtime panel tema uygulama hatası: {e}")
+    
+    def create_all_raw_graphs(self):
+        """Tüm Raw Data sensörlerini seçip grafik oluştur"""
+        if not PYQTGRAPH_AVAILABLE:
+            messagebox.showerror("Error", "PyQtGraph gerekli ancak yüklü değil!")
+            return
+        
+        # Pencere zaten aktifse uyar
+        if self.pyqt_manager.is_window_active("raw_data"):
+            result = messagebox.askyesno(
+                "Graph Already Open",
+                "Raw Data grafiği zaten açık.\n\nMevcut grafiği kapatıp tüm sensörlerle yeniden açmak ister misiniz?"
+            )
+            if not result:
+                return
+            # Mevcut pencereyi kapat
+            self.pyqt_manager.close_window("raw_data")
+        
+        # Tüm sensörleri seç
+        for sensor_key, var in self.raw_data_checkboxes.items():
+            var.set(True)
+        
+        app_logger.info("Tüm Raw Data sensörleri seçildi, grafik oluşturuluyor...")
+        
+        # Grafik oluştur
+        self.create_raw_data_graph()
+    
+    def create_all_cal_graphs(self):
+        """Tüm Calibrated Data sensörlerini seçip grafik oluştur"""
+        if not PYQTGRAPH_AVAILABLE:
+            messagebox.showerror("Error", "PyQtGraph gerekli ancak yüklü değil!")
+            return
+        
+        # Pencere zaten aktifse uyar
+        if self.pyqt_manager.is_window_active("cal_data"):
+            result = messagebox.askyesno(
+                "Graph Already Open",
+                "Calibrated Data grafiği zaten açık.\n\nMevcut grafiği kapatıp tüm sensörlerle yeniden açmak ister misiniz?"
+            )
+            if not result:
+                return
+            # Mevcut pencereyi kapat
+            self.pyqt_manager.close_window("cal_data")
+        
+        # Tüm sensörleri seç
+        for sensor_key, var in self.cal_data_checkboxes.items():
+            var.set(True)
+        
+        app_logger.info("Tüm Calibrated Data sensörleri seçildi, grafik oluşturuluyor...")
+        
+        # Grafik oluştur
+        self.create_cal_data_graph()
 
 

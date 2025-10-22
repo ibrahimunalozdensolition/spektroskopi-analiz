@@ -122,7 +122,7 @@ class SensorScanner:
                     if self.status_label:
                         try:
                             self.status_label.after(100, 
-                                lambda: messagebox.showwarning("Warning", "No sensor devices found!"))
+                                lambda: self.status_label.configure(text="No devices found", foreground="orange"))
                         except RuntimeError:
                             app_logger.warning("Cihaz bulunamadı mesajı gösterilemedi")
                 

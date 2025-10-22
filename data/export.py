@@ -125,9 +125,11 @@ class DataExporter:
                 base_filename = generate_filename("spectroscopy_export", "csv")
                 filename = os.path.join(self.export_folder, base_filename)
             else:
-                # Eğer kullanıcı dosya adı verdiyse, export klasörüne koy
+                # Eğer kullanıcı tam yol verdiyse olduğu gibi kullan
+                # Sadece dosya adı verilmişse export klasörüne koy
                 if not os.path.dirname(filename):  # Sadece dosya adı verilmişse
                     filename = os.path.join(self.export_folder, filename)
+                # Tam yol verilmişse filename'i olduğu gibi kullan
             
             # Excel uyumluluğu için encoding ve delimiter
             encoding = 'utf-8-sig' if excel_compatible else 'utf-8'

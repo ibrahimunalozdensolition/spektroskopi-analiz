@@ -27,7 +27,7 @@ led_6 = Pin(11, Pin.OUT)
 
 # order: [sensor_2, sensor_5, sensor_7]
 
-WEIGHTS_LED4 = (1.2, 0.2, 1.6)
+WEIGHTS_LED4 = (1.2, 1.0, 0.8)
 WEIGHTS_LED6 = (1.5, 1.0, 0.5)
 
 # ------------------------------------------------
@@ -117,14 +117,16 @@ def weighted_value(mv_list, weights):
 
 
 async def notify_if_conn(conn, char, mv_value):
-    if not conn or not conn.is_connected():
+    if not conn:
         return
     try:
+        if not conn.is_connected():
+            return
         payload = struct.pack("<H", int(mv_value) & 0xFFFF)
-        await char.notify(conn, payload)
+        char.write(payload)
         print("Notified", char.uuid, mv_value, "mV")
     except Exception as e:
-        print("Notify/write failed:", e)
+        print("Notify failed for", char.uuid, ":", str(e))
 
 
 async def peripheral():
@@ -145,7 +147,8 @@ async def peripheral():
                     await asyncio.sleep(5)
                     continue
 
-            async with await aioble.advertise(100_000, name="pico-sensors-5", services=[SERVICE_UUID]) as conn:
+            print("Advertising pico-sensors-2")
+            async with await aioble.advertise(100_000, name="pico-sensors-1", services=[SERVICE_UUID]) as conn:
                 print("Connected:", conn.device)
                 gc.collect()
 
@@ -162,12 +165,14 @@ async def peripheral():
                         
                         mvs4 = measure_average_multi(led_4, (sensor_2, sensor_5, sensor_7),(l_d-a_d),a_d)
                         wv4 = weighted_value(mvs4, WEIGHTS_LED4)
+                        wv4=3300-wv4
                         await notify_if_conn(conn, chars["SENSOR_5"], wv4)
                         await asyncio.sleep_ms(r_d)
 
                         
                         mvs6 = measure_average_multi(led_6, (sensor_2, sensor_5, sensor_7),(l_d-a_d),a_d)
                         wv6 = weighted_value(mvs6, WEIGHTS_LED6)
+                        wv6=3300-wv6
                         await notify_if_conn(conn, chars["SENSOR_7"], wv6)
                         await asyncio.sleep_ms(100)
 

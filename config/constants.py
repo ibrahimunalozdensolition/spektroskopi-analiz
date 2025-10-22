@@ -45,7 +45,10 @@ DEFAULT_SENSORS = [
     "sensor-5"
 ]
 
-TARGET_SENSORS = [ "pico-sensors-1", "pico-sensors-2", "pico-sensors-3", "pico-sensors-4", "pico-sensors-5"]
+TARGET_SENSORS = [
+    "sensor-1", "sensor-2", "sensor-3", "sensor-4", "sensor-5",
+    "pico-sensors-1", "pico-sensors-2", "pico-sensors-3", "pico-sensors-4", "pico-sensors-5"
+]
 
 MAX_DATA_POINTS = 1000
 VOLTAGE_CONVERSION_FACTOR = 3300.0 / 65535.0 

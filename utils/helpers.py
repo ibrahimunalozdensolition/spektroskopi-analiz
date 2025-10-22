@@ -268,5 +268,8 @@ def map_device_name(original_name: str) -> str:
     elif original_name.startswith("pico-sensors-"):
         sensor_number = original_name.replace("pico-sensors-", "")
         return f"sensor-{sensor_number}"
+    elif original_name.startswith("sensor-"):
+        # "sensor-1" gibi isimler zaten doğru formatta
+        return original_name
     else:
         return original_name

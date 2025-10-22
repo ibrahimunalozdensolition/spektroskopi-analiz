@@ -539,11 +539,33 @@ In this project, I undertook the following tasks:
             return
         
         try:
+            from tkinter import filedialog
+            from datetime import datetime
+            
+            # Varsayılan dosya adı oluştur
+            timestamp = datetime.now().strftime("%d-%m-%Y_%H.%M.%S")
+            default_filename = f"spectroscopy_export_{timestamp}.csv"
+            
+            # Dosya kaydetme dialog'u aç
+            filename = filedialog.asksaveasfilename(
+                title="Export Data - Dosya Kaydet",
+                defaultextension=".csv",
+                initialfile=default_filename,
+                filetypes=[
+                    ("CSV files", "*.csv"),
+                    ("All files", "*.*")
+                ]
+            )
+            
+            # Kullanıcı iptal ettiyse çık
+            if not filename:
+                return
+            
             # Export verilerini hazırla
             export_data = self.data_processor.export_data_for_csv()
             
-            # CSV'ye aktar
-            success, result = self.data_exporter.export_to_csv(export_data)
+            # CSV'ye aktar - kullanıcının seçtiği dosya adını kullan
+            success, result = self.data_exporter.export_to_csv(export_data, filename)
             
             if success:
                 # Özet oluştur ve göster

@@ -136,6 +136,81 @@ class RecordingPanel:
         duration_spinbox.pack(side=tk.LEFT, padx=(10, 5))
         
         ttk.Label(duration_frame, text="seconds", font=("Arial", 10)).pack(side=tk.LEFT)
+        
+        # Kayıt dosya ayarları
+        self.setup_file_settings_panel(controls_frame)
+    
+    def setup_file_settings_panel(self, parent_frame):
+        """Dosya kayıt ayarları paneli"""
+        from tkinter import filedialog
+        
+        # Ayırıcı çizgi
+        separator = ttk.Separator(parent_frame, orient='horizontal')
+        separator.pack(fill=tk.X, pady=(15, 10))
+        
+        # Dosya ayarları başlığı
+        ttk.Label(parent_frame, text="File Settings", 
+                 font=("Arial", 11, "bold")).pack(anchor=tk.W, pady=(0, 10))
+        
+        # Dosya adı satırı
+        filename_frame = ttk.Frame(parent_frame)
+        filename_frame.pack(fill=tk.X, pady=(0, 8))
+        
+        ttk.Label(filename_frame, text="File Name:", 
+                 font=("Arial", 10, "bold"), width=15).pack(side=tk.LEFT)
+        
+        self.filename_var = tk.StringVar(value=f"Record_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
+        filename_entry = ttk.Entry(filename_frame, textvariable=self.filename_var, width=40)
+        filename_entry.pack(side=tk.LEFT, padx=(5, 10))
+        
+        ttk.Button(filename_frame, text="🔄 Auto Generate", 
+                  command=self.auto_generate_filename,
+                  style="Blue.TButton").pack(side=tk.LEFT)
+        
+        # Kayıt yeri satırı
+        location_frame = ttk.Frame(parent_frame)
+        location_frame.pack(fill=tk.X, pady=(0, 5))
+        
+        ttk.Label(location_frame, text="Save Location:", 
+                 font=("Arial", 10, "bold"), width=15).pack(side=tk.LEFT)
+        
+        self.location_var = tk.StringVar(value=os.path.abspath(self.records_dir))
+        location_entry = ttk.Entry(location_frame, textvariable=self.location_var, 
+                                   width=50, state='readonly')
+        location_entry.pack(side=tk.LEFT, padx=(5, 10))
+        
+        ttk.Button(location_frame, text="📁 Browse", 
+                  command=self.browse_save_location,
+                  style="Blue.TButton").pack(side=tk.LEFT)
+        
+        # Bilgi etiketi
+        info_label = ttk.Label(parent_frame, 
+                              text="💡 Records will be saved as JSON files in the selected location",
+                              font=("Arial", 9), foreground="gray")
+        info_label.pack(anchor=tk.W, pady=(5, 0))
+    
+    def auto_generate_filename(self):
+        """Otomatik dosya adı oluştur"""
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        self.filename_var.set(f"Record_{timestamp}")
+        app_logger.info(f"Auto-generated filename: Record_{timestamp}")
+    
+    def browse_save_location(self):
+        """Kayıt yeri seç"""
+        from tkinter import filedialog
+        
+        directory = filedialog.askdirectory(
+            title="Select Save Location",
+            initialdir=self.records_dir
+        )
+        
+        if directory:
+            self.records_dir = directory
+            self.location_var.set(os.path.abspath(directory))
+            app_logger.info(f"Save location changed: {directory}")
+            
+            # Kayıtlar listesini güncelle
+            self.load_records_list()
     
     def setup_progress_panel(self, parent_frame):
         """Progress ve durum paneli"""
@@ -472,25 +547,47 @@ class RecordingPanel:
         except Exception as e:
             app_logger.error(f"Records directory creation error: {e}")
     
+    def convert_datetime_to_string(self, data):
+        """Datetime objelerini ISO string formatına çevir (JSON serializable)"""
+        if isinstance(data, datetime):
+            return data.isoformat()
+        elif isinstance(data, dict):
+            return {key: self.convert_datetime_to_string(value) for key, value in data.items()}
+        elif isinstance(data, list):
+            return [self.convert_datetime_to_string(item) for item in data]
+        else:
+            return data
+    
     def save_record_with_popup(self, results: Dict):
-        """Pop-up ile kayıt ismi al ve JSON kaydet"""
+        """Kullanıcının belirlediği isim ve konumda kayıt yap"""
         try:
-            # İsim alma pop-up'ı
-            record_name = simpledialog.askstring(
-                "Save Record", 
-                "Enter a name for this record:",
-                initialvalue=f"Record_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+            # Dosya adını al (eğer boşsa otomatik oluştur)
+            record_name = self.filename_var.get().strip()
+            if not record_name:
+                record_name = f"Record_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+                self.filename_var.set(record_name)
+            
+            # Onay al
+            result = messagebox.askyesno(
+                "Save Record",
+                f"Save this recording?\n\n"
+                f"File Name: {record_name}.json\n"
+                f"Location: {self.records_dir}\n\n"
+                f"Duration: {self.recording_duration} seconds\n"
+                f"Samples: {sum(len(self.recorded_data['raw'][key]) for key in self.recorded_data['raw'])}"
             )
             
-            if record_name:
-                # Kayıt verilerini hazırla
+            if result:
+                # Kayıt verilerini hazırla (datetime'ları string'e çevir)
+                serializable_recorded_data = self.convert_datetime_to_string(self.recorded_data)
+                
                 record_data = {
                     'name': record_name,
                     'timestamp': datetime.now().isoformat(),
                     'duration': self.recording_duration,
                     'samples_count': sum(len(self.recorded_data['raw'][key]) for key in self.recorded_data['raw']),
                     'results': results,
-                    'raw_data': self.recorded_data
+                    'raw_data': serializable_recorded_data
                 }
                 
                 # JSON dosyasına kaydet
@@ -513,6 +610,9 @@ class RecordingPanel:
                 )
                 
                 app_logger.info(f"Record saved: {filepath}")
+                
+                # Bir sonraki kayıt için dosya adını otomatik güncelle
+                self.auto_generate_filename()
                 
         except Exception as e:
             app_logger.error(f"Record save error: {e}")
