@@ -10,7 +10,9 @@ l_d = 100     # LED DURATION
 a_d = 40      # ADC DURATION
 r_d = 20      # RECOVERY DURATION 
 
-l_d %= 200 # CAUTION !
+l_d %= 200
+
+led_enabled = False
 
 Pin(26, Pin.IN)
 Pin(27, Pin.IN)
@@ -40,13 +42,17 @@ CHAR_UUIDS = {
     "SENSOR_5": bluetooth.UUID("6E400003-B5A3-F393-E0A9-E50E24DCCA9E"),
     "SENSOR_7": bluetooth.UUID("6E400004-B5A3-F393-E0A9-E50E24DCCA9E"),
     "SENSOR_EXTRA": bluetooth.UUID("6E400005-B5A3-F393-E0A9-E50E24DCCA9E"),
+    "LED_CONTROL": bluetooth.UUID("6E400006-B5A3-F393-E0A9-E50E24DCCA9E"),
 }
 
 
 def measure_average(gpio: Pin, adc: ADC, delay_ms: int, sample_ms: int):
-    gpio.value(1)
-    utime.sleep_ms(delay_ms)
-
+    global led_enabled
+    
+    if led_enabled:
+        gpio.value(1)
+        utime.sleep_ms(delay_ms)
+    
     s = 0
     n = 0
     t0 = utime.ticks_ms()
@@ -54,7 +60,9 @@ def measure_average(gpio: Pin, adc: ADC, delay_ms: int, sample_ms: int):
         s += adc.read_u16()
         n += 1
 
-    gpio.value(0)
+    if led_enabled:
+        gpio.value(0)
+    
     if n == 0:
         return 0
     avg_raw = s / n
@@ -67,9 +75,11 @@ def measure_average(gpio: Pin, adc: ADC, delay_ms: int, sample_ms: int):
 
 
 def measure_average_multi(gpio: Pin, adcs, delay_ms: int, sample_ms: int):
+    global led_enabled
     
-    gpio.value(1)
-    utime.sleep_ms(delay_ms)
+    if led_enabled:
+        gpio.value(1)
+        utime.sleep_ms(delay_ms)
 
     sums = [0] * len(adcs)
     n = 0
@@ -81,7 +91,9 @@ def measure_average_multi(gpio: Pin, adcs, delay_ms: int, sample_ms: int):
             utime.sleep_us(20)
         n += 1
 
-    gpio.value(0)
+    if led_enabled:
+        gpio.value(0)
+    
     if n == 0:
         return [0] * len(adcs)
 
@@ -123,19 +135,23 @@ async def notify_if_conn(conn, char, mv_value):
         if not conn.is_connected():
             return
         payload = struct.pack("<H", int(mv_value) & 0xFFFF)
-        char.write(payload)
+        char.notify(conn, payload)
         print("Notified", char.uuid, mv_value, "mV")
     except Exception as e:
         print("Notify failed for", char.uuid, ":", str(e))
 
 
 async def peripheral():
+    global led_enabled
     while True:
         try:
             svc = aioble.Service(SERVICE_UUID)
             chars = {}
             for name, uuid in CHAR_UUIDS.items():
-                chars[name] = aioble.Characteristic(svc, uuid, read=True, notify=True)
+                if name == "LED_CONTROL":
+                    chars[name] = aioble.Characteristic(svc, uuid, read=True, write=True, notify=False)
+                else:
+                    chars[name] = aioble.Characteristic(svc, uuid, read=True, notify=True)
 
             try:
                 aioble.register_services((svc,))
@@ -148,12 +164,30 @@ async def peripheral():
                     continue
 
             print("Advertising pico-sensors-2")
-            async with await aioble.advertise(100_000, name="pico-sensors-1", services=[SERVICE_UUID]) as conn:
+            async with await aioble.advertise(100_000, name="pico-sensors-2", services=[SERVICE_UUID]) as conn:
                 print("Connected:", conn.device)
                 gc.collect()
+                
+                cycle_count = 0
 
                 try:
                     while conn.is_connected():
+                        cycle_count += 1
+                        
+                        try:
+                            data = chars["LED_CONTROL"].read()
+                            if data and len(data) > 0:
+                                command = data[0]
+                                if command == 0x01 and not led_enabled:
+                                    led_enabled = True
+                                    print("LED enabled via BLE")
+                                elif command == 0x00 and led_enabled:
+                                    led_enabled = False
+                                    print("LED disabled via BLE")
+                        except Exception as e:
+                            if cycle_count % 100 == 0:
+                                print("LED read error (ignored):", e)
+                        
                         v1 = measure_average(led_1, sensor_2,(l_d-a_d),a_d)
                         await notify_if_conn(conn, chars["SENSOR_2"], v1)
                         await asyncio.sleep_ms(r_d)

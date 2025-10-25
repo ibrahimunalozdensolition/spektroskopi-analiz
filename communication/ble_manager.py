@@ -36,6 +36,7 @@ class BLEManager:
         self.available_devices: Dict[str, Dict[str, Any]] = {}
         
         self.data_queue = queue.Queue()
+        self.command_queue = queue.Queue()
         self.sensor_values = {
             "SENSOR_2": 0,
             "SENSOR_5": 0,
@@ -185,7 +186,19 @@ class BLEManager:
                         app_logger.warning("BLE cihazı bağlantısı kesildi")
                         self.disconnect()
                         break
-                    await asyncio.sleep(2.0)  
+                    
+                    try:
+                        command = self.command_queue.get_nowait()
+                        if command:
+                            command_type = command.get('type')
+                            if command_type == 'led_control':
+                                await self._send_led_command_internal(client, command.get('data'))
+                    except queue.Empty:
+                        pass
+                    except Exception as cmd_error:
+                        app_logger.error(f"Komut işleme hatası: {cmd_error}")
+                    
+                    await asyncio.sleep(0.5)  
                     
         except Exception as e:
             log_connection_event(app_logger, device_name, "CONNECTION_FAILED", False)
@@ -197,6 +210,9 @@ class BLEManager:
         """BLE notification'ları kur"""
         try:
             for char_name, char_uuid in BLE_CHARACTERISTICS.items():
+                if char_name == "LED_CONTROL":
+                    app_logger.debug(f"LED_CONTROL atlandı (write-only karakteristik)")
+                    continue
                 try:
                     await client.start_notify(char_uuid, self._notification_handler)
                     app_logger.debug(f"Notification başlatıldı: {char_name} ({char_uuid})")
@@ -281,17 +297,20 @@ class BLEManager:
             if device_name:
                 log_connection_event(app_logger, device_name, "DISCONNECTED", True)
             
-            # Değişkenleri sıfırla
             self.current_device_address = None
             self.current_device_name = None
             
-            # Sensör değerlerini sıfırla
             for key in self.sensor_values:
                 self.sensor_values[key] = 0
             
+            while not self.command_queue.empty():
+                try:
+                    self.command_queue.get_nowait()
+                except queue.Empty:
+                    break
+            
             app_logger.info("BLE bağlantısı kesildi")
             
-            # Disconnect callback'ini çağır
             if self.disconnect_callback:
                 try:
                     self.disconnect_callback(device_name)
@@ -335,3 +354,40 @@ class BLEManager:
         """Cihaz önbelleğini temizle"""
         self.available_devices.clear()
         app_logger.info("Cihaz önbelleği temizlendi")
+    
+    def send_led_control_command(self, enable: bool) -> bool:
+        if not BLEAK_AVAILABLE:
+            app_logger.error("Bleak kütüphanesi mevcut değil")
+            return False
+        
+        if not self.is_connected:
+            app_logger.warning("BLE bağlantısı yok, LED komutu gönderilemedi")
+            return False
+        
+        command_byte = b'\x01' if enable else b'\x00'
+        
+        try:
+            self.command_queue.put({
+                'type': 'led_control',
+                'data': command_byte
+            })
+            status = "AÇMA" if enable else "KAPATMA"
+            app_logger.info(f"LED {status} komutu queue'ya eklendi")
+            return True
+        except Exception as e:
+            app_logger.error(f"LED komutu queue'ya eklenemedi: {e}")
+            return False
+    
+    async def _send_led_command_internal(self, client: BleakClient, command_byte: bytes):
+        try:
+            led_uuid = BLE_CHARACTERISTICS["LED_CONTROL"]
+            
+            if client and client.is_connected:
+                await client.write_gatt_char(led_uuid, command_byte)
+                status = "AÇILDI" if command_byte == b'\x01' else "KAPATILDI"
+                app_logger.info(f"LED kontrol komutu gönderildi: {status}")
+            else:
+                app_logger.warning("BLE client bağlı değil, LED komutu gönderilemedi")
+                
+        except Exception as e:
+            app_logger.error(f"LED komut gönderme hatası: {e}")

@@ -180,6 +180,26 @@ class SpektroskpiGUI:
         main_control_frame = ttk.LabelFrame(parent_frame, text="Main Controls", padding=10)
         main_control_frame.pack(fill=tk.X, pady=(0, 10))
         
+        led_control_frame = ttk.Frame(main_control_frame)
+        led_control_frame.pack(fill=tk.X, pady=(0, 10))
+        
+        led_label = ttk.Label(led_control_frame, text="LED Control:", font=("Arial", 11, "bold"))
+        led_label.pack(side=tk.LEFT)
+        
+        self.led_toggle_var = tk.BooleanVar(value=False)
+        self.led_toggle = ttk.Checkbutton(
+            led_control_frame,
+            text="OFF",
+            variable=self.led_toggle_var,
+            command=self.on_led_toggle_changed,
+            state=tk.DISABLED,
+            style="Switch.TCheckbutton"
+        )
+        self.led_toggle.pack(side=tk.RIGHT)
+        
+        separator = ttk.Separator(main_control_frame, orient='horizontal')
+        separator.pack(fill=tk.X, pady=(0, 10))
+        
         self.start_btn = ttk.Button(main_control_frame, text="START", 
                                    command=self.start_system, 
                                    style="Green.TButton")
@@ -445,14 +465,21 @@ In this project, I undertook the following tasks:
         if connected:
             app_logger.info(f"Bağlantı kuruldu: {sensor_name}")
             if hasattr(self, 'status_label') and self.status_label:
-                self.status_label.configure(foreground='#4CAF50')  
+                self.status_label.configure(foreground='#4CAF50')
+            if hasattr(self, 'led_toggle') and self.led_toggle:
+                self.led_toggle.configure(state=tk.NORMAL)
+                app_logger.info("LED toggle aktifleştirildi")
         else:
             app_logger.info(f"Bağlantı kesildi: {sensor_name}")
             if hasattr(self, 'status_label') and self.status_label:
-                self.status_label.configure(foreground='#F44336')  
+                self.status_label.configure(foreground='#F44336')
+            if hasattr(self, 'led_toggle') and self.led_toggle:
+                self.led_toggle.configure(state=tk.DISABLED)
+                self.led_toggle_var.set(False)
+                self.led_toggle.configure(text="OFF")
+                app_logger.info("LED toggle devre dışı bırakıldı")  
     
     def on_ble_disconnected(self, device_name: str = None):
-        """BLE bağlantısı koptuğunda çağrılır"""
         try:
             if hasattr(self, 'status_label') and self.status_label:
                 self.status_label.configure(
@@ -460,10 +487,39 @@ In this project, I undertook the following tasks:
                     foreground='#F44336'
                 )
             
+            if hasattr(self, 'led_toggle') and self.led_toggle:
+                self.led_toggle.configure(state=tk.DISABLED)
+                self.led_toggle_var.set(False)
+                self.led_toggle.configure(text="OFF")
+                app_logger.info("Bağlantı koptu - LED toggle devre dışı bırakıldı")
+            
             app_logger.info(f"BLE bağlantı kopma callback çağrıldı: {device_name}")
             
         except Exception as e:
             app_logger.error(f"BLE disconnect callback hatası: {e}")
+    
+    def on_led_toggle_changed(self):
+        if not self.ble_manager.is_connected:
+            messagebox.showwarning("Warning", "Önce Pico'ya bağlanın!")
+            self.led_toggle_var.set(False)
+            self.led_toggle.configure(text="OFF")
+            return
+        
+        is_enabled = self.led_toggle_var.get()
+        
+        success = self.ble_manager.send_led_control_command(is_enabled)
+        
+        if success:
+            if is_enabled:
+                self.led_toggle.configure(text="ON")
+                app_logger.info("LED'ler kullanıcı tarafından açıldı")
+            else:
+                self.led_toggle.configure(text="OFF")
+                app_logger.info("LED'ler kullanıcı tarafından kapatıldı")
+        else:
+            self.led_toggle_var.set(False)
+            self.led_toggle.configure(text="OFF")
+            messagebox.showerror("Error", "LED komutu gönderilemedi!")
     
     def start_system(self):
         if not self.ble_manager.is_connected:
@@ -472,30 +528,36 @@ In this project, I undertook the following tasks:
         
         self.data_processor.set_system_state(True)
         
-        # Formula panel'i otomatik başlat
         if self.formula_panel:
             self.formula_panel.start_system_integration()
+        
+        self.led_toggle_var.set(True)
+        self.led_toggle.configure(text="ON")
+        self.ble_manager.send_led_control_command(True)
         
         self.start_btn.configure(state=tk.DISABLED)
         self.stop_btn.configure(state=tk.NORMAL)
         self.export_btn.configure(state=tk.DISABLED)
         
         log_system_event(app_logger, "SYSTEM_STARTED", "Real-time processing enabled")
-        messagebox.showinfo("System", "Sistem başlatıldı! Custom data hesaplamaları otomatik başlatıldı.")
+        messagebox.showinfo("System", "Sistem başlatıldı! LED'ler otomatik açıldı.")
     
     def stop_system(self):
         self.data_processor.set_system_state(False)
         
-        # Formula panel'i durdur
         if self.formula_panel:
             self.formula_panel.stop_system_integration()
+        
+        self.led_toggle_var.set(False)
+        self.led_toggle.configure(text="OFF")
+        self.ble_manager.send_led_control_command(False)
         
         self.start_btn.configure(state=tk.NORMAL)
         self.stop_btn.configure(state=tk.DISABLED)
         self.export_btn.configure(state=tk.NORMAL)
         
         log_system_event(app_logger, "SYSTEM_STOPPED")
-        messagebox.showinfo("System", "Sistem durduruldu! Export butonu aktifleştirildi.")
+        messagebox.showinfo("System", "Sistem durduruldu! LED'ler otomatik kapatıldı.")
     
     def open_calibration_window(self):
         if not self.calibration_window:
@@ -785,11 +847,17 @@ In this project, I undertook the following tasks:
             
             if hasattr(self, 'calibration_btn') and self.calibration_btn:
                 try:
-                    # Dark theme için varsayılan stil
                     self.calibration_btn.configure(style='TButton')
                     widgets_updated += 1
                 except Exception as e:
                     app_logger.warning(f"Calibration button tema hatası: {e}")
+            
+            if hasattr(self, 'led_toggle') and self.led_toggle:
+                try:
+                    self.led_toggle.configure(style='TCheckbutton')
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"LED toggle tema hatası: {e}")
             
             app_logger.info(f"Sol panel dark theme uygulandı - {widgets_updated} widget güncellendi")
             
@@ -853,10 +921,17 @@ In this project, I undertook the following tasks:
             
             if hasattr(self, 'calibration_btn') and self.calibration_btn:
                 try:
-                    self.calibration_btn.configure(style='TButton')  # Default style for light theme
+                    self.calibration_btn.configure(style='TButton')
                     widgets_updated += 1
                 except Exception as e:
                     app_logger.warning(f"Calibration button tema hatası: {e}")
+            
+            if hasattr(self, 'led_toggle') and self.led_toggle:
+                try:
+                    self.led_toggle.configure(style='TCheckbutton')
+                    widgets_updated += 1
+                except Exception as e:
+                    app_logger.warning(f"LED toggle tema hatası: {e}")
             
             app_logger.info(f"Sol panel light theme uygulandı - {widgets_updated} widget güncellendi")
             
