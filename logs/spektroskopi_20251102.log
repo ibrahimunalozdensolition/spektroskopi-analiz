@@ -1,0 +1,765 @@
+2025-11-02 19:20:13 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2025-11-02 19:20:13 - spektroskopi - INFO - Export için 1 formül yüklendi
+2025-11-02 19:20:13 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2025-11-02 19:20:13 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-11-02 19:20:13 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-11-02 19:20:13 - spektroskopi - WARNING - Error loading record Record_20251022_185402.json: Expecting value: line 515 column 9 (char 10867)
+2025-11-02 19:20:13 - spektroskopi - INFO - Tema uygulandı: light (sistem: dark)
+2025-11-02 19:20:13 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2025-11-02 19:20:13 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2025-11-02 19:20:13 - spektroskopi - INFO - Ana GUI başlatıldı
+2025-11-02 19:20:14 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2025-11-02 19:20:24 - spektroskopi - INFO - Hedef cihaz bulundu: sensor-2 (3EAD13E0-19C3-2FB9-7426-5DF1333D7C0B)
+2025-11-02 19:20:24 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2025-11-02 19:20:24 - spektroskopi - INFO - sensor-2 cihazına bağlanılıyor...
+2025-11-02 19:20:24 - spektroskopi - INFO - BLE bağlantısı kuruluyor: sensor-2 (3EAD13E0-19C3-2FB9-7426-5DF1333D7C0B)
+2025-11-02 19:20:24 - spektroskopi - INFO - Bağlantı kuruldu: sensor-2
+2025-11-02 19:20:24 - spektroskopi - INFO - LED toggle aktifleştirildi
+2025-11-02 19:20:24 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2025-11-02 19:20:34 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2025-11-02 19:20:34 - spektroskopi - INFO - CONNECTION FAILED: sensor-2 - CONNECTION_FAILED
+2025-11-02 19:20:34 - spektroskopi - ERROR - BLE bağlantı hatası: Device with address 3EAD13E0-19C3-2FB9-7426-5DF1333D7C0B was not found
+Traceback (most recent call last):
+  File "/Users/ibrahimunal/Projects/spektroskopi /communication/ble_manager.py", line 172, in _connect_to_device_async
+    async with BleakClient(device_address) as client:
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/ibrahimunal/Projects/spektroskopi /venv/lib/python3.13/site-packages/bleak/__init__.py", line 570, in __aenter__
+    await self.connect()
+  File "/Users/ibrahimunal/Projects/spektroskopi /venv/lib/python3.13/site-packages/bleak/__init__.py", line 615, in connect
+    return await self._backend.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ibrahimunal/Projects/spektroskopi /venv/lib/python3.13/site-packages/bleak/backends/corebluetooth/client.py", line 106, in connect
+    raise BleakDeviceNotFoundError(
+        self.address, f"Device with address {self.address} was not found"
+    )
+bleak.exc.BleakDeviceNotFoundError: Device with address 3EAD13E0-19C3-2FB9-7426-5DF1333D7C0B was not found
+2025-11-02 19:20:44 - spektroskopi - INFO - Hedef cihaz bulundu: sensor-2 (3EAD13E0-19C3-2FB9-7426-5DF1333D7C0B)
+2025-11-02 19:20:44 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2025-11-02 19:20:44 - spektroskopi - INFO - sensor-2 cihazına bağlanılıyor...
+2025-11-02 19:20:44 - spektroskopi - INFO - BLE bağlantısı kuruluyor: sensor-2 (3EAD13E0-19C3-2FB9-7426-5DF1333D7C0B)
+2025-11-02 19:20:44 - spektroskopi - INFO - Bağlantı kuruldu: sensor-2
+2025-11-02 19:20:44 - spektroskopi - INFO - LED toggle aktifleştirildi
+2025-11-02 19:20:44 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2025-11-02 19:21:12 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2025-11-02 19:21:12 - spektroskopi - INFO - Export için 1 formül yüklendi
+2025-11-02 19:21:12 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2025-11-02 19:21:12 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-11-02 19:21:12 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-11-02 19:21:12 - spektroskopi - WARNING - Error loading record Record_20251022_185402.json: Expecting value: line 515 column 9 (char 10867)
+2025-11-02 19:21:12 - spektroskopi - INFO - Tema uygulandı: light (sistem: dark)
+2025-11-02 19:21:12 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2025-11-02 19:21:12 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2025-11-02 19:21:12 - spektroskopi - INFO - Ana GUI başlatıldı
+2025-11-02 19:21:13 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2025-11-02 19:21:23 - spektroskopi - INFO - Hedef cihaz bulundu: sensor-2 (3EAD13E0-19C3-2FB9-7426-5DF1333D7C0B)
+2025-11-02 19:21:23 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2025-11-02 19:21:23 - spektroskopi - INFO - sensor-2 cihazına bağlanılıyor...
+2025-11-02 19:21:23 - spektroskopi - INFO - BLE bağlantısı kuruluyor: sensor-2 (3EAD13E0-19C3-2FB9-7426-5DF1333D7C0B)
+2025-11-02 19:21:23 - spektroskopi - INFO - Bağlantı kuruldu: sensor-2
+2025-11-02 19:21:23 - spektroskopi - INFO - LED toggle aktifleştirildi
+2025-11-02 19:21:23 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2025-11-02 19:21:25 - spektroskopi - INFO - CONNECTION SUCCESS: sensor-2 - CONNECTED
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3252, Voltaj=3252.000V
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3252.000V
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1982, Voltaj=1982.000V
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1982.000V
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1658, Voltaj=1658.000V
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1658.000V
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3251.000V
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3252, Voltaj=3252.000V
+2025-11-02 19:21:25 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3252.000V
+2025-11-02 19:21:25 - spektroskopi - INFO - BLE bağlantısı sonsuz mod aktif - timeout yok
+2025-11-02 19:21:26 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:25.739702
+2025-11-02 19:21:26 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:25.740702
+2025-11-02 19:21:26 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:25.741702
+2025-11-02 19:21:26 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:25.742702
+2025-11-02 19:21:26 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:25.743702
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1982, Voltaj=1982.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1982.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1659, Voltaj=1659.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1659.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3251.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3253, Voltaj=3253.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3253.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1981, Voltaj=1981.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1981.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1660, Voltaj=1660.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1660.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3251.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3250, Voltaj=3250.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3250.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1983, Voltaj=1983.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1983.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1658, Voltaj=1658.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1658.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3252, Voltaj=3252.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3252.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3253, Voltaj=3253.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3253.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1981, Voltaj=1981.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1981.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1660, Voltaj=1660.000V
+2025-11-02 19:21:26 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1660.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3251.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3253, Voltaj=3253.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3253.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1981, Voltaj=1981.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1981.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1659, Voltaj=1659.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1659.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - LED AÇMA komutu queue'ya eklendi
+2025-11-02 19:21:27 - spektroskopi - INFO - LED'ler kullanıcı tarafından açıldı
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.237110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.238110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.239110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.240110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.241110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.242110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.243110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.244110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.245110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.246110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.247110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.248110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.249110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.250110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.251110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.252110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.253110
+2025-11-02 19:21:27 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:27.254110
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3252, Voltaj=3252.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3252.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3251.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1981, Voltaj=1981.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1981.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1659, Voltaj=1659.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1659.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - LED kontrol komutu gönderildi: AÇILDI
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3243, Voltaj=3243.000V
+2025-11-02 19:21:27 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3243.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3243, Voltaj=3243.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3243.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1927, Voltaj=1927.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1927.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1623, Voltaj=1623.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1623.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3243, Voltaj=3243.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3243.000V
+2025-11-02 19:21:28 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:28.317444
+2025-11-02 19:21:28 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:28.318444
+2025-11-02 19:21:28 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:28.319444
+2025-11-02 19:21:28 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:28.320444
+2025-11-02 19:21:28 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:28.321444
+2025-11-02 19:21:28 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:28.322444
+2025-11-02 19:21:28 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:28.323444
+2025-11-02 19:21:28 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:28.324444
+2025-11-02 19:21:28 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:28.325444
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3242, Voltaj=3242.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3242.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1925, Voltaj=1925.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1925.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1621, Voltaj=1621.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1621.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3242, Voltaj=3242.000V
+2025-11-02 19:21:28 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3242.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3242, Voltaj=3242.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3242.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1925, Voltaj=1925.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1925.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1621, Voltaj=1621.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1621.000V
+2025-11-02 19:21:29 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:29.337261
+2025-11-02 19:21:29 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:29.338261
+2025-11-02 19:21:29 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:29.339261
+2025-11-02 19:21:29 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:29.340261
+2025-11-02 19:21:29 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:29.341261
+2025-11-02 19:21:29 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:29.342261
+2025-11-02 19:21:29 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:29.343261
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3242, Voltaj=3242.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3242.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3243, Voltaj=3243.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3243.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1926, Voltaj=1926.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1926.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1622, Voltaj=1622.000V
+2025-11-02 19:21:29 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1622.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3242, Voltaj=3242.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3242.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3242, Voltaj=3242.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3242.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi: Ham=2015, Voltaj=2015.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 2015.000V
+2025-11-02 19:21:30 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:30.356796
+2025-11-02 19:21:30 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:30.357796
+2025-11-02 19:21:30 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:30.358796
+2025-11-02 19:21:30 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:30.359796
+2025-11-02 19:21:30 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:30.360796
+2025-11-02 19:21:30 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:30.361796
+2025-11-02 19:21:30 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:30.362796
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi: Ham=2472, Voltaj=2472.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 2472.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi: Ham=436, Voltaj=436.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 436.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi: Ham=229, Voltaj=229.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 229.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi: Ham=784, Voltaj=784.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 784.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1000, Voltaj=1000.000V
+2025-11-02 19:21:30 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1000.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi: Ham=2967, Voltaj=2967.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 2967.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi: Ham=172, Voltaj=172.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 172.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - LED KAPATMA komutu queue'ya eklendi
+2025-11-02 19:21:31 - spektroskopi - INFO - LED'ler kullanıcı tarafından kapatıldı
+2025-11-02 19:21:31 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:31.317120
+2025-11-02 19:21:31 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:31.318120
+2025-11-02 19:21:31 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:31.319120
+2025-11-02 19:21:31 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:31.320120
+2025-11-02 19:21:31 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:31.321120
+2025-11-02 19:21:31 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:31.322120
+2025-11-02 19:21:31 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:31.323120
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi: Ham=933, Voltaj=933.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 933.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi: Ham=939, Voltaj=939.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 939.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - LED kontrol komutu gönderildi: KAPATILDI
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi: Ham=88, Voltaj=88.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 88.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi: Ham=84, Voltaj=84.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 84.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3251.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3248, Voltaj=3248.000V
+2025-11-02 19:21:31 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3248.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=78, Voltaj=78.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 78.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=71, Voltaj=71.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 71.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3261, Voltaj=3261.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3261.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3262, Voltaj=3262.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3262.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=35, Voltaj=35.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 35.000V
+2025-11-02 19:21:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:32.368609
+2025-11-02 19:21:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:32.369609
+2025-11-02 19:21:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:32.370609
+2025-11-02 19:21:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:32.371609
+2025-11-02 19:21:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:32.372609
+2025-11-02 19:21:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:32.373609
+2025-11-02 19:21:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:32.374609
+2025-11-02 19:21:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:32.375609
+2025-11-02 19:21:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:32.376609
+2025-11-02 19:21:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:32.377609
+2025-11-02 19:21:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:32.378609
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=31, Voltaj=31.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 31.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3275.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3275.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=26, Voltaj=26.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 26.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=26, Voltaj=26.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 26.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3275.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3275.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=26, Voltaj=26.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 26.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3275.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3275.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.360791
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.361791
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.362791
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.363791
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.364791
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.365791
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.366791
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.367791
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.368791
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.369791
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.370791
+2025-11-02 19:21:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:33.371791
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3276.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3276.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3276.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3276.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3276.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3275.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.375965
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.376965
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.377965
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.378965
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.379965
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.380965
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.381965
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.382965
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.383965
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.384965
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.385965
+2025-11-02 19:21:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:34.386965
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3276.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3275.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3276.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3276.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3275.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3276.000V
+2025-11-02 19:21:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:35.217227
+2025-11-02 19:21:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:35.218227
+2025-11-02 19:21:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:35.219227
+2025-11-02 19:21:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:35.220227
+2025-11-02 19:21:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:35.221227
+2025-11-02 19:21:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:35.222227
+2025-11-02 19:21:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:35.223227
+2025-11-02 19:21:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:35.224227
+2025-11-02 19:21:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:35.225227
+2025-11-02 19:21:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:35.226227
+2025-11-02 19:21:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:35.227227
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3276.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3276.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3275.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3275.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3276.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3276.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.356852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.357852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.358852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.359852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.360852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.361852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.362852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.363852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.364852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.365852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.366852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.367852
+2025-11-02 19:21:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:36.368852
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3276.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3276.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3275, Voltaj=3275.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3275.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3276.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3276.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3276.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 25.000V
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.348483
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.349483
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.350483
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.351483
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.352483
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.353483
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.354483
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.355483
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.356483
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.357483
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.358483
+2025-11-02 19:21:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:37.359483
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=25, Voltaj=25.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 25.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3276.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3276, Voltaj=3276.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 3276.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=181, Voltaj=181.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 181.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=304, Voltaj=304.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 304.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3128, Voltaj=3128.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 3128.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=2911, Voltaj=2911.000V
+2025-11-02 19:21:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 2911.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1641, Voltaj=1641.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 1641.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1837, Voltaj=1837.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 1837.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=2534, Voltaj=2534.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 2534.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=2345, Voltaj=2345.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 2345.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=2061, Voltaj=2061.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 2061.000V
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.368107
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.369107
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.370107
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.371107
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.372107
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.373107
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.374107
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.375107
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.376107
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.377107
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.378107
+2025-11-02 19:21:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:38.379107
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=2205, Voltaj=2205.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 2205.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=2286, Voltaj=2286.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 2286.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1661, Voltaj=1661.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1661.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3251.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3250, Voltaj=3250.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3250.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1980, Voltaj=1980.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1980.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1658, Voltaj=1658.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1658.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3250, Voltaj=3250.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3250.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3250, Voltaj=3250.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3250.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1981, Voltaj=1981.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1981.000V
+2025-11-02 19:21:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.148341
+2025-11-02 19:21:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.149341
+2025-11-02 19:21:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.150341
+2025-11-02 19:21:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.151341
+2025-11-02 19:21:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.152341
+2025-11-02 19:21:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.153341
+2025-11-02 19:21:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.154341
+2025-11-02 19:21:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.155341
+2025-11-02 19:21:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.156341
+2025-11-02 19:21:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.157341
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1660, Voltaj=1660.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1660.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3250, Voltaj=3250.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3250.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3251.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1982, Voltaj=1982.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1982.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1658, Voltaj=1658.000V
+2025-11-02 19:21:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1658.000V
+2025-11-02 19:21:40 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.599163
+2025-11-02 19:21:40 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.600163
+2025-11-02 19:21:40 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.601163
+2025-11-02 19:21:40 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.602163
+2025-11-02 19:21:40 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:39.603163
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3251.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3252, Voltaj=3252.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3252.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1981, Voltaj=1981.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1981.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1661, Voltaj=1661.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1661.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3250, Voltaj=3250.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3250.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3251.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1981, Voltaj=1981.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1981.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1661, Voltaj=1661.000V
+2025-11-02 19:21:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1661.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3250, Voltaj=3250.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3250.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3253, Voltaj=3253.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3253.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1982, Voltaj=1982.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1982.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1659, Voltaj=1659.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1659.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3251.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3251.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1981, Voltaj=1981.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1981.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1660, Voltaj=1660.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1660.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3251.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3251.000V
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.370486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.371486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.372486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.373486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.374486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.375486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.376486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.377486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.378486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.379486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.380486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.381486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.382486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.383486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.384486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.385486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.386486
+2025-11-02 19:21:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.387486
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1981, Voltaj=1981.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1981.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1659, Voltaj=1659.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1659.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3250, Voltaj=3250.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 3250.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3251, Voltaj=3251.000V
+2025-11-02 19:21:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3251.000V
+2025-11-02 19:21:42 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.518941
+2025-11-02 19:21:42 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.519941
+2025-11-02 19:21:42 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.520941
+2025-11-02 19:21:42 - spektroskopi - WARNING - Zaman sıralama düzeltildi: 2025-11-02 19:21:41.521941
+2025-11-02 19:21:42 - spektroskopi - WARNING - BLE cihazı bağlantısı kesildi
+2025-11-02 19:21:42 - spektroskopi - INFO - CONNECTION SUCCESS: sensor-2 - DISCONNECTED
+2025-11-02 19:21:42 - spektroskopi - INFO - BLE bağlantısı kesildi
+2025-11-02 19:21:42 - spektroskopi - INFO - Bağlantı koptu - LED toggle devre dışı bırakıldı
+2025-11-02 19:21:42 - spektroskopi - INFO - BLE bağlantı kopma callback çağrıldı: sensor-2
