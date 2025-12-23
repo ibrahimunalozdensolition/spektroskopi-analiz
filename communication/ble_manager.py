@@ -364,7 +364,7 @@ class BLEManager:
             app_logger.warning("BLE bağlantısı yok, LED komutu gönderilemedi")
             return False
         
-        command_byte = b'\x01' if enable else b'\x00'
+        command_byte = b'\xFF' if enable else b'\x00'
         
         try:
             self.command_queue.put({
@@ -378,13 +378,83 @@ class BLEManager:
             app_logger.error(f"LED komutu queue'ya eklenemedi: {e}")
             return False
     
+    def send_individual_led_command(self, led_states: dict) -> bool:
+        if not BLEAK_AVAILABLE:
+            app_logger.error("Bleak kütüphanesi mevcut değil")
+            return False
+        
+        if not self.is_connected:
+            app_logger.warning("BLE bağlantısı yok, LED komutu gönderilemedi")
+            return False
+        
+        bitmask = 0
+        if led_states.get('led_1', False):
+            bitmask |= 0x01
+        if led_states.get('led_3', False):
+            bitmask |= 0x02
+        if led_states.get('led_4', False):
+            bitmask |= 0x04
+        if led_states.get('led_6', False):
+            bitmask |= 0x08
+        
+        command_byte = bytes([bitmask])
+        
+        try:
+            self.command_queue.put({
+                'type': 'led_control',
+                'data': command_byte
+            })
+            app_logger.info(f"LED bireysel kontrol komutu gönderildi: {bin(bitmask)}")
+            return True
+        except Exception as e:
+            app_logger.error(f"LED komutu queue'ya eklenemedi: {e}")
+            return False
+    
+    def send_start_command(self, led_states: dict, l_d: int = 4, a_d: int = 3, r_d: int = 250) -> bool:
+        if not BLEAK_AVAILABLE:
+            app_logger.error("Bleak kütüphanesi mevcut değil")
+            return False
+        
+        if not self.is_connected:
+            app_logger.warning("BLE bağlantısı yok, START komutu gönderilemedi")
+            return False
+        
+        bitmask = 0
+        if led_states.get('led_1', False):
+            bitmask |= 0x01
+        if led_states.get('led_3', False):
+            bitmask |= 0x02
+        if led_states.get('led_4', False):
+            bitmask |= 0x04
+        if led_states.get('led_6', False):
+            bitmask |= 0x08
+        
+        command_data = bytes([l_d & 0xFF, a_d & 0xFF, r_d & 0xFF, bitmask])
+        
+        try:
+            self.command_queue.put({
+                'type': 'led_control',
+                'data': command_data
+            })
+            app_logger.info(f"START komutu gönderildi: l_d={l_d}, a_d={a_d}, r_d={r_d}, LEDs={bin(bitmask)}")
+            return True
+        except Exception as e:
+            app_logger.error(f"START komutu queue'ya eklenemedi: {e}")
+            return False
+    
     async def _send_led_command_internal(self, client: BleakClient, command_byte: bytes):
         try:
             led_uuid = BLE_CHARACTERISTICS["LED_CONTROL"]
             
             if client and client.is_connected:
                 await client.write_gatt_char(led_uuid, command_byte)
-                status = "AÇILDI" if command_byte == b'\x01' else "KAPATILDI"
+                if command_byte == b'\xFF':
+                    status = "TÜM LED'LER AÇILDI"
+                elif command_byte == b'\x00':
+                    status = "TÜM LED'LER KAPATILDI"
+                else:
+                    bitmask = command_byte[0]
+                    status = f"LED durumları: L1={bool(bitmask & 0x01)}, L3={bool(bitmask & 0x02)}, L4={bool(bitmask & 0x04)}, L6={bool(bitmask & 0x08)}"
                 app_logger.info(f"LED kontrol komutu gönderildi: {status}")
             else:
                 app_logger.warning("BLE client bağlı değil, LED komutu gönderilemedi")

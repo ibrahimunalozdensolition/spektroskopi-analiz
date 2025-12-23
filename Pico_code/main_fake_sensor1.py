@@ -9,9 +9,9 @@ from machine import ADC, Pin
 
 print("🔴 FAKE SENSOR-1 - Sahte veri modu başlatılıyor...")
 
-l_d = 100     # LED DURATION 
-a_d = 40      # ADC DURATION
-r_d = 20      # RECOVERY DURATION 
+l_d = 4     # LED DURATION
+a_d = 3      # ADC DURATION
+r_d = 250      # RECOVERY DURATION
 
 l_d %= 200 # CAUTION !
 

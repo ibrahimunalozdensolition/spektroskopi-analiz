@@ -180,22 +180,87 @@ class SpektroskpiGUI:
         main_control_frame = ttk.LabelFrame(parent_frame, text="Main Controls", padding=10)
         main_control_frame.pack(fill=tk.X, pady=(0, 10))
         
-        led_control_frame = ttk.Frame(main_control_frame)
+        led_control_frame = ttk.LabelFrame(main_control_frame, text="Sensor and LED Controls", padding=5)
         led_control_frame.pack(fill=tk.X, pady=(0, 10))
         
-        led_label = ttk.Label(led_control_frame, text="LED Control:", font=("Arial", 11, "bold"))
-        led_label.pack(side=tk.LEFT)
+        self.led_vars = {
+            'led_1': tk.BooleanVar(value=False),
+            'led_3': tk.BooleanVar(value=False),
+            'led_4': tk.BooleanVar(value=False),
+            'led_6': tk.BooleanVar(value=False)
+        }
         
-        self.led_toggle_var = tk.BooleanVar(value=False)
-        self.led_toggle = ttk.Checkbutton(
-            led_control_frame,
-            text="OFF",
-            variable=self.led_toggle_var,
-            command=self.on_led_toggle_changed,
+        led_labels = {
+            'led_1': 'UV (360nm)',
+            'led_3': 'Blue (450nm)',
+            'led_4': 'IR (850nm)',
+            'led_6': 'IR (940nm)'
+        }
+        
+        self.led_checkboxes = {}
+        
+        led_grid_frame = ttk.Frame(led_control_frame)
+        led_grid_frame.pack(fill=tk.X)
+        
+        for idx, (led_key, var) in enumerate(self.led_vars.items()):
+            row = idx // 2
+            col = idx % 2
+            
+            cb = ttk.Checkbutton(
+                led_grid_frame,
+                text=led_labels[led_key],
+                variable=var,
+                command=self.on_individual_led_changed,
+                state=tk.DISABLED
+            )
+            cb.grid(row=row, column=col, sticky='w', padx=5, pady=2)
+            self.led_checkboxes[led_key] = cb
+        
+        led_grid_frame.columnconfigure(0, weight=1)
+        led_grid_frame.columnconfigure(1, weight=1)
+        
+        timing_frame = ttk.LabelFrame(led_control_frame, text="Timing (ms)", padding=3)
+        timing_frame.pack(fill=tk.X, pady=(5, 5))
+        
+        self.l_d_var = tk.IntVar(value=4)
+        self.a_d_var = tk.IntVar(value=3)
+        self.r_d_var = tk.IntVar(value=250)
+        
+        timing_grid = ttk.Frame(timing_frame)
+        timing_grid.pack(fill=tk.X)
+        
+        ttk.Label(timing_grid, text="LED:").grid(row=0, column=0, sticky='w', padx=2)
+        self.l_d_entry = ttk.Spinbox(timing_grid, from_=2, to=199, width=5, textvariable=self.l_d_var, increment=1)
+        self.l_d_entry.grid(row=0, column=1, padx=2)
+        
+        ttk.Label(timing_grid, text="ADC:").grid(row=0, column=2, sticky='w', padx=2)
+        self.a_d_entry = ttk.Spinbox(timing_grid, from_=1, to=198, width=5, textvariable=self.a_d_var, increment=1)
+        self.a_d_entry.grid(row=0, column=3, padx=2)
+        
+        ttk.Label(timing_grid, text="Recovery:").grid(row=0, column=4, sticky='w', padx=2)
+        self.r_d_entry = ttk.Spinbox(timing_grid, from_=0, to=255, width=5, textvariable=self.r_d_var, increment=5)
+        self.r_d_entry.grid(row=0, column=5, padx=2)
+        
+        all_led_frame = ttk.Frame(led_control_frame)
+        all_led_frame.pack(fill=tk.X, pady=(5, 0))
+        
+        self.all_led_on_btn = ttk.Button(
+            all_led_frame,
+            text="All ON",
+            command=self.turn_all_leds_on,
             state=tk.DISABLED,
-            style="Switch.TCheckbutton"
+            width=8
         )
-        self.led_toggle.pack(side=tk.RIGHT)
+        self.all_led_on_btn.pack(side=tk.LEFT, padx=2)
+        
+        self.all_led_off_btn = ttk.Button(
+            all_led_frame,
+            text="All OFF",
+            command=self.turn_all_leds_off,
+            state=tk.DISABLED,
+            width=8
+        )
+        self.all_led_off_btn.pack(side=tk.LEFT, padx=2)
         
         separator = ttk.Separator(main_control_frame, orient='horizontal')
         separator.pack(fill=tk.X, pady=(0, 10))
@@ -466,18 +531,28 @@ In this project, I undertook the following tasks:
             app_logger.info(f"Bağlantı kuruldu: {sensor_name}")
             if hasattr(self, 'status_label') and self.status_label:
                 self.status_label.configure(foreground='#4CAF50')
-            if hasattr(self, 'led_toggle') and self.led_toggle:
-                self.led_toggle.configure(state=tk.NORMAL)
-                app_logger.info("LED toggle aktifleştirildi")
+            if hasattr(self, 'led_checkboxes'):
+                for cb in self.led_checkboxes.values():
+                    cb.configure(state=tk.NORMAL)
+                if hasattr(self, 'all_led_on_btn'):
+                    self.all_led_on_btn.configure(state=tk.NORMAL)
+                if hasattr(self, 'all_led_off_btn'):
+                    self.all_led_off_btn.configure(state=tk.NORMAL)
+                app_logger.info("LED kontrolleri aktifleştirildi")
         else:
             app_logger.info(f"Bağlantı kesildi: {sensor_name}")
             if hasattr(self, 'status_label') and self.status_label:
                 self.status_label.configure(foreground='#F44336')
-            if hasattr(self, 'led_toggle') and self.led_toggle:
-                self.led_toggle.configure(state=tk.DISABLED)
-                self.led_toggle_var.set(False)
-                self.led_toggle.configure(text="OFF")
-                app_logger.info("LED toggle devre dışı bırakıldı")  
+            if hasattr(self, 'led_checkboxes'):
+                for cb in self.led_checkboxes.values():
+                    cb.configure(state=tk.DISABLED)
+                for var in self.led_vars.values():
+                    var.set(False)
+                if hasattr(self, 'all_led_on_btn'):
+                    self.all_led_on_btn.configure(state=tk.DISABLED)
+                if hasattr(self, 'all_led_off_btn'):
+                    self.all_led_off_btn.configure(state=tk.DISABLED)
+                app_logger.info("LED kontrolleri devre dışı bırakıldı")  
     
     def on_ble_disconnected(self, device_name: str = None):
         try:
@@ -487,38 +562,68 @@ In this project, I undertook the following tasks:
                     foreground='#F44336'
                 )
             
-            if hasattr(self, 'led_toggle') and self.led_toggle:
-                self.led_toggle.configure(state=tk.DISABLED)
-                self.led_toggle_var.set(False)
-                self.led_toggle.configure(text="OFF")
-                app_logger.info("Bağlantı koptu - LED toggle devre dışı bırakıldı")
+            if hasattr(self, 'led_checkboxes'):
+                for cb in self.led_checkboxes.values():
+                    cb.configure(state=tk.DISABLED)
+                for var in self.led_vars.values():
+                    var.set(False)
+                if hasattr(self, 'all_led_on_btn'):
+                    self.all_led_on_btn.configure(state=tk.DISABLED)
+                if hasattr(self, 'all_led_off_btn'):
+                    self.all_led_off_btn.configure(state=tk.DISABLED)
+                app_logger.info("Bağlantı koptu - LED kontrolleri devre dışı bırakıldı")
             
             app_logger.info(f"BLE bağlantı kopma callback çağrıldı: {device_name}")
             
         except Exception as e:
             app_logger.error(f"BLE disconnect callback hatası: {e}")
     
-    def on_led_toggle_changed(self):
+    def on_individual_led_changed(self):
         if not self.ble_manager.is_connected:
             messagebox.showwarning("Warning", "Önce Pico'ya bağlanın!")
-            self.led_toggle_var.set(False)
-            self.led_toggle.configure(text="OFF")
+            for var in self.led_vars.values():
+                var.set(False)
             return
         
-        is_enabled = self.led_toggle_var.get()
-        
-        success = self.ble_manager.send_led_control_command(is_enabled)
+        led_states = {key: var.get() for key, var in self.led_vars.items()}
+        success = self.ble_manager.send_individual_led_command(led_states)
         
         if success:
-            if is_enabled:
-                self.led_toggle.configure(text="ON")
-                app_logger.info("LED'ler kullanıcı tarafından açıldı")
-            else:
-                self.led_toggle.configure(text="OFF")
-                app_logger.info("LED'ler kullanıcı tarafından kapatıldı")
+            active_leds = [k for k, v in led_states.items() if v]
+            app_logger.info(f"LED durumları güncellendi: {active_leds}")
         else:
-            self.led_toggle_var.set(False)
-            self.led_toggle.configure(text="OFF")
+            for var in self.led_vars.values():
+                var.set(False)
+            messagebox.showerror("Error", "LED komutu gönderilemedi!")
+    
+    def turn_all_leds_on(self):
+        if not self.ble_manager.is_connected:
+            messagebox.showwarning("Warning", "Önce Pico'ya bağlanın!")
+            return
+        
+        for var in self.led_vars.values():
+            var.set(True)
+        
+        success = self.ble_manager.send_led_control_command(True)
+        if success:
+            app_logger.info("Tüm LED'ler açıldı")
+        else:
+            for var in self.led_vars.values():
+                var.set(False)
+            messagebox.showerror("Error", "LED komutu gönderilemedi!")
+    
+    def turn_all_leds_off(self):
+        if not self.ble_manager.is_connected:
+            messagebox.showwarning("Warning", "Önce Pico'ya bağlanın!")
+            return
+        
+        for var in self.led_vars.values():
+            var.set(False)
+        
+        success = self.ble_manager.send_led_control_command(False)
+        if success:
+            app_logger.info("Tüm LED'ler kapatıldı")
+        else:
             messagebox.showerror("Error", "LED komutu gönderilemedi!")
     
     def start_system(self):
@@ -526,21 +631,32 @@ In this project, I undertook the following tasks:
             messagebox.showwarning("Warning", "Önce sisteme bağlanın!")
             return
         
+        l_d = self.l_d_var.get()
+        a_d = self.a_d_var.get()
+        r_d = self.r_d_var.get()
+        
+        l_d = max(2, min(199, l_d))
+        r_d = max(0, min(255, r_d))
+        a_d = max(1, min(l_d - 1, a_d))
+        
+        led_states = {key: var.get() for key, var in self.led_vars.items()}
+        if not any(led_states.values()):
+            messagebox.showwarning("Warning", "En az bir LED seçmelisiniz!")
+            return
+        
         self.data_processor.set_system_state(True)
         
         if self.formula_panel:
             self.formula_panel.start_system_integration()
         
-        self.led_toggle_var.set(True)
-        self.led_toggle.configure(text="ON")
-        self.ble_manager.send_led_control_command(True)
+        self.ble_manager.send_start_command(led_states, l_d=l_d, a_d=a_d, r_d=r_d)
         
         self.start_btn.configure(state=tk.DISABLED)
         self.stop_btn.configure(state=tk.NORMAL)
         self.export_btn.configure(state=tk.DISABLED)
         
-        log_system_event(app_logger, "SYSTEM_STARTED", "Real-time processing enabled")
-        messagebox.showinfo("System", "Sistem başlatıldı! LED'ler otomatik açıldı.")
+        log_system_event(app_logger, "SYSTEM_STARTED", f"l_d={l_d}, a_d={a_d}, r_d={r_d}")
+        messagebox.showinfo("System", "Sistem başlatıldı!")
     
     def stop_system(self):
         self.data_processor.set_system_state(False)
@@ -548,8 +664,6 @@ In this project, I undertook the following tasks:
         if self.formula_panel:
             self.formula_panel.stop_system_integration()
         
-        self.led_toggle_var.set(False)
-        self.led_toggle.configure(text="OFF")
         self.ble_manager.send_led_control_command(False)
         
         self.start_btn.configure(state=tk.NORMAL)
@@ -557,7 +671,7 @@ In this project, I undertook the following tasks:
         self.export_btn.configure(state=tk.NORMAL)
         
         log_system_event(app_logger, "SYSTEM_STOPPED")
-        messagebox.showinfo("System", "Sistem durduruldu! LED'ler otomatik kapatıldı.")
+        messagebox.showinfo("System", "Sistem durduruldu!")
     
     def open_calibration_window(self):
         if not self.calibration_window:
@@ -852,12 +966,13 @@ In this project, I undertook the following tasks:
                 except Exception as e:
                     app_logger.warning(f"Calibration button tema hatası: {e}")
             
-            if hasattr(self, 'led_toggle') and self.led_toggle:
+            if hasattr(self, 'led_checkboxes'):
                 try:
-                    self.led_toggle.configure(style='TCheckbutton')
-                    widgets_updated += 1
+                    for cb in self.led_checkboxes.values():
+                        cb.configure(style='TCheckbutton')
+                    widgets_updated += len(self.led_checkboxes)
                 except Exception as e:
-                    app_logger.warning(f"LED toggle tema hatası: {e}")
+                    app_logger.warning(f"LED checkbox tema hatası: {e}")
             
             app_logger.info(f"Sol panel dark theme uygulandı - {widgets_updated} widget güncellendi")
             
@@ -926,12 +1041,13 @@ In this project, I undertook the following tasks:
                 except Exception as e:
                     app_logger.warning(f"Calibration button tema hatası: {e}")
             
-            if hasattr(self, 'led_toggle') and self.led_toggle:
+            if hasattr(self, 'led_checkboxes'):
                 try:
-                    self.led_toggle.configure(style='TCheckbutton')
-                    widgets_updated += 1
+                    for cb in self.led_checkboxes.values():
+                        cb.configure(style='TCheckbutton')
+                    widgets_updated += len(self.led_checkboxes)
                 except Exception as e:
-                    app_logger.warning(f"LED toggle tema hatası: {e}")
+                    app_logger.warning(f"LED checkbox tema hatası: {e}")
             
             app_logger.info(f"Sol panel light theme uygulandı - {widgets_updated} widget güncellendi")
             
