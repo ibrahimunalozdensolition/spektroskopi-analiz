@@ -135,6 +135,68 @@ The About screen provides information about the developer İbrahim ÜNAL, includ
 
 
 
+## Timing Parameters (Zamanlama Parametreleri):
+
+The timing parameters control how LEDs operate during measurements. These parameters are critical for preventing LED overheating and ensuring accurate sensor readings.
+
+### LED (l_d - LED Duration):
+- **Purpose**: Controls how long each LED stays ON during a measurement cycle (in milliseconds)
+- **How it works**: 
+  - LED turns ON
+  - Waits `(l_d - a_d)` milliseconds for stabilization
+  - ADC samples for `a_d` milliseconds
+  - LED turns OFF
+- **Example**: `l_d = 4 ms` means the LED stays ON for 4 milliseconds total
+- **Limits**: 2-199 ms (limited by `l_d %= 200` in Pico code)
+- **Effect on heating**: Lower values reduce LED heating
+
+### ADC (a_d - ADC Duration):
+- **Purpose**: Controls how long the ADC samples data while the LED is ON (in milliseconds)
+- **How it works**:
+  - Starts sampling `(l_d - a_d)` ms after LED turns ON
+  - Continuously reads ADC values for `a_d` milliseconds
+  - Calculates average of all samples
+  - Sampling completes before LED turns OFF
+- **Example**: `a_d = 3 ms` means ADC collects samples for 3 milliseconds
+- **Limits**: 1-198 ms, and must be less than `l_d` (`a_d < l_d`)
+- **Importance**: Longer duration provides more samples and better averaging, but must fit within LED duration
+
+### Recovery (r_d - Recovery Duration):
+- **Purpose**: Controls the waiting time after a LED measurement before starting the next LED (in milliseconds)
+- **How it works**:
+  - After LED turns OFF, system waits `r_d` milliseconds
+  - This time allows LED to cool down, sensor to stabilize, and circuit to return to steady state
+- **Example**: `r_d = 250 ms` means 250 milliseconds wait after each LED measurement
+- **Limits**: 0-255 ms
+- **Effect on heating**: Higher values reduce heating but slow down measurement rate
+
+### Timing Flow Example (l_d=4, a_d=3, r_d=250):
+```
+LED ON → [1ms wait] → [3ms ADC sampling] → LED OFF → [250ms Recovery] → Next LED
+   ↑         ↑              ↑                  ↑            ↑
+ t=0ms   (l_d-a_d)        (a_d)            LED OFF       (r_d)
+```
+
+### Duty Cycle Calculation:
+For a single LED:
+```
+Duty Cycle = (l_d) / (l_d + r_d) × 100%
+```
+
+Example with l_d=4, r_d=250:
+```
+Duty Cycle = 4 / (4 + 250) × 100% = 1.57%
+```
+
+This low duty cycle helps prevent LED overheating.
+
+### Recommended Values:
+- **LED (l_d)**: 2-10 ms (keep short to reduce heating)
+- **ADC (a_d)**: 1-(l_d-1) ms (must be less than LED duration)
+- **Recovery (r_d)**: 150-255 ms (sufficient cooling time)
+
+Current default settings (4, 3, 250) are optimized to minimize heating while maintaining measurement accuracy.
+
 ## Changing LED Names:
 
 Name changes can be made from the `led_names` section in the `app_settings.json` file located on the main page.
