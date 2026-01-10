@@ -148,12 +148,11 @@ def parse_control_command(data):
     if len(data) == 1:
         command_byte = data[0]
         if command_byte == 0x00:
-            system_running = False
             led_1_enabled = False
             led_3_enabled = False
             led_4_enabled = False
             led_6_enabled = False
-            print("STOP - All LEDs disabled")
+            print("All LEDs disabled - system still running")
         elif command_byte == 0xFF:
             led_1_enabled = True
             led_3_enabled = True
@@ -167,6 +166,15 @@ def parse_control_command(data):
             led_6_enabled = bool(command_byte & 0x08)
             print("LED states: L1={}, L3={}, L4={}, L6={}".format(
                 led_1_enabled, led_3_enabled, led_4_enabled, led_6_enabled))
+    
+    elif len(data) == 2:
+        if data[0] == 0x00 and data[1] == 0x00:
+            system_running = False
+            led_1_enabled = False
+            led_3_enabled = False
+            led_4_enabled = False
+            led_6_enabled = False
+            print("STOP command - system stopped")
     
     elif len(data) >= 4:
         l_d = data[0]
@@ -207,7 +215,7 @@ async def peripheral():
                     continue
 
             print("Advertising pico-sensors-3")
-            async with await aioble.advertise(100_000, name="pico-sensors-2", services=[SERVICE_UUID]) as conn:
+            async with await aioble.advertise(100_000, name="pico-sensors-5", services=[SERVICE_UUID]) as conn:
                 print("Connected:", conn.device)
                 print("Waiting for START command...")
                 gc.collect()
@@ -241,13 +249,13 @@ async def peripheral():
                         mvs4 = measure_average_multi(led_4, (sensor_2, sensor_5, sensor_7), (l_d-a_d), a_d, led_4_enabled)
                         wv4 = weighted_value(mvs4, WEIGHTS_LED4)
                         wv4=3300-wv4
-                        await notify_if_conn(conn, chars["SENSOR_5"], wv4)
+                        await notify_if_conn(conn, chars["SENSOR_7"], wv4)
                         await asyncio.sleep_ms(r_d)
 
                         mvs6 = measure_average_multi(led_6, (sensor_2, sensor_5, sensor_7), (l_d-a_d), a_d, led_6_enabled)
                         wv6 = weighted_value(mvs6, WEIGHTS_LED6)
                         wv6=3300-wv6
-                        await notify_if_conn(conn, chars["SENSOR_7"], wv6)
+                        await notify_if_conn(conn, chars["SENSOR_5"], wv6)
                         await asyncio.sleep_ms(100)
 
                         if utime.ticks_ms() % 10000 == 0:

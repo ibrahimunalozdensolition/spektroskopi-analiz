@@ -664,7 +664,7 @@ In this project, I undertook the following tasks:
         if self.formula_panel:
             self.formula_panel.stop_system_integration()
         
-        self.ble_manager.send_led_control_command(False)
+        self.ble_manager.send_stop_command()
         
         self.start_btn.configure(state=tk.NORMAL)
         self.stop_btn.configure(state=tk.DISABLED)

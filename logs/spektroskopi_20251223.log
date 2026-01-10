@@ -2620,3 +2620,15 @@
 2025-12-23 10:39:58 - spektroskopi - INFO - Bağlantı koptu - LED kontrolleri devre dışı bırakıldı
 2025-12-23 10:39:58 - spektroskopi - INFO - BLE bağlantı kopma callback çağrıldı: sensor-2
 2025-12-23 11:00:19 - spektroskopi - INFO - Kalibrasyon penceresi kapatıldı
+2025-12-23 11:57:12 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2025-12-23 11:57:12 - spektroskopi - INFO - Export için 1 formül yüklendi
+2025-12-23 11:57:12 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2025-12-23 11:57:12 - spektroskopi - INFO - 1 formül içe aktarıldı
+2025-12-23 11:57:12 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2025-12-23 11:57:12 - spektroskopi - WARNING - Error loading record Record_20251022_185402.json: Expecting value: line 515 column 9 (char 10867)
+2025-12-23 11:57:12 - spektroskopi - INFO - Tema uygulandı: light (sistem: dark)
+2025-12-23 11:57:12 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2025-12-23 11:57:12 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2025-12-23 11:57:12 - spektroskopi - INFO - Ana GUI başlatıldı
+2025-12-23 11:57:13 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2025-12-23 11:57:23 - spektroskopi - INFO - Tarama tamamlandı: 0 cihaz bulundu

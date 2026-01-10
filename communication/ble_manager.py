@@ -442,6 +442,28 @@ class BLEManager:
             app_logger.error(f"START komutu queue'ya eklenemedi: {e}")
             return False
     
+    def send_stop_command(self) -> bool:
+        if not BLEAK_AVAILABLE:
+            app_logger.error("Bleak kütüphanesi mevcut değil")
+            return False
+        
+        if not self.is_connected:
+            app_logger.warning("BLE bağlantısı yok, STOP komutu gönderilemedi")
+            return False
+        
+        command_data = bytes([0x00, 0x00])
+        
+        try:
+            self.command_queue.put({
+                'type': 'led_control',
+                'data': command_data
+            })
+            app_logger.info("STOP komutu gönderildi")
+            return True
+        except Exception as e:
+            app_logger.error(f"STOP komutu queue'ya eklenemedi: {e}")
+            return False
+    
     async def _send_led_command_internal(self, client: BleakClient, command_byte: bytes):
         try:
             led_uuid = BLE_CHARACTERISTICS["LED_CONTROL"]
