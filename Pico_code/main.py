@@ -215,7 +215,7 @@ async def peripheral():
                     continue
 
             print("Advertising pico-sensors-3")
-            async with await aioble.advertise(100_000, name="pico-sensors-5", services=[SERVICE_UUID]) as conn:
+            async with await aioble.advertise(100_000, name="pico-sensors-3", services=[SERVICE_UUID]) as conn:
                 print("Connected:", conn.device)
                 print("Waiting for START command...")
                 gc.collect()
@@ -239,6 +239,7 @@ async def peripheral():
                             continue
                         
                         v1 = measure_average(led_1, sensor_2, (l_d-a_d), a_d, led_1_enabled)
+                        v1 = 3300 - v1
                         await notify_if_conn(conn, chars["SENSOR_2"], v1)
                         await asyncio.sleep_ms(r_d)
 
