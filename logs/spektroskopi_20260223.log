@@ -1,0 +1,16 @@
+2026-02-23 20:28:57 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2026-02-23 20:28:57 - spektroskopi - INFO - Export için 1 formül yüklendi
+2026-02-23 20:28:57 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2026-02-23 20:28:57 - spektroskopi - INFO - 1 formül içe aktarıldı
+2026-02-23 20:28:57 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2026-02-23 20:28:57 - spektroskopi - WARNING - Error loading record Record_20251022_185402.json: Expecting value: line 515 column 9 (char 10867)
+2026-02-23 20:28:57 - spektroskopi - INFO - Tema uygulandı: light (sistem: dark)
+2026-02-23 20:28:57 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2026-02-23 20:28:57 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2026-02-23 20:28:57 - spektroskopi - INFO - Ana GUI başlatıldı
+2026-02-23 20:28:58 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2026-02-23 20:29:09 - spektroskopi - INFO - Tarama tamamlandı: 0 cihaz bulundu
+2026-02-23 20:29:13 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2026-02-23 20:29:23 - spektroskopi - INFO - Tarama tamamlandı: 0 cihaz bulundu
+2026-02-23 20:31:35 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2026-02-23 20:31:45 - spektroskopi - INFO - Tarama tamamlandı: 0 cihaz bulundu

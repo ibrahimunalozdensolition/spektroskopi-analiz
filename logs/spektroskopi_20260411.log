@@ -1,0 +1,1469 @@
+2026-04-11 15:32:17 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2026-04-11 15:32:17 - spektroskopi - INFO - Export için 1 formül yüklendi
+2026-04-11 15:32:17 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2026-04-11 15:32:17 - spektroskopi - INFO - 1 formül içe aktarıldı
+2026-04-11 15:32:17 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2026-04-11 15:32:17 - spektroskopi - WARNING - Error loading record Record_20251022_185402.json: Expecting value: line 515 column 9 (char 10867)
+2026-04-11 15:32:17 - spektroskopi - INFO - Tema uygulandı: light (sistem: dark)
+2026-04-11 15:32:17 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2026-04-11 15:32:17 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2026-04-11 15:32:17 - spektroskopi - INFO - Ana GUI başlatıldı
+2026-04-11 15:32:18 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2026-04-11 15:32:29 - spektroskopi - INFO - Hedef cihaz bulundu: sensor-3 (7CDE3AD7-9E89-0DF9-28E4-1D56CA03E138)
+2026-04-11 15:32:29 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2026-04-11 15:32:29 - spektroskopi - INFO - sensor-3 cihazına bağlanılıyor...
+2026-04-11 15:32:29 - spektroskopi - INFO - BLE bağlantısı kuruluyor: sensor-3 (7CDE3AD7-9E89-0DF9-28E4-1D56CA03E138)
+2026-04-11 15:32:29 - spektroskopi - INFO - Bağlantı kuruldu: sensor-3
+2026-04-11 15:32:29 - spektroskopi - INFO - LED kontrolleri aktifleştirildi
+2026-04-11 15:32:29 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2026-04-11 15:32:30 - spektroskopi - INFO - CONNECTION SUCCESS: sensor-3 - CONNECTED
+2026-04-11 15:32:30 - spektroskopi - INFO - BLE bağlantısı sonsuz mod aktif - timeout yok
+2026-04-11 15:32:41 - spektroskopi - WARNING - BLE cihazı bağlantısı kesildi
+2026-04-11 15:32:41 - spektroskopi - INFO - CONNECTION SUCCESS: sensor-3 - DISCONNECTED
+2026-04-11 15:32:41 - spektroskopi - INFO - BLE bağlantısı kesildi
+2026-04-11 15:32:41 - spektroskopi - INFO - Bağlantı koptu - LED kontrolleri devre dışı bırakıldı
+2026-04-11 15:32:41 - spektroskopi - INFO - BLE bağlantı kopma callback çağrıldı: sensor-3
+2026-04-11 15:33:01 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2026-04-11 15:33:11 - spektroskopi - INFO - Hedef cihaz bulundu: sensor-3 (7CDE3AD7-9E89-0DF9-28E4-1D56CA03E138)
+2026-04-11 15:33:11 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2026-04-11 15:33:11 - spektroskopi - INFO - sensor-3 cihazına bağlanılıyor...
+2026-04-11 15:33:11 - spektroskopi - WARNING - Zaten bağlı veya bağlanılıyor
+2026-04-11 15:33:11 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2026-04-11 15:33:14 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2026-04-11 15:33:24 - spektroskopi - INFO - Hedef cihaz bulundu: sensor-3 (7CDE3AD7-9E89-0DF9-28E4-1D56CA03E138)
+2026-04-11 15:33:24 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2026-04-11 15:33:24 - spektroskopi - INFO - sensor-3 cihazına bağlanılıyor...
+2026-04-11 15:33:24 - spektroskopi - WARNING - Zaten bağlı veya bağlanılıyor
+2026-04-11 15:33:24 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2026-04-11 15:34:00 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2026-04-11 15:34:10 - spektroskopi - INFO - Hedef cihaz bulundu: sensor-3 (7CDE3AD7-9E89-0DF9-28E4-1D56CA03E138)
+2026-04-11 15:34:10 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2026-04-11 15:34:10 - spektroskopi - INFO - sensor-3 cihazına bağlanılıyor...
+2026-04-11 15:34:10 - spektroskopi - WARNING - Zaten bağlı veya bağlanılıyor
+2026-04-11 15:34:10 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2026-04-11 15:35:45 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2026-04-11 15:35:55 - spektroskopi - INFO - Spektroskopi uygulaması başlatılıyor...
+2026-04-11 15:35:55 - spektroskopi - INFO - Export için 1 formül yüklendi
+2026-04-11 15:35:55 - spektroskopi - INFO - Uygulama ayarları yüklendi
+2026-04-11 15:35:55 - spektroskopi - INFO - 1 formül içe aktarıldı
+2026-04-11 15:35:55 - spektroskopi - INFO - Uygulama başlangıcında formüller yüklendi: 1
+2026-04-11 15:35:55 - spektroskopi - WARNING - Error loading record Record_20251022_185402.json: Expecting value: line 515 column 9 (char 10867)
+2026-04-11 15:35:55 - spektroskopi - INFO - Tema uygulandı: light (sistem: dark)
+2026-04-11 15:35:55 - spektroskopi - INFO - Sensör bilgileri güncellendi
+2026-04-11 15:35:55 - spektroskopi - INFO - Otomatik bağlantı başlatılıyor...
+2026-04-11 15:35:55 - spektroskopi - INFO - Ana GUI başlatıldı
+2026-04-11 15:35:56 - spektroskopi - INFO - BLE tarama başlatılıyor (timeout: 10.0s)
+2026-04-11 15:36:06 - spektroskopi - INFO - Hedef cihaz bulundu: sensor-3 (7CDE3AD7-9E89-0DF9-28E4-1D56CA03E138)
+2026-04-11 15:36:06 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2026-04-11 15:36:06 - spektroskopi - INFO - sensor-3 cihazına bağlanılıyor...
+2026-04-11 15:36:06 - spektroskopi - INFO - BLE bağlantısı kuruluyor: sensor-3 (7CDE3AD7-9E89-0DF9-28E4-1D56CA03E138)
+2026-04-11 15:36:06 - spektroskopi - INFO - Bağlantı kuruldu: sensor-3
+2026-04-11 15:36:06 - spektroskopi - INFO - LED kontrolleri aktifleştirildi
+2026-04-11 15:36:06 - spektroskopi - INFO - Tarama tamamlandı: 1 cihaz bulundu
+2026-04-11 15:36:08 - spektroskopi - INFO - CONNECTION SUCCESS: sensor-3 - CONNECTED
+2026-04-11 15:36:10 - spektroskopi - INFO - LED AÇMA komutu queue'ya eklendi
+2026-04-11 15:36:10 - spektroskopi - INFO - Tüm LED'ler açıldı
+2026-04-11 15:36:10 - spektroskopi - INFO - LED kontrol komutu gönderildi: TÜM LED'LER AÇILDI
+2026-04-11 15:36:10 - spektroskopi - INFO - Veri buffer'ları temizlendi
+2026-04-11 15:36:10 - spektroskopi - INFO - Sistem başlatıldı - veri işleme aktif
+2026-04-11 15:36:10 - spektroskopi - INFO - Live mod aktifleştirildi
+2026-04-11 15:36:10 - spektroskopi - INFO - Sistem başlatıldı - Custom data hesaplamaları otomatik başlatıldı
+2026-04-11 15:36:10 - spektroskopi - INFO - START komutu gönderildi: l_d=4, a_d=3, r_d=250, LEDs=0b1111
+2026-04-11 15:36:10 - spektroskopi - INFO - SYSTEM EVENT: SYSTEM_STARTED - l_d=4, a_d=3, r_d=250
+2026-04-11 15:36:10 - spektroskopi - INFO - LED kontrol komutu gönderildi: LED durumları: L1=False, L3=False, L4=True, L6=False
+2026-04-11 15:36:10 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:10 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:10 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1583, Voltaj=1583.000V
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1583.000V
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1439, Voltaj=1439.000V
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1439.000V
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:11 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3217, Voltaj=3217.000V
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3217.000V
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1586, Voltaj=1586.000V
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1586.000V
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1440, Voltaj=1440.000V
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1440.000V
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi verisi: Ham=81, Voltaj=81.000V
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 81.000V
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:12 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1584, Voltaj=1584.000V
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1584.000V
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1442, Voltaj=1442.000V
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1442.000V
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.526040
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.527040
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.528040
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.529040
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.530040
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.531040
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.532040
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.533040
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.534040
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.535040
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.536040
+2026-04-11 15:36:13 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:13.537040
+2026-04-11 15:36:13 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 24, data: 6)
+2026-04-11 15:36:13 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 24, data: 6)
+2026-04-11 15:36:13 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 24, data: 6)
+2026-04-11 15:36:13 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 24, data: 6)
+2026-04-11 15:36:13 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 24, data: 6)
+2026-04-11 15:36:13 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 24, data: 6)
+2026-04-11 15:36:13 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 24, data: 6)
+2026-04-11 15:36:13 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 24, data: 6)
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:13 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1588, Voltaj=1588.000V
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1588.000V
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1441, Voltaj=1441.000V
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1441.000V
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:14 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:14.516075
+2026-04-11 15:36:14 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:14.517075
+2026-04-11 15:36:14 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:14.518075
+2026-04-11 15:36:14 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:14.519075
+2026-04-11 15:36:14 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:14.520075
+2026-04-11 15:36:14 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 34, data: 10)
+2026-04-11 15:36:14 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 34, data: 10)
+2026-04-11 15:36:14 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 34, data: 8)
+2026-04-11 15:36:14 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 34, data: 8)
+2026-04-11 15:36:14 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 34, data: 8)
+2026-04-11 15:36:14 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 34, data: 8)
+2026-04-11 15:36:14 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 34, data: 8)
+2026-04-11 15:36:14 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 34, data: 8)
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:14 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1565, Voltaj=1565.000V
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1565.000V
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1434, Voltaj=1434.000V
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1434.000V
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:15 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:15.385827
+2026-04-11 15:36:15 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:15.386827
+2026-04-11 15:36:15 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:15.387827
+2026-04-11 15:36:15 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:15.388827
+2026-04-11 15:36:15 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 42, data: 12)
+2026-04-11 15:36:15 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 42, data: 12)
+2026-04-11 15:36:15 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 42, data: 10)
+2026-04-11 15:36:15 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 42, data: 10)
+2026-04-11 15:36:15 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 42, data: 10)
+2026-04-11 15:36:15 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 42, data: 10)
+2026-04-11 15:36:15 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 42, data: 10)
+2026-04-11 15:36:15 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 42, data: 10)
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1568, Voltaj=1568.000V
+2026-04-11 15:36:15 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1568.000V
+2026-04-11 15:36:16 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:16 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1422, Voltaj=1422.000V
+2026-04-11 15:36:16 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1422.000V
+2026-04-11 15:36:16 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:16 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:16 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:16 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:16 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3173, Voltaj=3173.000V
+2026-04-11 15:36:16 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3173.000V
+2026-04-11 15:36:16 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:16.526104
+2026-04-11 15:36:16 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:16.527104
+2026-04-11 15:36:16 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:16.528104
+2026-04-11 15:36:16 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:16.529104
+2026-04-11 15:36:16 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:16.530104
+2026-04-11 15:36:16 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:16 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:16 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:16 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:16 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:16 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:16 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:16 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:17 - spektroskopi - INFO - Yeniden bağlanılıyor...
+2026-04-11 15:36:17 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:17 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:17 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:17 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:17 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:17 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:17 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:17 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:17 - spektroskopi - INFO - BLE bağlantısı kuruluyor: sensor-3 (7CDE3AD7-9E89-0DF9-28E4-1D56CA03E138)
+2026-04-11 15:36:18 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:18 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:18 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:18 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:18 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:18 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:18 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:18 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:19 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:19 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:19 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:19 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 14)
+2026-04-11 15:36:19 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:19 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:19 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:19 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 52, data: 12)
+2026-04-11 15:36:20 - spektroskopi - INFO - CONNECTION SUCCESS: sensor-3 - CONNECTED
+2026-04-11 15:36:20 - spektroskopi - INFO - LED kontrol komutu gönderildi: LED durumları: L1=False, L3=False, L4=True, L6=False
+2026-04-11 15:36:20 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:20 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:20 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:20 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 54, data: 16)
+2026-04-11 15:36:20 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 54, data: 16)
+2026-04-11 15:36:20 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 54, data: 14)
+2026-04-11 15:36:20 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 54, data: 14)
+2026-04-11 15:36:20 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 54, data: 12)
+2026-04-11 15:36:20 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 54, data: 12)
+2026-04-11 15:36:20 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 54, data: 12)
+2026-04-11 15:36:20 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 54, data: 12)
+2026-04-11 15:36:20 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:20 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:20 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:20 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:20 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1581, Voltaj=1581.000V
+2026-04-11 15:36:20 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1581.000V
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1443, Voltaj=1443.000V
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1443.000V
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3219, Voltaj=3219.000V
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3219.000V
+2026-04-11 15:36:21 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:21.505887
+2026-04-11 15:36:21 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:21.506887
+2026-04-11 15:36:21 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:21.507887
+2026-04-11 15:36:21 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:21.508887
+2026-04-11 15:36:21 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:21.509887
+2026-04-11 15:36:21 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 64, data: 18)
+2026-04-11 15:36:21 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 64, data: 18)
+2026-04-11 15:36:21 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 64, data: 18)
+2026-04-11 15:36:21 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 64, data: 18)
+2026-04-11 15:36:21 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 64, data: 14)
+2026-04-11 15:36:21 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 64, data: 14)
+2026-04-11 15:36:21 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 64, data: 14)
+2026-04-11 15:36:21 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 64, data: 14)
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1580, Voltaj=1580.000V
+2026-04-11 15:36:21 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1580.000V
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1439, Voltaj=1439.000V
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1439.000V
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3220, Voltaj=3220.000V
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3220.000V
+2026-04-11 15:36:22 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:22.376342
+2026-04-11 15:36:22 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:22.377342
+2026-04-11 15:36:22 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:22.378342
+2026-04-11 15:36:22 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:22.379342
+2026-04-11 15:36:22 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 72, data: 20)
+2026-04-11 15:36:22 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 72, data: 20)
+2026-04-11 15:36:22 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 72, data: 20)
+2026-04-11 15:36:22 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 72, data: 20)
+2026-04-11 15:36:22 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 72, data: 16)
+2026-04-11 15:36:22 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 72, data: 16)
+2026-04-11 15:36:22 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 72, data: 16)
+2026-04-11 15:36:22 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 72, data: 16)
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1579, Voltaj=1579.000V
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1579.000V
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1441, Voltaj=1441.000V
+2026-04-11 15:36:22 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1441.000V
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1582, Voltaj=1582.000V
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1582.000V
+2026-04-11 15:36:23 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:23.516532
+2026-04-11 15:36:23 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:23.517532
+2026-04-11 15:36:23 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:23.518532
+2026-04-11 15:36:23 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:23.519532
+2026-04-11 15:36:23 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:23.520532
+2026-04-11 15:36:23 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 82, data: 22)
+2026-04-11 15:36:23 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 82, data: 22)
+2026-04-11 15:36:23 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 82, data: 22)
+2026-04-11 15:36:23 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 82, data: 22)
+2026-04-11 15:36:23 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 82, data: 20)
+2026-04-11 15:36:23 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 82, data: 20)
+2026-04-11 15:36:23 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 82, data: 18)
+2026-04-11 15:36:23 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 82, data: 18)
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1443, Voltaj=1443.000V
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1443.000V
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:23 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3217, Voltaj=3217.000V
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3217.000V
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1589, Voltaj=1589.000V
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1589.000V
+2026-04-11 15:36:24 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:24.386248
+2026-04-11 15:36:24 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:24.387248
+2026-04-11 15:36:24 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:24.388248
+2026-04-11 15:36:24 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:24.389248
+2026-04-11 15:36:24 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 90, data: 24)
+2026-04-11 15:36:24 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 90, data: 24)
+2026-04-11 15:36:24 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 90, data: 24)
+2026-04-11 15:36:24 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 90, data: 24)
+2026-04-11 15:36:24 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 90, data: 22)
+2026-04-11 15:36:24 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 90, data: 22)
+2026-04-11 15:36:24 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 90, data: 20)
+2026-04-11 15:36:24 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 90, data: 20)
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1446, Voltaj=1446.000V
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1446.000V
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi verisi: Ham=83, Voltaj=83.000V
+2026-04-11 15:36:24 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 83.000V
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1581, Voltaj=1581.000V
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1581.000V
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1445, Voltaj=1445.000V
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1445.000V
+2026-04-11 15:36:25 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:25.523188
+2026-04-11 15:36:25 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:25.524188
+2026-04-11 15:36:25 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:25.525188
+2026-04-11 15:36:25 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:25.526188
+2026-04-11 15:36:25 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:25.527188
+2026-04-11 15:36:25 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 100, data: 26)
+2026-04-11 15:36:25 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 100, data: 26)
+2026-04-11 15:36:25 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 100, data: 26)
+2026-04-11 15:36:25 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 100, data: 26)
+2026-04-11 15:36:25 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 100, data: 24)
+2026-04-11 15:36:25 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 100, data: 24)
+2026-04-11 15:36:25 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 100, data: 24)
+2026-04-11 15:36:25 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 100, data: 24)
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi verisi: Ham=81, Voltaj=81.000V
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 81.000V
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3159, Voltaj=3159.000V
+2026-04-11 15:36:25 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3159.000V
+2026-04-11 15:36:26 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:25.885778
+2026-04-11 15:36:26 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:25.886778
+2026-04-11 15:36:26 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:26 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:26 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:26 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:26 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:26 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:26 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:26 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:27 - spektroskopi - INFO - Yeniden bağlanılıyor...
+2026-04-11 15:36:27 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:27 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:27 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:27 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:27 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:27 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:27 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:27 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:27 - spektroskopi - INFO - BLE bağlantısı kuruluyor: sensor-3 (7CDE3AD7-9E89-0DF9-28E4-1D56CA03E138)
+2026-04-11 15:36:28 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:28 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:28 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:28 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:28 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:28 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:28 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:28 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:29 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:29 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:29 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:29 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:29 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:29 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:29 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:29 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:30 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:30 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:30 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:30 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 28)
+2026-04-11 15:36:30 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:30 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:30 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:30 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 104, data: 24)
+2026-04-11 15:36:31 - spektroskopi - INFO - CONNECTION SUCCESS: sensor-3 - CONNECTED
+2026-04-11 15:36:31 - spektroskopi - INFO - LED kontrol komutu gönderildi: LED durumları: L1=False, L3=False, L4=True, L6=False
+2026-04-11 15:36:31 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:31 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:31 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:31 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 106, data: 30)
+2026-04-11 15:36:31 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 106, data: 30)
+2026-04-11 15:36:31 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 106, data: 28)
+2026-04-11 15:36:31 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 106, data: 28)
+2026-04-11 15:36:31 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 106, data: 24)
+2026-04-11 15:36:31 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 106, data: 24)
+2026-04-11 15:36:31 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 106, data: 24)
+2026-04-11 15:36:31 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 106, data: 24)
+2026-04-11 15:36:31 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:31 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3219, Voltaj=3219.000V
+2026-04-11 15:36:31 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3219.000V
+2026-04-11 15:36:31 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:31 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1587, Voltaj=1587.000V
+2026-04-11 15:36:31 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1587.000V
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1438, Voltaj=1438.000V
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1438.000V
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=80, Voltaj=80.000V
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 80.000V
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3219, Voltaj=3219.000V
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3219.000V
+2026-04-11 15:36:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:32.515851
+2026-04-11 15:36:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:32.516851
+2026-04-11 15:36:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:32.517851
+2026-04-11 15:36:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:32.518851
+2026-04-11 15:36:32 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:32.519851
+2026-04-11 15:36:32 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 116, data: 32)
+2026-04-11 15:36:32 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 116, data: 32)
+2026-04-11 15:36:32 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 116, data: 32)
+2026-04-11 15:36:32 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 116, data: 32)
+2026-04-11 15:36:32 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 116, data: 26)
+2026-04-11 15:36:32 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 116, data: 26)
+2026-04-11 15:36:32 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 116, data: 26)
+2026-04-11 15:36:32 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 116, data: 26)
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1586, Voltaj=1586.000V
+2026-04-11 15:36:32 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1586.000V
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1443, Voltaj=1443.000V
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1443.000V
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:33.416018
+2026-04-11 15:36:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:33.417018
+2026-04-11 15:36:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:33.418018
+2026-04-11 15:36:33 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:33.419018
+2026-04-11 15:36:33 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 124, data: 34)
+2026-04-11 15:36:33 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 124, data: 34)
+2026-04-11 15:36:33 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 124, data: 34)
+2026-04-11 15:36:33 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 124, data: 34)
+2026-04-11 15:36:33 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 124, data: 28)
+2026-04-11 15:36:33 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 124, data: 28)
+2026-04-11 15:36:33 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 124, data: 28)
+2026-04-11 15:36:33 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 124, data: 28)
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1587, Voltaj=1587.000V
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1587.000V
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1444, Voltaj=1444.000V
+2026-04-11 15:36:33 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1444.000V
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3217, Voltaj=3217.000V
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3217.000V
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1582, Voltaj=1582.000V
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1582.000V
+2026-04-11 15:36:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:34.555845
+2026-04-11 15:36:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:34.556845
+2026-04-11 15:36:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:34.557845
+2026-04-11 15:36:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:34.558845
+2026-04-11 15:36:34 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:34.559845
+2026-04-11 15:36:34 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 134, data: 36)
+2026-04-11 15:36:34 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 134, data: 36)
+2026-04-11 15:36:34 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 134, data: 36)
+2026-04-11 15:36:34 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 134, data: 36)
+2026-04-11 15:36:34 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 134, data: 32)
+2026-04-11 15:36:34 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 134, data: 32)
+2026-04-11 15:36:34 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 134, data: 30)
+2026-04-11 15:36:34 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 134, data: 30)
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1443, Voltaj=1443.000V
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1443.000V
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:34 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3219, Voltaj=3219.000V
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3219.000V
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1582, Voltaj=1582.000V
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1582.000V
+2026-04-11 15:36:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:35.425284
+2026-04-11 15:36:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:35.426284
+2026-04-11 15:36:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:35.427284
+2026-04-11 15:36:35 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:35.428284
+2026-04-11 15:36:35 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 142, data: 38)
+2026-04-11 15:36:35 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 142, data: 38)
+2026-04-11 15:36:35 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 142, data: 38)
+2026-04-11 15:36:35 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 142, data: 38)
+2026-04-11 15:36:35 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 142, data: 34)
+2026-04-11 15:36:35 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 142, data: 34)
+2026-04-11 15:36:35 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 142, data: 32)
+2026-04-11 15:36:35 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 142, data: 32)
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1446, Voltaj=1446.000V
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1446.000V
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi verisi: Ham=81, Voltaj=81.000V
+2026-04-11 15:36:35 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 81.000V
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3217, Voltaj=3217.000V
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3217.000V
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1583, Voltaj=1583.000V
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1583.000V
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1440, Voltaj=1440.000V
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1440.000V
+2026-04-11 15:36:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:36.563828
+2026-04-11 15:36:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:36.564828
+2026-04-11 15:36:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:36.565828
+2026-04-11 15:36:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:36.566828
+2026-04-11 15:36:36 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:36.567828
+2026-04-11 15:36:36 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 152, data: 40)
+2026-04-11 15:36:36 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 152, data: 40)
+2026-04-11 15:36:36 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 152, data: 40)
+2026-04-11 15:36:36 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 152, data: 40)
+2026-04-11 15:36:36 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 152, data: 36)
+2026-04-11 15:36:36 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 152, data: 36)
+2026-04-11 15:36:36 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 152, data: 36)
+2026-04-11 15:36:36 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 152, data: 36)
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3219, Voltaj=3219.000V
+2026-04-11 15:36:36 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3219.000V
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1582, Voltaj=1582.000V
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1582.000V
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1440, Voltaj=1440.000V
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1440.000V
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:37.555539
+2026-04-11 15:36:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:37.556539
+2026-04-11 15:36:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:37.557539
+2026-04-11 15:36:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:37.558539
+2026-04-11 15:36:37 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:37.559539
+2026-04-11 15:36:37 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 162, data: 44)
+2026-04-11 15:36:37 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 162, data: 44)
+2026-04-11 15:36:37 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 162, data: 42)
+2026-04-11 15:36:37 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 162, data: 42)
+2026-04-11 15:36:37 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 162, data: 38)
+2026-04-11 15:36:37 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 162, data: 38)
+2026-04-11 15:36:37 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 162, data: 38)
+2026-04-11 15:36:37 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 162, data: 38)
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:37 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1586, Voltaj=1586.000V
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1586.000V
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1439, Voltaj=1439.000V
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1439.000V
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=83, Voltaj=83.000V
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 83.000V
+2026-04-11 15:36:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:38.426005
+2026-04-11 15:36:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:38.427005
+2026-04-11 15:36:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:38.428005
+2026-04-11 15:36:38 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:38.429005
+2026-04-11 15:36:38 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 170, data: 46)
+2026-04-11 15:36:38 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 170, data: 46)
+2026-04-11 15:36:38 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 170, data: 44)
+2026-04-11 15:36:38 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 170, data: 44)
+2026-04-11 15:36:38 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 170, data: 40)
+2026-04-11 15:36:38 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 170, data: 40)
+2026-04-11 15:36:38 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 170, data: 40)
+2026-04-11 15:36:38 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 170, data: 40)
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1579, Voltaj=1579.000V
+2026-04-11 15:36:38 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1579.000V
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1446, Voltaj=1446.000V
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1446.000V
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:39.563448
+2026-04-11 15:36:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:39.564448
+2026-04-11 15:36:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:39.565448
+2026-04-11 15:36:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:39.566448
+2026-04-11 15:36:39 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:39.567448
+2026-04-11 15:36:39 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 180, data: 48)
+2026-04-11 15:36:39 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 180, data: 48)
+2026-04-11 15:36:39 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 180, data: 48)
+2026-04-11 15:36:39 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 180, data: 48)
+2026-04-11 15:36:39 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 180, data: 42)
+2026-04-11 15:36:39 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 180, data: 42)
+2026-04-11 15:36:39 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 180, data: 42)
+2026-04-11 15:36:39 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 180, data: 42)
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1581, Voltaj=1581.000V
+2026-04-11 15:36:39 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1581.000V
+2026-04-11 15:36:40 - spektroskopi - INFO - Tüm Raw Data sensörleri seçildi, grafik oluşturuluyor...
+2026-04-11 15:36:40 - spektroskopi - INFO - Grafik için mevcut veri gönderiliyor: 181 nokta
+2026-04-11 15:36:40 - spektroskopi - INFO - PyQt subprocess başlatıldı (PIPE-safe): raw_data
+2026-04-11 15:36:40 - spektroskopi - INFO - Raw Data PyQt grafiği oluşturuldu: ['UV_360nm', 'Blue_450nm', 'IR_850nm', 'IR_940nm']
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1441, Voltaj=1441.000V
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1441.000V
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3219, Voltaj=3219.000V
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3219.000V
+2026-04-11 15:36:40 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:40.435151
+2026-04-11 15:36:40 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:40.436151
+2026-04-11 15:36:40 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:40.437151
+2026-04-11 15:36:40 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:40.438151
+2026-04-11 15:36:40 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 188, data: 50)
+2026-04-11 15:36:40 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 188, data: 50)
+2026-04-11 15:36:40 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 188, data: 50)
+2026-04-11 15:36:40 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 188, data: 50)
+2026-04-11 15:36:40 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 188, data: 44)
+2026-04-11 15:36:40 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 188, data: 44)
+2026-04-11 15:36:40 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 188, data: 44)
+2026-04-11 15:36:40 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 188, data: 44)
+2026-04-11 15:36:40 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1589, Voltaj=1589.000V
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1589.000V
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1440, Voltaj=1440.000V
+2026-04-11 15:36:40 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1440.000V
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1584, Voltaj=1584.000V
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1584.000V
+2026-04-11 15:36:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:41.575576
+2026-04-11 15:36:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:41.576576
+2026-04-11 15:36:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:41.577576
+2026-04-11 15:36:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:41.578576
+2026-04-11 15:36:41 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:41.579576
+2026-04-11 15:36:41 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 198, data: 52)
+2026-04-11 15:36:41 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 198, data: 52)
+2026-04-11 15:36:41 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 198, data: 52)
+2026-04-11 15:36:41 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 198, data: 52)
+2026-04-11 15:36:41 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 198, data: 48)
+2026-04-11 15:36:41 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 198, data: 48)
+2026-04-11 15:36:41 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 198, data: 46)
+2026-04-11 15:36:41 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 198, data: 46)
+2026-04-11 15:36:41 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1440, Voltaj=1440.000V
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1440.000V
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:41 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3217, Voltaj=3217.000V
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3217.000V
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1548, Voltaj=1548.000V
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1548.000V
+2026-04-11 15:36:42 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:42.475933
+2026-04-11 15:36:42 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:42.476933
+2026-04-11 15:36:42 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:42.477933
+2026-04-11 15:36:42 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:42.478933
+2026-04-11 15:36:42 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 206, data: 54)
+2026-04-11 15:36:42 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 206, data: 54)
+2026-04-11 15:36:42 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 206, data: 54)
+2026-04-11 15:36:42 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 206, data: 54)
+2026-04-11 15:36:42 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 206, data: 50)
+2026-04-11 15:36:42 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 206, data: 50)
+2026-04-11 15:36:42 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 206, data: 48)
+2026-04-11 15:36:42 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 206, data: 48)
+2026-04-11 15:36:42 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1281, Voltaj=1281.000V
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1281.000V
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi verisi: Ham=623, Voltaj=623.000V
+2026-04-11 15:36:42 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 623.000V
+2026-04-11 15:36:43 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:42.835939
+2026-04-11 15:36:43 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:42.836939
+2026-04-11 15:36:43 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 56)
+2026-04-11 15:36:43 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 56)
+2026-04-11 15:36:43 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 54)
+2026-04-11 15:36:43 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 54)
+2026-04-11 15:36:43 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:43 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:43 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:43 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:43 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:43 - spektroskopi - INFO - Yeniden bağlanılıyor...
+2026-04-11 15:36:44 - spektroskopi - INFO - BLE bağlantısı kuruluyor: sensor-3 (7CDE3AD7-9E89-0DF9-28E4-1D56CA03E138)
+2026-04-11 15:36:44 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 56)
+2026-04-11 15:36:44 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 56)
+2026-04-11 15:36:44 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 54)
+2026-04-11 15:36:44 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 54)
+2026-04-11 15:36:44 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:44 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:44 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:44 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:44 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:45 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 56)
+2026-04-11 15:36:45 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 56)
+2026-04-11 15:36:45 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 54)
+2026-04-11 15:36:45 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 54)
+2026-04-11 15:36:45 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:45 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:45 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:45 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:45 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:46 - spektroskopi - INFO - CONNECTION SUCCESS: sensor-3 - CONNECTED
+2026-04-11 15:36:46 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 56)
+2026-04-11 15:36:46 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 56)
+2026-04-11 15:36:46 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 54)
+2026-04-11 15:36:46 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 54)
+2026-04-11 15:36:46 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:46 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:46 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:46 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 210, data: 50)
+2026-04-11 15:36:46 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:46 - spektroskopi - INFO - LED kontrol komutu gönderildi: LED durumları: L1=False, L3=False, L4=True, L6=False
+2026-04-11 15:36:46 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:46 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:46 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1581, Voltaj=1581.000V
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1581.000V
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1446, Voltaj=1446.000V
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1446.000V
+2026-04-11 15:36:47 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:47.514133
+2026-04-11 15:36:47 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:47.515133
+2026-04-11 15:36:47 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:47.516133
+2026-04-11 15:36:47 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:47.517133
+2026-04-11 15:36:47 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 218, data: 58)
+2026-04-11 15:36:47 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 218, data: 58)
+2026-04-11 15:36:47 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 218, data: 56)
+2026-04-11 15:36:47 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 218, data: 56)
+2026-04-11 15:36:47 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 218, data: 52)
+2026-04-11 15:36:47 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 218, data: 52)
+2026-04-11 15:36:47 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 218, data: 52)
+2026-04-11 15:36:47 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 218, data: 52)
+2026-04-11 15:36:47 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3217, Voltaj=3217.000V
+2026-04-11 15:36:47 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3217.000V
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1581, Voltaj=1581.000V
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1581.000V
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1439, Voltaj=1439.000V
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1439.000V
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:48 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:48.505906
+2026-04-11 15:36:48 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:48.506906
+2026-04-11 15:36:48 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:48.507906
+2026-04-11 15:36:48 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:48.508906
+2026-04-11 15:36:48 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:48.509906
+2026-04-11 15:36:48 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 228, data: 62)
+2026-04-11 15:36:48 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 228, data: 62)
+2026-04-11 15:36:48 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 228, data: 58)
+2026-04-11 15:36:48 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 228, data: 58)
+2026-04-11 15:36:48 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 228, data: 54)
+2026-04-11 15:36:48 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 228, data: 54)
+2026-04-11 15:36:48 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 228, data: 54)
+2026-04-11 15:36:48 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 228, data: 54)
+2026-04-11 15:36:48 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3219, Voltaj=3219.000V
+2026-04-11 15:36:48 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3219.000V
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1579, Voltaj=1579.000V
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1579.000V
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1443, Voltaj=1443.000V
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1443.000V
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:49 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:49.404073
+2026-04-11 15:36:49 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:49.405073
+2026-04-11 15:36:49 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:49.406073
+2026-04-11 15:36:49 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:49.407073
+2026-04-11 15:36:49 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 236, data: 64)
+2026-04-11 15:36:49 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 236, data: 64)
+2026-04-11 15:36:49 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 236, data: 60)
+2026-04-11 15:36:49 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 236, data: 60)
+2026-04-11 15:36:49 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 236, data: 56)
+2026-04-11 15:36:49 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 236, data: 56)
+2026-04-11 15:36:49 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 236, data: 56)
+2026-04-11 15:36:49 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 236, data: 56)
+2026-04-11 15:36:49 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1586, Voltaj=1586.000V
+2026-04-11 15:36:49 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1586.000V
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1443, Voltaj=1443.000V
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1443.000V
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3217, Voltaj=3217.000V
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3217.000V
+2026-04-11 15:36:50 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:50.545410
+2026-04-11 15:36:50 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:50.546410
+2026-04-11 15:36:50 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:50.547410
+2026-04-11 15:36:50 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:50.548410
+2026-04-11 15:36:50 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:50.549410
+2026-04-11 15:36:50 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 246, data: 66)
+2026-04-11 15:36:50 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 246, data: 66)
+2026-04-11 15:36:50 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 246, data: 64)
+2026-04-11 15:36:50 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 246, data: 64)
+2026-04-11 15:36:50 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 246, data: 58)
+2026-04-11 15:36:50 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 246, data: 58)
+2026-04-11 15:36:50 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 246, data: 58)
+2026-04-11 15:36:50 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 246, data: 58)
+2026-04-11 15:36:50 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1581, Voltaj=1581.000V
+2026-04-11 15:36:50 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1581.000V
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1442, Voltaj=1442.000V
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1442.000V
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:51 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:51.416111
+2026-04-11 15:36:51 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:51.417111
+2026-04-11 15:36:51 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:51.418111
+2026-04-11 15:36:51 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:51.419111
+2026-04-11 15:36:51 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 254, data: 68)
+2026-04-11 15:36:51 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 254, data: 68)
+2026-04-11 15:36:51 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 254, data: 66)
+2026-04-11 15:36:51 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 254, data: 66)
+2026-04-11 15:36:51 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 254, data: 60)
+2026-04-11 15:36:51 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 254, data: 60)
+2026-04-11 15:36:51 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 254, data: 60)
+2026-04-11 15:36:51 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 254, data: 60)
+2026-04-11 15:36:51 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1582, Voltaj=1582.000V
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1582.000V
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1443, Voltaj=1443.000V
+2026-04-11 15:36:51 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1443.000V
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1586, Voltaj=1586.000V
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1586.000V
+2026-04-11 15:36:52 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:52.555565
+2026-04-11 15:36:52 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:52.556565
+2026-04-11 15:36:52 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:52.557565
+2026-04-11 15:36:52 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:52.558565
+2026-04-11 15:36:52 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:52.559565
+2026-04-11 15:36:52 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 264, data: 70)
+2026-04-11 15:36:52 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 264, data: 70)
+2026-04-11 15:36:52 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 264, data: 68)
+2026-04-11 15:36:52 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 264, data: 68)
+2026-04-11 15:36:52 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 264, data: 64)
+2026-04-11 15:36:52 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 264, data: 64)
+2026-04-11 15:36:52 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 264, data: 62)
+2026-04-11 15:36:52 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 264, data: 62)
+2026-04-11 15:36:52 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1440, Voltaj=1440.000V
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1440.000V
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi verisi: Ham=83, Voltaj=83.000V
+2026-04-11 15:36:52 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 83.000V
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1584, Voltaj=1584.000V
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1584.000V
+2026-04-11 15:36:53 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:53.423517
+2026-04-11 15:36:53 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:53.424517
+2026-04-11 15:36:53 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:53.425517
+2026-04-11 15:36:53 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:53.426517
+2026-04-11 15:36:53 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 272, data: 72)
+2026-04-11 15:36:53 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 272, data: 72)
+2026-04-11 15:36:53 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 272, data: 70)
+2026-04-11 15:36:53 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 272, data: 70)
+2026-04-11 15:36:53 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 272, data: 66)
+2026-04-11 15:36:53 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 272, data: 66)
+2026-04-11 15:36:53 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 272, data: 64)
+2026-04-11 15:36:53 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 272, data: 64)
+2026-04-11 15:36:53 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1440, Voltaj=1440.000V
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1440.000V
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi verisi: Ham=81, Voltaj=81.000V
+2026-04-11 15:36:53 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 81.000V
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1578, Voltaj=1578.000V
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1578.000V
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1442, Voltaj=1442.000V
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1442.000V
+2026-04-11 15:36:54 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:54.565886
+2026-04-11 15:36:54 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:54.566886
+2026-04-11 15:36:54 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:54.567886
+2026-04-11 15:36:54 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:54.568886
+2026-04-11 15:36:54 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:54.569886
+2026-04-11 15:36:54 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 282, data: 74)
+2026-04-11 15:36:54 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 282, data: 74)
+2026-04-11 15:36:54 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 282, data: 72)
+2026-04-11 15:36:54 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 282, data: 72)
+2026-04-11 15:36:54 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 282, data: 68)
+2026-04-11 15:36:54 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 282, data: 68)
+2026-04-11 15:36:54 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 282, data: 68)
+2026-04-11 15:36:54 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 282, data: 68)
+2026-04-11 15:36:54 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi verisi: Ham=83, Voltaj=83.000V
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 83.000V
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:54 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1584, Voltaj=1584.000V
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1584.000V
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1442, Voltaj=1442.000V
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1442.000V
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi verisi: Ham=81, Voltaj=81.000V
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 81.000V
+2026-04-11 15:36:55 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:55.555056
+2026-04-11 15:36:55 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:55.556056
+2026-04-11 15:36:55 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:55.557056
+2026-04-11 15:36:55 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:55.558056
+2026-04-11 15:36:55 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:55.559056
+2026-04-11 15:36:55 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 292, data: 78)
+2026-04-11 15:36:55 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 292, data: 78)
+2026-04-11 15:36:55 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 292, data: 74)
+2026-04-11 15:36:55 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 292, data: 74)
+2026-04-11 15:36:55 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 292, data: 70)
+2026-04-11 15:36:55 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 292, data: 70)
+2026-04-11 15:36:55 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 292, data: 70)
+2026-04-11 15:36:55 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 292, data: 70)
+2026-04-11 15:36:55 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:55 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1583, Voltaj=1583.000V
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1583.000V
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1441, Voltaj=1441.000V
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1441.000V
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:36:56 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:56.455712
+2026-04-11 15:36:56 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:56.456712
+2026-04-11 15:36:56 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:56.457712
+2026-04-11 15:36:56 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:56.458712
+2026-04-11 15:36:56 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 300, data: 80)
+2026-04-11 15:36:56 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 300, data: 80)
+2026-04-11 15:36:56 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 300, data: 76)
+2026-04-11 15:36:56 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 300, data: 76)
+2026-04-11 15:36:56 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 300, data: 72)
+2026-04-11 15:36:56 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 300, data: 72)
+2026-04-11 15:36:56 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 300, data: 72)
+2026-04-11 15:36:56 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 300, data: 72)
+2026-04-11 15:36:56 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1585, Voltaj=1585.000V
+2026-04-11 15:36:56 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1585.000V
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1445, Voltaj=1445.000V
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1445.000V
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi verisi: Ham=83, Voltaj=83.000V
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 83.000V
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:57 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:57.595397
+2026-04-11 15:36:57 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:57.596397
+2026-04-11 15:36:57 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:57.597397
+2026-04-11 15:36:57 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:57.598397
+2026-04-11 15:36:57 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:57.599397
+2026-04-11 15:36:57 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 310, data: 82)
+2026-04-11 15:36:57 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 310, data: 82)
+2026-04-11 15:36:57 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 310, data: 80)
+2026-04-11 15:36:57 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 310, data: 80)
+2026-04-11 15:36:57 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 310, data: 74)
+2026-04-11 15:36:57 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 310, data: 74)
+2026-04-11 15:36:57 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 310, data: 74)
+2026-04-11 15:36:57 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 310, data: 74)
+2026-04-11 15:36:57 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1583, Voltaj=1583.000V
+2026-04-11 15:36:57 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1583.000V
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1446, Voltaj=1446.000V
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1446.000V
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi verisi: Ham=81, Voltaj=81.000V
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 81.000V
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3219, Voltaj=3219.000V
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3219.000V
+2026-04-11 15:36:58 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:58.466330
+2026-04-11 15:36:58 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:58.467330
+2026-04-11 15:36:58 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:58.468330
+2026-04-11 15:36:58 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:58.469330
+2026-04-11 15:36:58 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 318, data: 84)
+2026-04-11 15:36:58 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 318, data: 84)
+2026-04-11 15:36:58 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 318, data: 82)
+2026-04-11 15:36:58 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 318, data: 82)
+2026-04-11 15:36:58 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 318, data: 76)
+2026-04-11 15:36:58 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 318, data: 76)
+2026-04-11 15:36:58 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 318, data: 76)
+2026-04-11 15:36:58 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 318, data: 76)
+2026-04-11 15:36:58 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1584, Voltaj=1584.000V
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1584.000V
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1447, Voltaj=1447.000V
+2026-04-11 15:36:58 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1447.000V
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi verisi: Ham=81, Voltaj=81.000V
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 81.000V
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1584, Voltaj=1584.000V
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1584.000V
+2026-04-11 15:36:59 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:59.605984
+2026-04-11 15:36:59 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:59.606984
+2026-04-11 15:36:59 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:59.607984
+2026-04-11 15:36:59 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:59.608984
+2026-04-11 15:36:59 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:36:59.609984
+2026-04-11 15:36:59 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 328, data: 86)
+2026-04-11 15:36:59 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 328, data: 86)
+2026-04-11 15:36:59 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 328, data: 84)
+2026-04-11 15:36:59 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 328, data: 84)
+2026-04-11 15:36:59 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 328, data: 80)
+2026-04-11 15:36:59 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 328, data: 80)
+2026-04-11 15:36:59 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 328, data: 78)
+2026-04-11 15:36:59 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 328, data: 78)
+2026-04-11 15:36:59 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1442, Voltaj=1442.000V
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1442.000V
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:36:59 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1584, Voltaj=1584.000V
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1584.000V
+2026-04-11 15:37:00 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:00.475898
+2026-04-11 15:37:00 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:00.476898
+2026-04-11 15:37:00 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:00.477898
+2026-04-11 15:37:00 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:00.478898
+2026-04-11 15:37:00 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 336, data: 88)
+2026-04-11 15:37:00 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 336, data: 88)
+2026-04-11 15:37:00 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 336, data: 86)
+2026-04-11 15:37:00 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 336, data: 86)
+2026-04-11 15:37:00 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 336, data: 82)
+2026-04-11 15:37:00 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 336, data: 82)
+2026-04-11 15:37:00 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 336, data: 80)
+2026-04-11 15:37:00 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 336, data: 80)
+2026-04-11 15:37:00 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1445, Voltaj=1445.000V
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1445.000V
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:37:00 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1587, Voltaj=1587.000V
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1587.000V
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1448, Voltaj=1448.000V
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1448.000V
+2026-04-11 15:37:01 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:01.616040
+2026-04-11 15:37:01 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:01.617040
+2026-04-11 15:37:01 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:01.618040
+2026-04-11 15:37:01 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:01.619040
+2026-04-11 15:37:01 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:01.620040
+2026-04-11 15:37:01 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 346, data: 90)
+2026-04-11 15:37:01 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 346, data: 90)
+2026-04-11 15:37:01 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 346, data: 88)
+2026-04-11 15:37:01 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 346, data: 88)
+2026-04-11 15:37:01 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 346, data: 84)
+2026-04-11 15:37:01 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 346, data: 84)
+2026-04-11 15:37:01 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 346, data: 84)
+2026-04-11 15:37:01 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 346, data: 84)
+2026-04-11 15:37:01 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi verisi: Ham=81, Voltaj=81.000V
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 81.000V
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3217, Voltaj=3217.000V
+2026-04-11 15:37:01 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3217.000V
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1582, Voltaj=1582.000V
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1582.000V
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1444, Voltaj=1444.000V
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1444.000V
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:37:02 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:02.605404
+2026-04-11 15:37:02 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:02.606404
+2026-04-11 15:37:02 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:02.607404
+2026-04-11 15:37:02 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:02.608404
+2026-04-11 15:37:02 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:02.609404
+2026-04-11 15:37:02 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 356, data: 94)
+2026-04-11 15:37:02 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 356, data: 94)
+2026-04-11 15:37:02 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 356, data: 90)
+2026-04-11 15:37:02 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 356, data: 90)
+2026-04-11 15:37:02 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 356, data: 86)
+2026-04-11 15:37:02 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 356, data: 86)
+2026-04-11 15:37:02 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 356, data: 86)
+2026-04-11 15:37:02 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 356, data: 86)
+2026-04-11 15:37:02 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3217, Voltaj=3217.000V
+2026-04-11 15:37:02 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3217.000V
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1586, Voltaj=1586.000V
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1586.000V
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1440, Voltaj=1440.000V
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1440.000V
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi verisi: Ham=83, Voltaj=83.000V
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 83.000V
+2026-04-11 15:37:03 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:03.505721
+2026-04-11 15:37:03 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:03.506721
+2026-04-11 15:37:03 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:03.507721
+2026-04-11 15:37:03 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:03.508721
+2026-04-11 15:37:03 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 364, data: 96)
+2026-04-11 15:37:03 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 364, data: 96)
+2026-04-11 15:37:03 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 364, data: 92)
+2026-04-11 15:37:03 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 364, data: 92)
+2026-04-11 15:37:03 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 364, data: 88)
+2026-04-11 15:37:03 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 364, data: 88)
+2026-04-11 15:37:03 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 364, data: 88)
+2026-04-11 15:37:03 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 364, data: 88)
+2026-04-11 15:37:03 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3219, Voltaj=3219.000V
+2026-04-11 15:37:03 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3219.000V
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1587, Voltaj=1587.000V
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1587.000V
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1446, Voltaj=1446.000V
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1446.000V
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3217, Voltaj=3217.000V
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3217.000V
+2026-04-11 15:37:04 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:04.646047
+2026-04-11 15:37:04 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:04.647047
+2026-04-11 15:37:04 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:04.648047
+2026-04-11 15:37:04 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:04.649047
+2026-04-11 15:37:04 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:04.650047
+2026-04-11 15:37:04 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 374, data: 98)
+2026-04-11 15:37:04 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 374, data: 98)
+2026-04-11 15:37:04 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 374, data: 96)
+2026-04-11 15:37:04 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 374, data: 96)
+2026-04-11 15:37:04 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 374, data: 90)
+2026-04-11 15:37:04 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 374, data: 90)
+2026-04-11 15:37:04 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 374, data: 90)
+2026-04-11 15:37:04 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 374, data: 90)
+2026-04-11 15:37:04 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1585, Voltaj=1585.000V
+2026-04-11 15:37:04 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1585.000V
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1445, Voltaj=1445.000V
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1445.000V
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3219, Voltaj=3219.000V
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3219.000V
+2026-04-11 15:37:05 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:05.515995
+2026-04-11 15:37:05 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:05.516995
+2026-04-11 15:37:05 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:05.517995
+2026-04-11 15:37:05 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:05.518995
+2026-04-11 15:37:05 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 382, data: 100)
+2026-04-11 15:37:05 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 382, data: 100)
+2026-04-11 15:37:05 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 382, data: 98)
+2026-04-11 15:37:05 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 382, data: 98)
+2026-04-11 15:37:05 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 382, data: 92)
+2026-04-11 15:37:05 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 382, data: 92)
+2026-04-11 15:37:05 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 382, data: 92)
+2026-04-11 15:37:05 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 382, data: 92)
+2026-04-11 15:37:05 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1583, Voltaj=1583.000V
+2026-04-11 15:37:05 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1583.000V
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1444, Voltaj=1444.000V
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1444.000V
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi verisi: Ham=84, Voltaj=84.000V
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 84.000V
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1583, Voltaj=1583.000V
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1583.000V
+2026-04-11 15:37:06 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:06.655960
+2026-04-11 15:37:06 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:06.656960
+2026-04-11 15:37:06 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:06.657960
+2026-04-11 15:37:06 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:06.658960
+2026-04-11 15:37:06 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:06.659960
+2026-04-11 15:37:06 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 392, data: 102)
+2026-04-11 15:37:06 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 392, data: 102)
+2026-04-11 15:37:06 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 392, data: 100)
+2026-04-11 15:37:06 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 392, data: 100)
+2026-04-11 15:37:06 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 392, data: 96)
+2026-04-11 15:37:06 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 392, data: 96)
+2026-04-11 15:37:06 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 392, data: 94)
+2026-04-11 15:37:06 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 392, data: 94)
+2026-04-11 15:37:06 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1440, Voltaj=1440.000V
+2026-04-11 15:37:06 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1440.000V
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1576, Voltaj=1576.000V
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1576.000V
+2026-04-11 15:37:07 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:07.525992
+2026-04-11 15:37:07 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:07.526992
+2026-04-11 15:37:07 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:07.527992
+2026-04-11 15:37:07 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:07.528992
+2026-04-11 15:37:07 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 400, data: 104)
+2026-04-11 15:37:07 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 400, data: 104)
+2026-04-11 15:37:07 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 400, data: 102)
+2026-04-11 15:37:07 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 400, data: 102)
+2026-04-11 15:37:07 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 400, data: 98)
+2026-04-11 15:37:07 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 400, data: 98)
+2026-04-11 15:37:07 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 400, data: 96)
+2026-04-11 15:37:07 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 400, data: 96)
+2026-04-11 15:37:07 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1443, Voltaj=1443.000V
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1443.000V
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi verisi: Ham=83, Voltaj=83.000V
+2026-04-11 15:37:07 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 83.000V
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1588, Voltaj=1588.000V
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1588.000V
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1446, Voltaj=1446.000V
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1446.000V
+2026-04-11 15:37:08 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:08.665871
+2026-04-11 15:37:08 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:08.666871
+2026-04-11 15:37:08 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:08.667871
+2026-04-11 15:37:08 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:08.668871
+2026-04-11 15:37:08 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:08.669871
+2026-04-11 15:37:08 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 410, data: 106)
+2026-04-11 15:37:08 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 410, data: 106)
+2026-04-11 15:37:08 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 410, data: 104)
+2026-04-11 15:37:08 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 410, data: 104)
+2026-04-11 15:37:08 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 410, data: 100)
+2026-04-11 15:37:08 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 410, data: 100)
+2026-04-11 15:37:08 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 410, data: 100)
+2026-04-11 15:37:08 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 410, data: 100)
+2026-04-11 15:37:08 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:37:08 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1590, Voltaj=1590.000V
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1590.000V
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1449, Voltaj=1449.000V
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1449.000V
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:37:09 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:09.655767
+2026-04-11 15:37:09 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:09.656767
+2026-04-11 15:37:09 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:09.657767
+2026-04-11 15:37:09 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:09.658767
+2026-04-11 15:37:09 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:09.659767
+2026-04-11 15:37:09 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 420, data: 110)
+2026-04-11 15:37:09 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 420, data: 110)
+2026-04-11 15:37:09 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 420, data: 106)
+2026-04-11 15:37:09 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 420, data: 106)
+2026-04-11 15:37:09 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 420, data: 102)
+2026-04-11 15:37:09 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 420, data: 102)
+2026-04-11 15:37:09 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 420, data: 102)
+2026-04-11 15:37:09 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 420, data: 102)
+2026-04-11 15:37:09 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:37:09 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1579, Voltaj=1579.000V
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1579.000V
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1443, Voltaj=1443.000V
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1443.000V
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:37:10 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:10.555884
+2026-04-11 15:37:10 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:10.556884
+2026-04-11 15:37:10 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:10.557884
+2026-04-11 15:37:10 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:10.558884
+2026-04-11 15:37:10 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 428, data: 112)
+2026-04-11 15:37:10 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 428, data: 112)
+2026-04-11 15:37:10 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 428, data: 108)
+2026-04-11 15:37:10 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 428, data: 108)
+2026-04-11 15:37:10 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 428, data: 104)
+2026-04-11 15:37:10 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 428, data: 104)
+2026-04-11 15:37:10 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 428, data: 104)
+2026-04-11 15:37:10 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 428, data: 104)
+2026-04-11 15:37:10 - spektroskopi - INFO - PyQt veri başarıyla güncellendi: raw_data
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3218, Voltaj=3218.000V
+2026-04-11 15:37:10 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3218.000V
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1582, Voltaj=1582.000V
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1582.000V
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 8): Nordic UART TX, uzunluk: 2
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1441, Voltaj=1441.000V
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_5 = 1441.000V
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 19): Nordic UART RX, uzunluk: 2
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi verisi: Ham=82, Voltaj=82.000V
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_2 = 82.000V
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400005-b5a3-f393-e0a9-e50e24dcca9e (Handle: 16): Unknown, uzunluk: 2
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi verisi: Ham=3219, Voltaj=3219.000V
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_EXTRA = 3219.000V
+2026-04-11 15:37:11 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:11.694445
+2026-04-11 15:37:11 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:11.695445
+2026-04-11 15:37:11 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:11.696445
+2026-04-11 15:37:11 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:11.697445
+2026-04-11 15:37:11 - spektroskopi - WARNING - Zaman sıralama düzeltildi (averaged): 2026-04-11 15:37:11.698445
+2026-04-11 15:37:11 - spektroskopi - WARNING - RealTimePanel: UV_360nm raw data uzunluk uyumsuzluğu (timestamps: 438, data: 114)
+2026-04-11 15:37:11 - spektroskopi - WARNING - RealTimePanel: UV_360nm calibrated data uzunluk uyumsuzluğu (timestamps: 438, data: 114)
+2026-04-11 15:37:11 - spektroskopi - WARNING - RealTimePanel: Blue_450nm raw data uzunluk uyumsuzluğu (timestamps: 438, data: 112)
+2026-04-11 15:37:11 - spektroskopi - WARNING - RealTimePanel: Blue_450nm calibrated data uzunluk uyumsuzluğu (timestamps: 438, data: 112)
+2026-04-11 15:37:11 - spektroskopi - WARNING - RealTimePanel: IR_850nm raw data uzunluk uyumsuzluğu (timestamps: 438, data: 106)
+2026-04-11 15:37:11 - spektroskopi - WARNING - RealTimePanel: IR_850nm calibrated data uzunluk uyumsuzluğu (timestamps: 438, data: 106)
+2026-04-11 15:37:11 - spektroskopi - WARNING - RealTimePanel: IR_940nm raw data uzunluk uyumsuzluğu (timestamps: 438, data: 106)
+2026-04-11 15:37:11 - spektroskopi - WARNING - RealTimePanel: IR_940nm calibrated data uzunluk uyumsuzluğu (timestamps: 438, data: 106)
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi'dan veri alındı: 6e400004-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Unknown, uzunluk: 2
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi verisi: Ham=1582, Voltaj=1582.000V
+2026-04-11 15:37:11 - spektroskopi - INFO - Raspberry Pi verisi işlendi: SENSOR_7 = 1582.000V
