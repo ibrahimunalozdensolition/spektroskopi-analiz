@@ -46,6 +46,9 @@ class BLEManager:
         
         self.connection_thread = None
         self.is_scanning = False
+        self._stop_requested = False
+        self._is_connecting = False
+        self._last_start_command = None
     
     def is_available(self) -> bool:
         return BLEAK_AVAILABLE
@@ -138,16 +141,16 @@ class BLEManager:
         thread.start()
     
     def connect_to_device(self, device_address: str, device_name: str = "Unknown"):
-        """Cihaza bağlan"""
         if not BLEAK_AVAILABLE:
             app_logger.error("Bleak kütüphanesi mevcut değil")
             return False
         
-        if self.is_connected:
-            app_logger.warning("Zaten bağlı, önce bağlantıyı kes")
+        if self.is_connected or self._is_connecting:
+            app_logger.warning("Zaten bağlı veya bağlanılıyor")
             return False
         
-        # Bağlantıyı thread'de başlat
+        self._stop_requested = False
+        self._is_connecting = True
         self.connection_thread = threading.Thread(
             target=self._connect_async_wrapper,
             args=(device_address, device_name),
@@ -165,46 +168,72 @@ class BLEManager:
             app_logger.error(f"BLE bağlantı async wrapper hatası: {e}")
     
     async def _connect_to_device_async(self, device_address: str, device_name: str):
-        """Async BLE bağlantısı"""
-        try:
-            app_logger.info(f"BLE bağlantısı kuruluyor: {device_name} ({device_address})")
-            
-            async with BleakClient(device_address) as client:
-                self.current_client = client
-                self.current_device_address = device_address
-                self.current_device_name = device_name
-                self.is_connected = True
-                
-                log_connection_event(app_logger, device_name, "CONNECTED", True)
-                
-                await self._setup_notifications(client)
-                
-                app_logger.info("BLE bağlantısı sonsuz mod aktif - timeout yok")
-                
-                while self.is_connected:
-                    if not client.is_connected:
-                        app_logger.warning("BLE cihazı bağlantısı kesildi")
-                        self.disconnect()
-                        break
-                    
-                    try:
-                        command = self.command_queue.get_nowait()
-                        if command:
-                            command_type = command.get('type')
-                            if command_type == 'led_control':
-                                await self._send_led_command_internal(client, command.get('data'))
-                    except queue.Empty:
-                        pass
-                    except Exception as cmd_error:
-                        app_logger.error(f"Komut işleme hatası: {cmd_error}")
-                    
-                    await asyncio.sleep(0.5)  
-                    
-        except Exception as e:
-            log_connection_event(app_logger, device_name, "CONNECTION_FAILED", False)
-            log_error(app_logger, e, "BLE bağlantı hatası")
+        self.current_device_address = device_address
+        self.current_device_name = device_name
+
+        while not self._stop_requested:
+            try:
+                app_logger.info(f"BLE bağlantısı kuruluyor: {device_name} ({device_address})")
+                async with BleakClient(device_address) as client:
+                    self.current_client = client
+                    self.is_connected = True
+                    self._is_connecting = False
+
+                    log_connection_event(app_logger, device_name, "CONNECTED", True)
+                    await self._setup_notifications(client)
+
+                    if self._last_start_command:
+                        await self._send_led_command_internal(client, self._last_start_command)
+
+                    while client.is_connected and self.is_connected:
+                        try:
+                            command = self.command_queue.get_nowait()
+                            if command:
+                                data = command.get('data')
+                                if data:
+                                    self._last_start_command = data
+                                    await self._send_led_command_internal(client, data)
+                        except queue.Empty:
+                            pass
+                        except Exception as cmd_error:
+                            app_logger.error(f"Komut işleme hatası: {cmd_error}")
+
+                        await asyncio.sleep(0.5)
+
+            except Exception as e:
+                app_logger.warning(f"BLE bağlantı kesildi/başarısız: {e}")
+
+            if self._stop_requested:
+                break
+
             self.is_connected = False
             self.current_client = None
+            app_logger.info("Yeniden bağlanılıyor...")
+            await asyncio.sleep(0.5)
+
+        self.is_connected = False
+        self._is_connecting = False
+        self.current_client = None
+        device_name_copy = self.current_device_name
+        self.current_device_address = None
+        self.current_device_name = None
+
+        for key in self.sensor_values:
+            self.sensor_values[key] = 0
+
+        while not self.command_queue.empty():
+            try:
+                self.command_queue.get_nowait()
+            except queue.Empty:
+                break
+
+        log_connection_event(app_logger, device_name_copy, "DISCONNECTED", True)
+
+        if self.disconnect_callback:
+            try:
+                self.disconnect_callback(device_name_copy)
+            except Exception as e:
+                app_logger.error(f"Disconnect callback hatası: {e}")
     
     async def _setup_notifications(self, client: BleakClient):
         """BLE notification'ları kur"""
@@ -286,37 +315,11 @@ class BLEManager:
             return None
     
     def disconnect(self):
-        """BLE bağlantısını kes"""
         try:
+            self._stop_requested = True
             self.is_connected = False
-            
-            if self.current_client:
-                self.current_client = None
-            
-            device_name = self.current_device_name
-            if device_name:
-                log_connection_event(app_logger, device_name, "DISCONNECTED", True)
-            
-            self.current_device_address = None
-            self.current_device_name = None
-            
-            for key in self.sensor_values:
-                self.sensor_values[key] = 0
-            
-            while not self.command_queue.empty():
-                try:
-                    self.command_queue.get_nowait()
-                except queue.Empty:
-                    break
-            
-            app_logger.info("BLE bağlantısı kesildi")
-            
-            if self.disconnect_callback:
-                try:
-                    self.disconnect_callback(device_name)
-                except Exception as callback_error:
-                    app_logger.error(f"Disconnect callback hatası: {callback_error}")
-            
+            self._last_start_command = None
+            app_logger.info("BLE bağlantı kesme isteği gönderildi")
         except Exception as e:
             log_error(app_logger, e, "BLE bağlantı kesme hatası")
     

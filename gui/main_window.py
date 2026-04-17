@@ -558,10 +558,10 @@ In this project, I undertook the following tasks:
         try:
             if hasattr(self, 'status_label') and self.status_label:
                 self.status_label.configure(
-                    text="Pico W ile bağlantı kesildi",
+                    text="Not Connected",
                     foreground='#F44336'
                 )
-            
+
             if hasattr(self, 'led_checkboxes'):
                 for cb in self.led_checkboxes.values():
                     cb.configure(state=tk.DISABLED)
@@ -571,10 +571,16 @@ In this project, I undertook the following tasks:
                     self.all_led_on_btn.configure(state=tk.DISABLED)
                 if hasattr(self, 'all_led_off_btn'):
                     self.all_led_off_btn.configure(state=tk.DISABLED)
-                app_logger.info("Bağlantı koptu - LED kontrolleri devre dışı bırakıldı")
-            
-            app_logger.info(f"BLE bağlantı kopma callback çağrıldı: {device_name}")
-            
+
+            if hasattr(self, 'start_btn') and self.start_btn:
+                self.start_btn.configure(state=tk.NORMAL)
+            if hasattr(self, 'stop_btn') and self.stop_btn:
+                self.stop_btn.configure(state=tk.DISABLED)
+
+            self.data_processor.set_system_state(False)
+
+            app_logger.info(f"BLE bağlantısı kesildi: {device_name}")
+
         except Exception as e:
             app_logger.error(f"BLE disconnect callback hatası: {e}")
     

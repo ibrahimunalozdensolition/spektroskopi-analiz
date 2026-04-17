@@ -110,10 +110,6 @@ def measure_average_multi(gpio: Pin, adcs, delay_ms: int, sample_ms: int, is_ena
 
 
 def weighted_value(mv_list, weights):
-    """
-    Compute weighted average of mv_list using weights tuple/list.
-    If sum(weights) == 0 returns 0.
-    """
     if not mv_list:
         return 0
     if len(mv_list) != len(weights):
@@ -193,81 +189,78 @@ def parse_control_command(data):
 
 
 async def peripheral():
-    global led_1_enabled, led_3_enabled, led_4_enabled, led_6_enabled
+    svc = aioble.Service(SERVICE_UUID)
+    chars = {}
+    for name, uuid in CHAR_UUIDS.items():
+        if name == "LED_CONTROL":
+            chars[name] = aioble.Characteristic(svc, uuid, read=True, write=True, notify=False)
+        else:
+            chars[name] = aioble.Characteristic(svc, uuid, read=True, notify=True)
+
+    aioble.register_services(svc)
+    gc.collect()
+
     while True:
         try:
-            svc = aioble.Service(SERVICE_UUID)
-            chars = {}
-            for name, uuid in CHAR_UUIDS.items():
-                if name == "LED_CONTROL":
-                    chars[name] = aioble.Characteristic(svc, uuid, read=True, write=True, notify=False)
-                else:
-                    chars[name] = aioble.Characteristic(svc, uuid, read=True, notify=True)
-
-            try:
-                aioble.register_services((svc,))
-            except Exception:
-                try:
-                    aioble.register_services(svc)
-                except Exception as e:
-                    print("Service registration failed:", e)
-                    await asyncio.sleep(5)
-                    continue
-
             print("Advertising pico-sensors-3")
-            async with await aioble.advertise(100_000, name="pico-sensors-3", services=[SERVICE_UUID]) as conn:
+            async with await aioble.advertise(
+                100_000,
+                name="pico-sensors-3",
+                services=[SERVICE_UUID],
+            ) as conn:
                 print("Connected:", conn.device)
-                print("Waiting for START command...")
                 gc.collect()
-                
+
                 cycle_count = 0
+                gc_timer = utime.ticks_ms()
 
                 try:
                     while conn.is_connected():
                         cycle_count += 1
-                        
+
                         try:
                             data = chars["LED_CONTROL"].read()
                             if data and len(data) > 0:
                                 parse_control_command(data)
                         except Exception as e:
                             if cycle_count % 100 == 0:
-                                print("Control read error (ignored):", e)
-                        
+                                print("Control read error:", e)
+
                         if not system_running:
                             await asyncio.sleep_ms(50)
                             continue
-                        
-                        v1 = measure_average(led_1, sensor_2, (l_d-a_d), a_d, led_1_enabled)
+
+                        v1 = measure_average(led_1, sensor_2, (l_d - a_d), a_d, led_1_enabled)
                         v1 = 3300 - v1
                         await notify_if_conn(conn, chars["SENSOR_2"], v1)
                         await asyncio.sleep_ms(r_d)
 
-                        v3 = measure_average(led_3, sensor_2, (l_d-a_d), a_d, led_3_enabled)
+                        v3 = measure_average(led_3, sensor_2, (l_d - a_d), a_d, led_3_enabled)
                         await notify_if_conn(conn, chars["SENSOR_EXTRA"], v3)
                         await asyncio.sleep_ms(r_d)
 
-                        mvs4 = measure_average_multi(led_4, (sensor_2, sensor_5, sensor_7), (l_d-a_d), a_d, led_4_enabled)
+                        mvs4 = measure_average_multi(led_4, (sensor_2, sensor_5, sensor_7), (l_d - a_d), a_d, led_4_enabled)
                         wv4 = weighted_value(mvs4, WEIGHTS_LED4)
-                        wv4=3300-wv4
+                        wv4 = 3300 - wv4
                         await notify_if_conn(conn, chars["SENSOR_7"], wv4)
                         await asyncio.sleep_ms(r_d)
 
-                        mvs6 = measure_average_multi(led_6, (sensor_2, sensor_5, sensor_7), (l_d-a_d), a_d, led_6_enabled)
+                        mvs6 = measure_average_multi(led_6, (sensor_2, sensor_5, sensor_7), (l_d - a_d), a_d, led_6_enabled)
                         wv6 = weighted_value(mvs6, WEIGHTS_LED6)
-                        wv6=3300-wv6
+                        wv6 = 3300 - wv6
                         await notify_if_conn(conn, chars["SENSOR_5"], wv6)
                         await asyncio.sleep_ms(100)
 
-                        if utime.ticks_ms() % 10000 == 0:
+                        if utime.ticks_diff(utime.ticks_ms(), gc_timer) > 10000:
                             gc.collect()
+                            gc_timer = utime.ticks_ms()
 
                 except Exception as e:
                     print("Connection loop error:", e)
 
         except Exception as e:
             print("Peripheral error:", e)
-            await asyncio.sleep(5)
+            await asyncio.sleep_ms(200)
 
 
 def main():
